@@ -87,8 +87,8 @@ máximo 2 por mensagem, e diga onde salvar.
 ## 6. Como processar o feedback
 
 Agrupe todos os pedidos do checkpoint, aplique de uma vez, responda com 1 linha por item ("hero — título reduzido para
-o tamanho médio"). Não proponha mudanças não pedidas. Se um pedido for ambíguo, pergunte em 1 linha **antes** de
-aplicar os demais? Não: aplique os claros, pergunte o ambíguo na mesma mensagem.
+o tamanho médio"). Não proponha mudanças não pedidas. Se um pedido for ambíguo, aplique os que estão claros e, na
+mesma mensagem, faça uma pergunta de 1 linha sobre o ambíguo.
 
 Dicionário de tradução (linguagem de design → ajuste técnico):
 
