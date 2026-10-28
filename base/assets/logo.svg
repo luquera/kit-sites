@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="140" height="36" viewBox="0 0 140 36" role="img" aria-label="Logo">
+  <!-- Placeholder: substitua pelo logo real em SVG (mesma proporção aproximada, altura ~36px). -->
+  <rect x="0" y="4" width="28" height="28" rx="7" fill="#1d4ed8"/>
+  <text x="36" y="25" font-family="Manrope, Inter, system-ui, sans-serif" font-size="18" font-weight="800" fill="#0f172a">{{Marca}}</text>
+</svg>

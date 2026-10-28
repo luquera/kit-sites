@@ -1,0 +1,112 @@
+<!doctype html>
+<!-- Política de Privacidade — modelo informativo (LGPD). Revise e adapte; não substitui orientação jurídica. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de Privacidade — {{Nome do negócio}}</title>
+  <meta name="description" content="Como {{Nome do negócio}} coleta, usa e protege os dados pessoais de quem visita o site e entra em contato.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="{{https://URL-final-do-site/}}privacidade.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== [header-nav] Cabeçalho (copie o mesmo do index.html; links apontam para index.html#secao) ===== -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="{{Nome do negócio}} — página inicial">
+        <img class="brand__logo" src="assets/logo.svg" alt="{{Nome do negócio}}" width="140" height="36">
+      </a>
+      <nav class="nav" id="menu" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li><a href="index.html#diferenciais">{{Diferenciais}}</a></li>
+          <li><a href="index.html#servicos">{{Serviços}}</a></li>
+          <li><a href="index.html#sobre">{{Sobre}}</a></li>
+          <li><a href="index.html#contato">{{Contato}}</a></li>
+          <li><a class="btn btn--primary btn--sm" href="index.html#contato">{{Fale conosco}}</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" data-nav-toggle>
+        <span class="visually-hidden">Abrir menu</span>
+        <span class="nav__toggle-icon" aria-hidden="true"><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span></span>
+      </button>
+    </div>
+  </header>
+  <!-- ===== /[header-nav] ===== -->
+
+  <main id="conteudo">
+    <!-- ===== [text-prose] Política de Privacidade ===== -->
+    <section class="section" aria-labelledby="privacidade-titulo">
+      <div class="container container--narrow prose">
+        <span class="eyebrow">Última atualização: {{DD/MM/AAAA}}</span>
+        <h1 id="privacidade-titulo">Política de Privacidade</h1>
+        <p>Esta política explica como <strong>{{Razão Social}}</strong> (“nós”), inscrita no CNPJ {{00.000.000/0001-00}}, com sede em {{endereço completo}}, trata os dados pessoais de quem acessa o site <strong>{{URL-final-do-site}}</strong> e entra em contato conosco, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 — LGPD).</p>
+
+        <h2>1. Quais dados coletamos</h2>
+        <ul>
+          <li><strong>Dados que você nos envia:</strong> nome, telefone/WhatsApp, e-mail e o conteúdo da mensagem, quando você preenche o formulário de contato ou fala conosco pelo WhatsApp.</li>
+          <li><strong>Dados de navegação:</strong> {{SE USAR ANALYTICS: informações técnicas como páginas visitadas, tipo de dispositivo, navegador e cidade aproximada, coletadas por meio de cookies de medição (ver seção 6). / SE NÃO USAR: este site não utiliza cookies de rastreamento nem ferramentas de analytics.}}</li>
+        </ul>
+
+        <h2>2. Para que usamos os dados</h2>
+        <ul>
+          <li>Responder ao seu contato, enviar orçamentos e prestar o atendimento solicitado (base legal: execução de procedimentos preliminares a contrato e legítimo interesse, art. 7º, V e IX da LGPD).</li>
+          <li>Cumprir obrigações legais e regulatórias (art. 7º, II).</li>
+          <li>{{SE USAR ANALYTICS: Medir o uso do site para melhorá-lo, mediante seu consentimento (art. 7º, I).}}</li>
+          <li>{{SE ENVIAR NOVIDADES: Enviar comunicações sobre nossos serviços, somente se você marcar a opção correspondente; você pode cancelar a qualquer momento.}}</li>
+        </ul>
+
+        <h2>3. Com quem compartilhamos</h2>
+        <p>Não vendemos dados pessoais. Compartilhamos apenas o necessário com fornecedores que nos ajudam a operar o site e o atendimento:</p>
+        <ul>
+          <li><strong>{{Nome do serviço de formulário}}</strong>, que recebe as mensagens enviadas pelo formulário e as encaminha ao nosso e-mail.</li>
+          <li><strong>GitHub Pages</strong> (hospedagem do site) {{e/ou Netlify/Cloudflare, se aplicável}}.</li>
+          <li><strong>WhatsApp (Meta)</strong>, quando você opta por falar conosco por esse canal.</li>
+          <li>{{SE USAR ANALYTICS: Nome da ferramenta de analytics (ex.: Google Analytics, Microsoft Clarity).}}</li>
+        </ul>
+        <p>Alguns desses fornecedores podem armazenar dados fora do Brasil. Nesses casos, a transferência internacional ocorre com base nas garantias previstas na LGPD (art. 33).</p>
+
+        <h2>4. Por quanto tempo guardamos</h2>
+        <p>Mensagens de contato são mantidas pelo tempo necessário ao atendimento e, depois, por até {{12 meses}} para histórico e eventuais obrigações legais, salvo se você pedir a exclusão antes.</p>
+
+        <h2>5. Seus direitos</h2>
+        <p>Você pode, a qualquer momento, solicitar: confirmação do tratamento, acesso, correção, anonimização, portabilidade, eliminação, informação sobre compartilhamentos e revogação do consentimento (art. 18 da LGPD). Para exercer seus direitos, escreva para <a href="mailto:{{privacidade@dominio.com.br}}">{{privacidade@dominio.com.br}}</a>. Respondemos em até 15 dias.</p>
+
+        <h2>6. Cookies</h2>
+        <p>{{SE USAR ANALYTICS: Usamos cookies estritamente necessários ao funcionamento do site e, com seu consentimento (aviso exibido na primeira visita), cookies de medição de audiência. Você pode recusar ou alterar sua escolha limpando os cookies do navegador. / SE NÃO USAR: Este site utiliza apenas recursos essenciais ao seu funcionamento e não instala cookies de rastreamento.}}</p>
+
+        <h2>7. Segurança</h2>
+        <p>O site é servido por conexão criptografada (HTTPS). Adotamos medidas técnicas e organizacionais razoáveis para proteger os dados contra acessos não autorizados, perda ou alteração.</p>
+
+        <h2>8. Encarregado e contato</h2>
+        <p>Responsável pelo tratamento e canal para assuntos de privacidade: {{Nome ou setor}} — <a href="mailto:{{privacidade@dominio.com.br}}">{{privacidade@dominio.com.br}}</a>.</p>
+
+        <h2>9. Alterações</h2>
+        <p>Podemos atualizar esta política para refletir mudanças legais ou no site. A data da última atualização aparece no topo da página.</p>
+
+        <p><a class="btn btn--secondary" href="index.html">Voltar ao site</a></p>
+      </div>
+    </section>
+    <!-- ===== /[text-prose] ===== -->
+  </main>
+
+  <!-- ===== [footer] Rodapé (copie o mesmo do index.html) ===== -->
+  <footer class="site-footer site-footer--simple">
+    <div class="container">
+      <div class="site-footer__bottom">
+        <span>© <span data-year>2026</span> {{Razão Social}} · CNPJ {{00.000.000/0001-00}}</span>
+        <span><a href="privacidade.html" aria-current="page">Política de Privacidade</a></span>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== /[footer] ===== -->
+
+  <script src="main.js" defer></script>
+</body>
+</html>

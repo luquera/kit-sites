@@ -1,0 +1,286 @@
+<!doctype html>
+<!-- Página inicial — gerada a partir da ESPECIFICACAO §5.1. Cada seção fica entre marcadores [id-do-catalogo]. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO: title 50-60 caracteres; description 150-160 caracteres -->
+  <title>{{Nome do negócio}} — {{proposta curta em até 6 palavras}}</title>
+  <meta name="description" content="{{Descrição de 150-160 caracteres com o que o negócio faz, para quem e onde.}}">
+  <link rel="canonical" href="{{https://URL-final-do-site/}}">
+  <meta name="theme-color" content="#1d4ed8">
+
+  <!-- Compartilhamento (Open Graph / Twitter). Imagem: assets/og.jpg com 1200x630 -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="{{Nome do negócio}}">
+  <meta property="og:title" content="{{Nome do negócio}} — {{proposta curta}}">
+  <meta property="og:description" content="{{Mesma descrição ou versão mais curta.}}">
+  <meta property="og:url" content="{{https://URL-final-do-site/}}">
+  <meta property="og:image" content="{{https://URL-final-do-site/}}assets/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Ícones -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Fontes (troque pelas famílias/pesos da ESPECIFICACAO; mantenha display=swap) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Dados estruturados: preencha com os dados reais (ver GUIA-FRONTEND §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "{{Nome do negócio}}",
+    "url": "{{https://URL-final-do-site/}}",
+    "telephone": "{{+55 11 99999-9999}}",
+    "address": { "@type": "PostalAddress", "streetAddress": "{{Rua, número}}", "addressLocality": "{{Cidade}}", "addressRegion": "{{UF}}", "postalCode": "{{00000-000}}", "addressCountry": "BR" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===== [header-nav] Cabeçalho ===== -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html" aria-label="{{Nome do negócio}} — página inicial">
+        <img class="brand__logo" src="assets/logo.svg" alt="{{Nome do negócio}}" width="140" height="36">
+      </a>
+      <nav class="nav" id="menu" aria-label="Menu principal">
+        <ul class="nav__list">
+          <li><a href="#diferenciais">{{Diferenciais}}</a></li>
+          <li><a href="#servicos">{{Serviços}}</a></li>
+          <li><a href="#sobre">{{Sobre}}</a></li>
+          <li><a href="#contato">{{Contato}}</a></li>
+          <li><a class="btn btn--primary btn--sm" href="#contato">{{Fale conosco}}</a></li>
+        </ul>
+      </nav>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" data-nav-toggle>
+        <span class="visually-hidden">Abrir menu</span>
+        <span class="nav__toggle-icon" aria-hidden="true"><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span><span class="nav__toggle-bar"></span></span>
+      </button>
+    </div>
+  </header>
+  <!-- ===== /[header-nav] ===== -->
+
+  <main id="conteudo">
+
+    <!-- ===== [hero-split] Hero ===== -->
+    <section class="hero hero--split" id="inicio" aria-labelledby="inicio-titulo">
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <span class="eyebrow">{{Eyebrow: para quem é / onde atua (opcional)}}</span>
+          <h1 class="hero__title" id="inicio-titulo">{{H1: resultado principal para o cliente, 6-12 palavras}}</h1>
+          <p class="lead hero__text">{{Subtítulo: como você entrega esse resultado e para quem, 15-30 palavras.}}</p>
+          <div class="cluster hero__actions">
+            <a class="btn btn--primary btn--lg" href="#contato">{{CTA primário}}</a>
+            <a class="btn btn--secondary btn--lg" href="#servicos">{{CTA secundário}}</a>
+          </div>
+          <div class="hero__proof">
+            <span>{{Prova 1: ex. +500 clientes atendidos}}</span>
+            <span>{{Prova 2: ex. nota 4,9 no Google}}</span>
+          </div>
+        </div>
+        <div class="hero__media reveal" data-delay="1">
+          <div class="media media--4x3 media--shadow">
+            <img src="assets/img/placeholder.svg" alt="{{Descrição objetiva da imagem do hero}}" width="1200" height="900" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== /[hero-split] ===== -->
+
+    <!-- ===== [features-grid] Diferenciais ===== -->
+    <section class="section section--alt" id="diferenciais" aria-labelledby="diferenciais-titulo">
+      <div class="container">
+        <div class="section__header section__header--center">
+          <span class="eyebrow">{{Eyebrow da seção}}</span>
+          <h2 id="diferenciais-titulo">{{Título: por que escolher a gente, 4-8 palavras}}</h2>
+          <p class="lead">{{Uma frase de apoio (opcional).}}</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="card card--hover feature reveal">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+            </span>
+            <h3>{{Benefício 1, 2-5 palavras}}</h3>
+            <p>{{Explicação em 1-2 frases, falando do cliente.}}</p>
+          </article>
+          <article class="card card--hover feature reveal" data-delay="1">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+            </span>
+            <h3>{{Benefício 2}}</h3>
+            <p>{{Explicação em 1-2 frases.}}</p>
+          </article>
+          <article class="card card--hover feature reveal" data-delay="2">
+            <span class="feature__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </span>
+            <h3>{{Benefício 3}}</h3>
+            <p>{{Explicação em 1-2 frases.}}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <!-- ===== /[features-grid] ===== -->
+
+    <!-- Insira aqui as demais seções na ordem da ESPECIFICACAO (snippets em GUIA-FRONTEND §4). -->
+
+    <!-- ===== [cta-band] Chamada final ===== -->
+    <section class="section section--tight" id="cta" aria-labelledby="cta-titulo">
+      <div class="container">
+        <div class="cta-band reveal">
+          <h2 id="cta-titulo">{{Título da chamada: o resultado que a pessoa quer}}</h2>
+          <p>{{Uma frase que remove a última objeção.}}</p>
+          <div class="cluster cluster--center">
+            <a class="btn btn--inverse btn--lg" href="#contato">{{CTA primário}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== /[cta-band] ===== -->
+
+    <!-- ===== [contact-split] Contato ===== -->
+    <section class="section section--alt" id="contato" aria-labelledby="contato-titulo">
+      <div class="container">
+        <div class="section__header">
+          <span class="eyebrow">Contato</span>
+          <h2 id="contato-titulo">{{Título: fale com a gente / peça um orçamento}}</h2>
+          <p class="lead">{{Frase curta: tempo de resposta, canal preferido.}}</p>
+        </div>
+        <div class="contact">
+          <!-- Formulário: action/serviço conforme GUIA-FRONTEND §9; redireciona para obrigado.html -->
+          <form class="form form--card" action="{{URL-do-servico-de-formulario}}" method="POST" data-form>
+            <input type="hidden" name="subject" value="Novo contato pelo site {{Nome do negócio}}">
+            <input type="hidden" name="redirect" value="{{https://URL-final-do-site/}}obrigado.html">
+            <div class="form__honeypot" aria-hidden="true">
+              <label for="site-url">Não preencha este campo</label>
+              <input type="text" id="site-url" name="botcheck" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="name" autocomplete="name" required>
+            </div>
+            <div class="field">
+              <label for="telefone">WhatsApp</label>
+              <input type="tel" id="telefone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required>
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="field">
+              <label for="mensagem">Como podemos ajudar?</label>
+              <textarea id="mensagem" name="message" rows="4"></textarea>
+            </div>
+            <div class="field field--check">
+              <input type="checkbox" id="consentimento" name="consentimento" value="sim" required>
+              <label for="consentimento">Concordo com o uso dos meus dados para retorno do contato, conforme a <a href="privacidade.html">Política de Privacidade</a>.</label>
+            </div>
+            <div class="form__actions">
+              <button class="btn btn--primary" type="submit">{{Enviar mensagem}}</button>
+              <span class="form__note">Resposta em até {{1 dia útil}}.</span>
+            </div>
+            <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+          </form>
+
+          <div class="stack">
+            <ul class="contact__info">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <div><strong>WhatsApp</strong><a href="https://wa.me/55{{DDD+numero}}?text={{Ol%C3%A1%2C%20vim%20pelo%20site}}" target="_blank" rel="noopener">{{(11) 99999-9999}}</a></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <div><strong>E-mail</strong><a href="mailto:{{contato@dominio.com.br}}">{{contato@dominio.com.br}}</a></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><strong>Endereço</strong><span>{{Rua, número — Bairro, Cidade/UF}}</span></div>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <div><strong>Horário</strong><span>{{Seg a sex, 8h às 18h}}</span></div>
+              </li>
+            </ul>
+            <!-- Mapa (opcional): cole o iframe do Google Maps dentro de .media (GUIA-FRONTEND §10) -->
+            <div class="contact__map media media--16x9" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== /[contact-split] ===== -->
+
+  </main>
+
+  <!-- ===== [footer] Rodapé ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div class="site-footer__brand">
+          <a class="brand" href="index.html"><img class="brand__logo brand__logo--light" src="assets/logo.svg" alt="{{Nome do negócio}}" width="140" height="36"></a>
+          <p>{{Uma frase sobre o negócio e a cidade/região atendida.}}</p>
+        </div>
+        <div>
+          <h3>Navegação</h3>
+          <ul>
+            <li><a href="#diferenciais">{{Diferenciais}}</a></li>
+            <li><a href="#servicos">{{Serviços}}</a></li>
+            <li><a href="#sobre">{{Sobre}}</a></li>
+            <li><a href="#contato">{{Contato}}</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Redes</h3>
+          <ul>
+            <li><a href="{{https://instagram.com/perfil}}" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="{{https://linkedin.com/company/perfil}}" target="_blank" rel="noopener">LinkedIn</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contato</h3>
+          <ul>
+            <li><a href="https://wa.me/55{{DDD+numero}}" target="_blank" rel="noopener">{{(11) 99999-9999}}</a></li>
+            <li><a href="mailto:{{contato@dominio.com.br}}">{{contato@dominio.com.br}}</a></li>
+            <li>{{Rua, número — Bairro, Cidade/UF}}</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© <span data-year>2026</span> {{Razão Social}} · CNPJ {{00.000.000/0001-00}}</span>
+        <span><a href="privacidade.html">Política de Privacidade</a></span>
+      </div>
+    </div>
+  </footer>
+  <!-- ===== /[footer] ===== -->
+
+  <!-- ===== [whatsapp-float] Botão flutuante ===== -->
+  <a class="whatsapp-float" href="https://wa.me/55{{DDD+numero}}?text={{Ol%C3%A1%2C%20vim%20pelo%20site}}" target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4Zm-3.3 4.2c-.2 0-.5 0-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.2 5 4.4 2.5 1 3 .8 3.5.7.5 0 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3l-2-1c-.3-.1-.5-.2-.7.2l-.9 1.1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.1.1-.2 0-.4 0-.5l-.9-2.2c-.2-.5-.4-.4-.6-.4h-.5Z"/></svg>
+  </a>
+  <!-- ===== /[whatsapp-float] ===== -->
+
+  <!-- ===== [cookie-banner] Aviso de cookies: só aparece se houver <script type="text/plain" data-consent> na página ===== -->
+  <div class="cookie-banner" role="dialog" aria-live="polite" aria-label="Aviso de cookies" data-cookie-banner hidden>
+    <p>Usamos cookies para medir o uso do site e melhorar sua experiência. Você pode aceitar ou recusar. Saiba mais na <a href="privacidade.html">Política de Privacidade</a>.</p>
+    <div class="cluster">
+      <button class="btn btn--primary btn--sm" type="button" data-cookie-accept>Aceitar</button>
+      <button class="btn btn--secondary btn--sm" type="button" data-cookie-reject>Recusar</button>
+    </div>
+  </div>
+  <!-- ===== /[cookie-banner] ===== -->
+
+  <!-- Analytics (opcional): cole aqui o snippet como <script type="text/plain" data-consent src="..."></script>.
+       O main.js só ativa esses scripts depois que a pessoa clicar em "Aceitar". -->
+
+  <script src="main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Liste aqui TODAS as páginas públicas (não inclua obrigado.html nem 404.html). -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{https://URL-final-do-site/}}</loc>
+    <lastmod>{{AAAA-MM-DD}}</lastmod>
+  </url>
+  <url>
+    <loc>{{https://URL-final-do-site/}}privacidade.html</loc>
+    <lastmod>{{AAAA-MM-DD}}</lastmod>
+  </url>
+</urlset>

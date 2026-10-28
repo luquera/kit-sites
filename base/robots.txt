@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado.html
+
+Sitemap: {{https://URL-final-do-site/}}sitemap.xml

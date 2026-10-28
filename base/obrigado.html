@@ -1,0 +1,36 @@
+<!doctype html>
+<!-- Página de agradecimento — destino do formulário após o envio. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mensagem enviada — {{Nome do negócio}}</title>
+  <meta name="description" content="Recebemos sua mensagem e vamos responder em breve.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="conteudo">
+    <!-- ===== [hero-centered] Confirmação ===== -->
+    <section class="hero hero--centered" aria-labelledby="obrigado-titulo">
+      <div class="container hero__inner">
+        <div class="hero__content stack">
+          <span class="eyebrow">Mensagem enviada</span>
+          <h1 class="hero__title hero__title--md" id="obrigado-titulo">Obrigado! Recebemos sua mensagem.</h1>
+          <p class="lead">Vamos responder em até {{1 dia útil}}. Se preferir falar agora, chame no WhatsApp.</p>
+          <div class="cluster hero__actions">
+            <a class="btn btn--whatsapp btn--lg" href="https://wa.me/55{{DDD+numero}}?text={{Ol%C3%A1%2C%20acabei%20de%20enviar%20uma%20mensagem%20pelo%20site}}" target="_blank" rel="noopener">Falar no WhatsApp</a>
+            <a class="btn btn--secondary btn--lg" href="index.html">Voltar ao site</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== /[hero-centered] ===== -->
+  </main>
+  <script src="main.js" defer></script>
+</body>
+</html>
