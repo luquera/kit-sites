@@ -158,8 +158,10 @@
         </div>
         <div class="contact">
           <!-- Formulário: action/serviço conforme GUIA-FRONTEND §9; redireciona para obrigado.html -->
-          <form class="form form--card" action="{{URL-do-servico-de-formulario}}" method="POST" data-form>
+          <form class="form form--card" action="https://api.web3forms.com/submit" method="POST" data-form>
+            <input type="hidden" name="access_key" value="{{CHAVE-DE-ACESSO-WEB3FORMS}}">
             <input type="hidden" name="subject" value="Novo contato pelo site {{Nome do negócio}}">
+            <input type="hidden" name="from_name" value="Site {{Nome do negócio}}">
             <input type="hidden" name="redirect" value="{{https://URL-final-do-site/}}obrigado.html">
             <div class="form__honeypot" aria-hidden="true">
               <label for="site-url">Não preencha este campo</label>
