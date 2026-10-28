@@ -37,7 +37,8 @@
   --color-surface-2: #e9eef5;      /* fundo mais marcado (placeholders de mídia) */
   --color-text: #0f172a;           /* texto principal */
   --color-text-muted: #475569;     /* texto secundário */
-  --color-border: #dfe5ee;         /* bordas e divisores */
+  --color-border: #dfe5ee;         /* bordas e divisores decorativos */
+  --color-border-strong: #64748b;  /* bordas de campos de formulário (contraste ≥ 3:1) */
   --footer-bg: #0f172a;            /* rodapé: fundo */
   --footer-text: #e2e8f0;          /* rodapé: texto */
   --footer-muted: #94a3b8;         /* rodapé: texto secundário */
@@ -602,7 +603,7 @@ body.menu-open { overflow: hidden; }
   width: 100%;
   min-height: 2.75rem;
   padding: 0.7em 0.9em;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);
   background: var(--color-bg);
   transition: border-color var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
