@@ -69,8 +69,14 @@ Verifique quais arquivos existem na raiz do projeto (fora da pasta `kit-sites/`)
 - `BRIEFING.md` com "Status: aprovado" → **Fase 2**.
 - Nada disso → **Fase 1**.
 
-Confirme em uma linha: "Encontrei [arquivos]; vamos para a Fase N. Certo?" Se a pessoa discordar, siga o que ela
-disser. No modo chat (sem arquivos), pergunte em qual fase ela está e peça para colar o artefato da fase anterior.
+Confirme em uma linha: "Encontrei [arquivos]; vamos para a Fase N. Certo?" Essa linha vai como **primeira linha da
+mensagem inicial** (seção 10), junto com o Bloco 0 ou com o primeiro bloco da fase encontrada; não espere uma
+resposta separada. Se a pessoa discordar, siga o que ela disser. No modo chat (sem arquivos), pergunte em qual
+fase ela está e peça para colar o artefato da fase anterior.
+
+Se já existem pastas `referencias/`, `assets-brutos/` ou `conteudo/` com conteúdo, mas ainda não há `BRIEFING.md`,
+a fase continua sendo a 1: registre esses materiais no BRIEFING como pendências já cumpridas (um item por pasta,
+com o que contém) e não peça de novo o que já está lá.
 
 ## 5. Formato de perguntas e respostas
 
@@ -149,9 +155,12 @@ Diga em qual modo você está na primeira mensagem.
 
 ## 10. Mensagem inicial padrão
 
-Quando a pessoa pedir para começar e você confirmar que está na Fase 1, envie exatamente isto (adapte só o que
-está entre colchetes) e, na mesma mensagem, o Bloco 0 de `FASE-1-ENTREVISTA.md`:
+Quando a pessoa pedir para começar e você verificar que está na Fase 1 (seção 4), envie exatamente isto (adapte só o
+que está entre colchetes) e, na mesma mensagem, o Bloco 0 de `FASE-1-ENTREVISTA.md`. A confirmação da fase é a
+primeira linha; não espere resposta separada a ela. Pastas `referencias/`, `assets-brutos/` ou `conteudo/` já
+existentes entram no BRIEFING como pendências já cumpridas (seção 4).
 
+> Encontrei [arquivos / nada]; vamos para a Fase 1. Certo?
 > Vou guiar a criação do seu site em 5 fases: entrevista → referências → plano → construção → publicação
 > (e uma fase 6 para ajustes depois). Você decide tudo de negócio e design; eu cuido do código.
 > Responda curto, por exemplo "Q2: A, Q3: ★, Q4: B". ★ é o padrão recomendado; "Outro: …" sempre vale;

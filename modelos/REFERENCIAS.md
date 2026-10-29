@@ -24,18 +24,28 @@
 - {{…}}
 
 ## 5. Paleta
-| Papel (token) | Hex | Observação |
-|---|---|---|
-| primary | {{#}} | {{…}} |
-| primary-strong | {{#}} | hover |
-| primary-soft | {{#}} | fundos suaves |
-| accent | {{#}} | só detalhes/selos |
-| bg | {{#}} | |
-| surface | {{#}} | seções alternadas e cards |
-| text | {{#}} | |
-| text-muted | {{#}} | |
-| border | {{#}} | |
-- **Contraste checado:** sim ({{ferramenta}}) | não — texto/fundo {{x:1}}, botão {{x:1}}
+> A pessoa decide `primary`, `accent`, `bg` e `text` (e, se quiser, `surface` e `footer-bg`). Os demais a IA deriva
+> nesta fase pela regra de `FASE-3 §2 Passo 4`, confere o contraste e marca "(derivado)". Nomes = `GUIA-DESIGN §3.1`.
+
+| Papel (token) | Hex | Quem define | Observação |
+|---|---|---|---|
+| primary | {{#}} | pessoa | {{…}} |
+| primary-strong | {{#}} | IA (derivado) | hover |
+| primary-soft | {{#}} | IA (derivado) | fundos suaves, ícones em quadrado |
+| on-primary | {{#}} | IA (derivado) | texto sobre `primary` (botão) |
+| accent | {{#}} | pessoa (opcional) | só botão principal, selos, estrelas |
+| on-accent | {{#}} | IA (derivado) | texto sobre `accent` |
+| bg | {{#}} | pessoa | fundo da página |
+| surface | {{#}} | pessoa (opcional) ou IA | seções alternadas e cards |
+| surface-2 | {{#}} | IA (derivado) | segundo nível de superfície |
+| text | {{#}} | pessoa | |
+| text-muted | {{#}} | IA (derivado) | |
+| border | {{#}} | IA (derivado) | decorativa (divisores, cards) |
+| border-strong | {{#}} | IA (derivado) | bordas de campos de formulário (≥ 3:1) |
+| footer-bg | {{#}} | pessoa (opcional) ou IA | |
+| footer-text | {{#}} | IA (derivado) | |
+| footer-muted | {{#}} | IA (derivado) | |
+- **Contraste checado:** sim ({{ferramenta}}) | não — texto/bg {{x:1}} · text-muted/surface {{x:1}} · on-primary/primary {{x:1}} · on-accent/accent {{x:1}} · primary/bg {{x:1}} · border-strong/bg {{x:1}}
 
 ## 6. Tipografia
 - **Títulos:** {{família}} ({{pesos}}) · **Texto:** {{família}} ({{pesos}})

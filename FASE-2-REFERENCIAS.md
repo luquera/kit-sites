@@ -34,16 +34,16 @@ Leia o `BRIEFING.md` e aplique as regras abaixo antes de enviar qualquer tarefa.
 | Resposta no BRIEFING | Efeito na lista |
 |---|---|
 | Q26 = A-F (direção escolhida) | Tarefa 2 vira confirmação em 1 linha ("mantém `clean`?"). Q26 = G: Tarefa 2 completa, com a tabela das 6 direções. |
-| Q31 = A (já tem cores) | **Pule a Tarefa 3.** Peça só os hex (ou o manual da marca) e registre. Q31 = B: Tarefa 3 reduzida — a pessoa envia a primária, a IA deriva o resto pela regra de `FASE-3 §2 Passo 4` e ela aprova. Q31 = C: Tarefa 3 completa. |
+| Q31 = A (já tem cores) | **Pule a Tarefa 3.** Peça só os hex (ou o manual da marca) e registre. Q31 = B: **Tarefa 3 reduzida** (bloco próprio na seção 5): confirme o hex da cor principal, pergunte se quer accent; a IA deriva o resto pela regra de `FASE-3 §2 Passo 4` e ela aprova. Q31 = C: Tarefa 3 completa. |
 | Q32 = A (já tem fontes) | Tarefa 4 vira conferência: os nomes estão no Google Fonts? Se não, ofereça a substituição da tabela da Tarefa 4. Q32 = B: **pule a Tarefa 4**, registre o par padrão da direção "(assumido)". Q32 = C: Tarefa 4 completa. |
 | Q4 = C (só o nome, sem marca) | Tarefa 6: não peça logo; registre "logo em texto" (seção 10). Tarefas 3 e 4 completas. |
 | Q23 = A (logo em SVG/vetor) | Tarefa 6: peça só o arquivo; remova as instruções de vetorização. Q23 = B/C/D: mantenha as instruções de remover fundo e vetorizar. |
-| Q21 = A (textos prontos) | Tarefa 5 vira conferência: peça os arquivos para `conteudo/`, confira se cobrem cada seção provável e pergunte só o que falta. Q21 = B: peça os rascunhos e envie o mini-formulário só das seções sem rascunho. Q21 = C: Tarefa 5 completa. |
+| Q21 = A (textos prontos) | Tarefa 5 vira conferência: peça os arquivos para `conteudo/`, confira se cobrem cada seção provável e pergunte só o que falta. Q21 = B: envie o mini-formulário completo com a instrução: "se já tem rascunho da seção, cole-o e pule as perguntas dela". Q21 = C: Tarefa 5 completa. |
 | Q22 = A/B (tem fotos) | Tarefa 6: lista de fotos próprias + checklist de otimização. Q22 = C: Tarefa 6 com a parte de banco de imagens. Q22 = D: registre pendência com data combinada; a Fase 3 pode avançar com `hero-centered` provisório. |
 | Q24 = A/B (tem depoimentos) | Tarefa 5: peça só os textos originais, nome, contexto e autorização. Q24 = C: inclua o roteiro de coleta por WhatsApp com prazo. Q24 = D: **não peça depoimentos** e não inclua a seção. |
 | Q12 (provas) | B: peça logos de clientes (Tarefa 6). C: peça os números com fonte (Tarefa 5, "números"). D: peça link + nota + quantidade de avaliações. E: peça imagens do portfólio (Tarefa 6) e o mini-formulário de cases. G: não peça prova; registre. |
 | Q20 (seções que quer) | Tarefa 5 inclui o mini-formulário só das seções marcadas + as obrigatórias (hero, FAQ, contato). Q20 = M: use as seções prováveis pelo tipo (regras de `FASE-3 §2 Passo 3`), sem decidir estrutura agora. |
-| Q2 = C (multi-página) e Q19 | Inclua "sobre" completo; "equipe" se Q19 = E; "portfólio" se Q19 = D. Q2 = A/B: "sobre" curto. |
+| Q2 = C (multi-página) e Q19 | Inclua "sobre" completo. Q2 = A/B: "sobre" curto. Em qualquer tipo: "equipe" se Q19 = E OU Q20 = J; "portfólio" se Q19 = D OU Q20 = G. |
 | Q18 = B/C (mostra preços) | Inclua o mini-formulário "oferta e preços". |
 | Q41 | D: peça o ID do vídeo no YouTube + capa. B: link do Calendly/Cal.com. F: ID do pixel. C: nada agora (o código do mapa é pedido na Fase 4). |
 | Q36-Q39 já respondidos | Tarefa 7 vira conferência: liste o que já está no BRIEFING e peça só o que falta ou está incompleto (DDD, CNPJ formatado, URLs completas). Q35 = B: inclua "crie a conta no GitHub antes da Fase 5". |
@@ -67,7 +67,16 @@ Bloco para enviar (remova as galerias que não servem ao setor; mantenha 5-8 lin
 Tarefa 1 — Referências visuais (1-2 h)
 
 Escolha 4 a 6 sites que você gostaria que o seu parecesse e 1 ou 2 que NÃO quer parecer.
-Prefira sites reais do seu setor, não mockups. Onde procurar (todas grátis para navegar):
+Prefira sites reais do seu setor, não mockups. Comece pelas galerias do seu setor:
+| Setor | Comece por |
+|---|---|
+| Serviços locais, saúde, clínicas | Siteinspire · Made in Webflow (brasil) · Lapa Ninja (health) · Siiimple |
+| B2B, consultoria, escritórios | Siteinspire (Corporate) · Minimal Gallery · Land-book (Business) · Awwwards (Clean) |
+| Criativos, arquitetura, design | Minimal Gallery · Siiimple · Siteinspire (Minimal/Typographic) · Awwwards · Framer (Minimal) |
+| Produto, SaaS, tecnologia | Land-book · Saaspo · Lapa Ninja · Framer (Dark/Light) · Landing.love |
+| Eventos, cursos, educação | One Page Love · Lapa Ninja (education) · Framer (Colorful) · Land-book |
+| Lojas, alimentação, bem-estar | Lapa Ninja (restaurant) · One Page Love · Made in Webflow (brasil) · Siiimple |
+Onde procurar (todas grátis para navegar):
 - Siteinspire (siteinspire.com) — Filter > Type: Corporate/Landing; Subject: seu setor; Style: até 2 (ex.: Minimal + Typographic).
 - Land-book (land-book.com) — Categories: indústria + tipo (Landing page/Business); filtros de estilo, tipografia e cor. Plano grátis basta.
 - Lapa Ninja (lapa.ninja/category/business) — troque "business" por agency, health, education, restaurant…; prints de página inteira.
@@ -82,7 +91,7 @@ Prefira sites reais do seu setor, não mockups. Onde procurar (todas grátis par
 
 Para cada site, entregue:
 1. A URL do site ao vivo (não a da galeria).
-2. UM print: a dobra/seção que justifica a escolha (hero, cards, rodapé…). Só para a sua referência principal, a página inteira.
+2. UM print de PÁGINA INTEIRA por referência positiva (desktop, largura 1440). Se a página for muito alta e sair em 2-3 fatias (-a, -b, -c), as fatias contam como 1 print. Para as negativas, só a tela que mostra o problema.
 3. O rótulo (texto), neste formato:
    ref-01 — https://site.com — gosto: layout do hero (foto à direita, título em 2 linhas); cor (1 cor + neutros); tipografia (serifa nos títulos) — não gosto: menu escondido — para a seção: hero
    Marque o aspecto principal de cada uma (layout, cor, tipografia, movimento ou seção).
@@ -121,10 +130,10 @@ Se ainda não escolheu, as 6 direções (detalhes em kit-sites/GUIA-DESIGN.md §
 | tech-dark | fundo quase preto, 1 acento vivo, bordas finas | software, tecnologia, fintech |
 | organico | tons terrosos/verdes, cantos bem arredondados, superfícies creme | saúde, bem-estar, alimentação, pet, educação infantil |
 | premium | preto/off-white, dourado ou bordô mínimo, serifa fina, lento | joias, imóveis de alto padrão, hotelaria, beleza |
-Escolha 1 (pode mesclar uma 2ª: "editorial com os cards do clean").
+Escolha 1 (pode mesclar uma 2ª: "editorial com os cards do clean"). Se mesclar, diga até 3 itens concretos da 2ª direção que quer trazer (ex.: "cards com sombra", "raio maior", "neutros quentes").
 ```
 
-Notas para a IA: registre em `REFERENCIAS.md §1` o ID + ajustes em 1-3 linhas. A primeira direção é a base; da segunda entra só o que a pessoa citou. Se as referências contradizem a direção (ex.: escolheu `clean` e mandou 5 sites escuros), aponte em 1 linha e pergunte qual vale; não decida.
+Notas para a IA: registre em `REFERENCIAS.md §1` o ID + ajustes em 1-3 linhas. A primeira direção é a base; da segunda entra só o que a pessoa citou (até 3 itens concretos; se ela só disser "X com Y", peça os itens). Se a mescla for redundante ou contraditória, avise em 1 linha e pergunte se mantém (ex.: "editorial já tem neutros quentes"; "organico pede raio maior, o que contraria o editorial com cantos retos"). Se as referências contradizem a direção (ex.: escolheu `clean` e mandou 5 sites escuros), aponte em 1 linha e pergunte qual vale; não decida.
 
 ## 5. Tarefa 3 — Paleta
 
@@ -136,7 +145,17 @@ Envie os códigos hex das cores da marca (ou o manual/PDF da marca em assets-bru
 Se tiver versão do logo para fundo escuro, diga.
 ```
 
-**Se Q31 = B ou C**, envie:
+**Se Q31 = B** (só a cor principal), envie a versão reduzida, sem a tabela completa:
+
+```
+Tarefa 3 — Cores (5 min)
+1. Confirme o hex da sua cor principal: [#hex do BRIEFING, ou "qual é?"].
+2. Quer uma 2ª cor de destaque (aparece só no botão principal e em selos)? Responda "não" ou o hex.
+3. Fundo e texto: "padrão" (claro, derivados da principal) ou os hex, se tiver.
+Eu derivo o resto (tons, superfícies, bordas, rodapé), checo o contraste e te mostro para aprovar.
+```
+
+**Se Q31 = C**, envie:
 
 ```
 Tarefa 3 — Paleta (20-40 min)
@@ -163,13 +182,15 @@ Entregue (o que não souber, deixe em branco que eu derivo):
 | accent (destaque, opcional) | # |
 | bg (fundo da página) | # |
 | text (texto) | # |
+| surface (fundo de seções alternadas e cards; opcional) | # |
+| footer-bg (fundo do rodapé; opcional) | # |
 E 1 linha: "primária é X porque …" (ex.: "verde do logo", "quero parecer sólido").
 ```
 
 Notas para a IA:
-- Derive `primary-strong`, `primary-soft`, `surface`, `text-muted`, `border` pela regra de `FASE-3 §2 Passo 4` e confira os pares de contraste de `GUIA-DESIGN §2.2` (fórmula em `GUIA-FRONTEND §6`). Se um par reprova, ajuste o tom (não a cor) e diga em 1 linha o que mudou.
+- A pessoa decide só `primary`, `accent`, `bg`, `text` (e, se quiser, `surface` e `footer-bg`). Os demais tokens de `GUIA-DESIGN §3.1` (`primary-strong`, `primary-soft`, `on-primary`, `on-accent`, `surface`, `surface-2`, `text-muted`, `border`, `border-strong`, `footer-bg`, `footer-text`, `footer-muted`) você deriva **nesta fase** pela regra de `FASE-3 §2 Passo 4` e confere os pares de contraste de `GUIA-DESIGN §2.2` e `§3.1` (fórmula em `GUIA-FRONTEND §6`). Se um par reprova, ajuste o tom (não a cor) e diga em 1 linha o que mudou. Sem accent: use o da direção padrão ou repita `primary` e registre.
 - Se a pessoa mandar 5 cores sem papéis (Coolors), atribua: mais escura = text, mais clara = bg, mais saturada = accent, a que ela chamou de principal = primary; descarte o resto e informe.
-- Registre em `REFERENCIAS.md §5` a tabela papel → hex do modelo e "Contraste checado: sim (fórmula WCAG / WebAIM) — pares x:1".
+- Registre em `REFERENCIAS.md §5` a tabela completa (16 tokens) papel → hex do modelo, marcando "(derivado)" nos que você derivou, e "Contraste checado: sim (fórmula WCAG / WebAIM) — pares x:1".
 
 ## 6. Tarefa 4 — Tipografia
 
@@ -221,16 +242,16 @@ Para cada um: "Por causa de [o que fazemos], o cliente consegue [resultado] e de
 SERVIÇOS (3-8)
 Para cada serviço: nome · 1 frase de benefício · 2-3 tópicos do que inclui · para quem é · preço, "a partir de" ou "sob orçamento".
 
-COMO FUNCIONA (3-5 passos)
+COMO FUNCIONA (só se Q20 = C ou proposto pelo tipo; 3-5 passos)
 "Passo 1 — nome — 1 frase — prazo". Do primeiro contato até a entrega.
 
 SOBRE
 1. Por que a empresa existe (1 frase). 2. História em 3 marcos com ano. 3. Quem atende: nome, cargo, registro profissional (CREFITO, CRM, OAB…), 1 linha. 4. 2-3 fatos (anos, clientes, cidades). 5. Formação, prêmios, certificações, se houver.
 
-NÚMEROS (só se forem verdadeiros e você souber a fonte)
+NÚMEROS (só se Q12 = C ou Q20 = F; só se forem verdadeiros e você souber a fonte)
 3-4 números exatos: "127 clientes", "4,9 no Google (86 avaliações)", "desde 2014". Nada de "centenas".
 
-DEPOIMENTOS (2-3; só reais e com autorização)
+DEPOIMENTOS (só se Q24 ≠ D; 2-3; só reais e com autorização)
 Por cliente: texto original (20-60 palavras; não reescreva) · nome completo · cargo/empresa ou cidade · foto quadrada (opcional) · "autorizou por escrito: sim".
 Se ainda não tem: mande esta mensagem a 3-5 clientes no WhatsApp: "Pode me responder 3 perguntas para o site? 1) Como estava antes? 2) O que mudou? 3) O que diria a quem está em dúvida? Posso publicar com seu nome?" Prazo: [data].
 
@@ -243,33 +264,41 @@ CHAMADA FINAL (CTA)
 CONTATO
 1. Frase de abertura com benefício ("Fale com a gente e receba o orçamento em 24h"). 2. O que o visitante deve escrever na mensagem (vira o placeholder do campo). 3. Prazo real de resposta.
 
-[OFERTA E PREÇOS — só se Q18 = B/C: planos (nome, preço, 4-7 itens), formas de pagamento, garantia, condição especial real.]
-[PORTFÓLIO/CASES — só se houver: para 3-6 trabalhos: cliente (ou setor) · contexto 1 frase · o que foi feito 2-3 frases · resultado com número · imagens · autorização.]
-[EQUIPE — só em institucional com Q19 = E: nome, cargo, 1 linha, foto com o mesmo enquadramento.]
+OFERTA E PREÇOS (só se Q18 = B/C)
+Planos (nome, preço, 4-7 itens), formas de pagamento, garantia, condição especial real.
+
+PORTFÓLIO/CASES (só se Q19 = D OU Q20 = G)
+Para 3-6 trabalhos: cliente (ou setor) · contexto 1 frase · o que foi feito 2-3 frases · resultado com número · imagens · autorização. Sem dados: só imagem + título curto.
+
+EQUIPE (só se Q19 = E OU Q20 = J)
+Nome, cargo, 1 linha, foto com o mesmo enquadramento.
 ```
 
 Notas para a IA:
+- Antes de enviar, remova as seções condicionais que não se aplicam e apague o prefixo "(só se …)" das que ficam; a pessoa não precisa ver as condições.
 - Não reescreva nada agora. Registre em `REFERENCIAS.md §7` onde está cada seção (`conteudo/hero.md`, "chat, 05/11") e o status ok/falta.
 - Comprimentos-alvo que a Fase 3 vai aplicar estão em `GUIA-DESIGN §6.2`; se a pessoa perguntar "quanto escrever", responda "tópicos bastam; eu corto".
 - Seção sem matéria-prima após a rodada de pendências: registre "falta"; a Fase 3 decide entre `[PLACEHOLDER]` aceito e remover a seção.
 
 ## 8. Tarefa 6 — Imagens, logo, favicon, OG
 
-Bloco para enviar (remova o que a seção 2 mandar: logo se Q4 = C; vetorização se Q23 = A; banco se Q22 = A/B; depoimentos se Q24 = D):
+Bloco para enviar (remova as linhas "(só se …)" que não se aplicam e o prefixo das que ficam; remova também: logo se Q4 = C; vetorização se Q23 = A; banco se Q22 = A/B):
 
 ```
 Tarefa 6 — Imagens, logo, favicon e imagem de compartilhamento (1-2 h)
 
 Salve tudo em assets-brutos/. Nomes em minúsculas, sem acento, sem espaço, com hífen e significado: hero-fachada.webp, servico-ortopedia.webp, equipe-ana-souza.webp, logo.svg. Nunca IMG_2043.jpg.
+JPG/PNG são aceitos: se não conseguir converter para WebP, eu converto na Fase 4. Os tamanhos abaixo são a meta; o Squoosh (mais adiante) é o jeito recomendado de chegar nela, não obrigatório.
 Não envie pelo WhatsApp como foto (comprime e renomeia); use "Documento", Google Drive ou a pasta direto.
 
 Checklist:
 - [ ] FOTO DO HERO: 1 foto horizontal com uma área "calma" de um lado para o texto → 1600 px de largura, WebP, até 220 KB.
 - [ ] FOTOS DE SEÇÃO (sobre, equipe, espaço): 1200 px, WebP, até 150 KB cada; todas com o mesmo tratamento (mesmo filtro, mesma luz).
 - [ ] FOTOS DE SERVIÇOS/PORTFÓLIO: 800 px, WebP, até 90 KB, TODAS na mesma proporção (4:3 ou 1:1).
-- [ ] FOTOS DE DEPOIMENTOS (opcional): quadradas, 192 x 192 px, WebP, até 15 KB, com autorização de uso de imagem.
-- [ ] FOTOS DA EQUIPE (se houver seção): quadradas, 600 x 600 px, mesmo enquadramento.
-- [ ] LOGOS DE CLIENTES (se houver faixa): 4-8 em SVG (ou PNG transparente, altura 72 px, o dobro do exibido), com autorização.
+- [ ] FOTOS DE DEPOIMENTOS (só se Q24 ≠ D; opcional): quadradas, 192 x 192 px, WebP, até 15 KB, com autorização de uso de imagem.
+- [ ] FOTOS DA EQUIPE (só se Q19 = E OU Q20 = J): quadradas, 600 x 600 px, mesmo enquadramento.
+- [ ] FOTOS DE PORTFÓLIO/CASES (só se Q19 = D OU Q20 = G): 800 px, mesma proporção, 1-3 por trabalho.
+- [ ] LOGOS DE CLIENTES (só se Q12 = B): 4-8 em SVG (ou PNG transparente, altura 72 px, o dobro do exibido), com autorização.
 - [ ] LOGO: logo.svg com texto convertido em curvas e fundo transparente. Se tiver, também logo-branco.svg (para fundo escuro) e simbolo.svg (só o símbolo).
 - [ ] FAVICON: só o símbolo (sem o nome), PNG 512 x 512 com fundo sólido na cor da marca — ou o .zip do favicon.io / realfavicongenerator.net.
 - [ ] IMAGEM DE COMPARTILHAMENTO (OG): og.jpg (ou PNG; a IA renomeia) de 1200 x 630 px, até 300 KB, com logo + 1 frase de até 8 palavras + fundo na cor da marca; deixe 60 px de margem nas bordas.
@@ -277,7 +306,7 @@ Checklist:
 - [ ] fotos.txt: uma linha por arquivo: "hero-fachada.webp — fachada da clínica no fim da tarde, recepção iluminada" (vira a descrição acessível).
 - [ ] Autorizações de uso de imagem de clientes/pacientes/funcionários fotografados: guarde (não precisa enviar); me confirme que existem.
 
-Otimizar no Squoosh (squoosh.app, roda no navegador, nada é enviado):
+Otimizar no Squoosh (recomendado, não obrigatório; squoosh.app, roda no navegador, nada é enviado):
 1. Arraste a foto. 2. À direita, em "Resize", marque e defina a largura (1600 hero · 1200 seções · 800 cards · 192 avatares). 3. Em "Compress", escolha WebP, qualidade 75-80. 4. Confira o peso no canto inferior. 5. Baixe e renomeie.
 
 Logo em SVG — como exportar:
@@ -330,14 +359,15 @@ Notas para a IA: registre em `REFERENCIAS.md §9` no formato do modelo (DDI+DDD,
 Quando a pessoa entregar a última tarefa (ou disser "é tudo"), faça nesta ordem, sem pular:
 
 1. **Inventário (1 comando por pasta).** Liste `referencias/`, `assets-brutos/`, `conteudo/`. Modo chat: liste o que recebeu pelo nome que a pessoa deu.
-2. **Leitura das referências.** Abra cada print de `referencias/` uma única vez com a ferramenta de leitura de imagem (no Claude Code, `Read` no arquivo .png/.jpg), na ordem dos números, com o rótulo da pessoa ao lado. Imagem ilegível por ser muito alta: peça a fatia na rodada de pendências. Escreva em `REFERENCIAS.md §4` de 5 a 10 observações objetivas, uma linha cada, cobrindo: tipo de hero (dividido/centralizado, proporção texto/imagem, nº de botões), densidade (respiro entre seções, nº de colunas), tipografia (sans/serifa, peso dos títulos, tamanho relativo do texto), cor (quantas, onde a primária aparece, fundos alternados), imagens (reais/ilustração, proporção, tratamento), cantos e sombras, movimento. Formato: `Hero dividido 55/45, título em 2 linhas, botão cheio + contornado (ref-01, ref-03).` Sem adjetivos vazios ("bonito", "moderno"). Negativas: 1 linha com o que evitar.
+2. **Leitura das referências.** Abra cada print de `referencias/` uma única vez com a ferramenta de leitura de imagem (no Claude Code, `Read` no arquivo .png/.jpg), na ordem dos números, com o rótulo da pessoa ao lado. Imagem ilegível por ser muito alta: peça a fatia na rodada de pendências. Se um print não mostra conteúdo suficiente para um aspecto (ex.: só a dobra, sem rodapé), escreva "não observável no print" nesse aspecto e avise a pessoa em 1 linha; peça outro print só se o aspecto for essencial (o que ela rotulou como principal). Escreva em `REFERENCIAS.md §4` de 5 a 10 observações objetivas, uma linha cada, cobrindo: tipo de hero (dividido/centralizado, proporção texto/imagem, nº de botões), densidade (respiro entre seções, nº de colunas), tipografia (sans/serifa, peso dos títulos, tamanho relativo do texto), cor (quantas, onde a primária aparece, fundos alternados), imagens (reais/ilustração, proporção, tratamento), cantos e sombras, movimento. Formato: `Hero dividido 55/45, título em 2 linhas, botão cheio + contornado (ref-01, ref-03).` Sem adjetivos vazios ("bonito", "moderno"). Negativas: 1 linha com o que evitar.
 3. **Monte `REFERENCIAS.md`** a partir de `modelos/REFERENCIAS.md`, todas as 10 seções, apagando os blockquotes. Status: rascunho. Modo chat: entregue o arquivo em um bloco de código e peça para salvar na raiz do projeto.
 4. **Cheque completude** com esta lista; o que falhar vira pendência:
    - [ ] §1 direção com ID válido · §2 cada referência com URL ao vivo + arquivo + o que aproveitar + seção · §3 ao menos 1 negativa
-   - [ ] §5 nove tokens com hex e contraste checado · §6 duas famílias (ou uma) com pesos e link
+   - [ ] §5 os 16 tokens de `GUIA-DESIGN §3.1` com hex (os 4-6 da pessoa + os derivados por você, marcados "(derivado)") e contraste checado · §6 duas famílias (ou uma) com pesos e link
    - [ ] §7 cada seção provável com "ok" ou "falta" · §8 hero, logo (ou "texto"), favicon (ou "gerar"), OG (ou pendência)
-   - [ ] §9 WhatsApp com DDI/DDD e mensagem; e-mail do formulário; razão social/CNPJ ou "não exibir"; e-mail de privacidade
-5. **UMA rodada de pendências.** Envie uma única mensagem com tudo que falta ou está fora de formato (máximo 8 itens, numerados, cada um com o formato esperado). Espere. O que não vier aplique o padrão abaixo e registre "(assumido)" em `REFERENCIAS.md §10`. Não faça segunda rodada: pendências restantes vão para §10 e a Fase 3 trabalha com elas.
+   - [ ] §9 WhatsApp com DDI/DDD e mensagem; e-mail do formulário; endereço com CEP (ou "não exibir"); razão social/CNPJ ou "não exibir"; e-mail de privacidade
+   - [ ] Conflitos entre BRIEFING e textos (ex.: preço citado nos textos com Q18 = A; prova citada sem o Q12 correspondente) → liste e pergunte qual vale; não decida
+5. **UMA rodada de pendências.** Envie uma única mensagem com tudo que falta ou está fora de formato: agrupe em até 8 perguntas numeradas, cada uma com o formato esperado; priorize o que bloqueia a Fase 3 (direção, paleta, textos do hero e serviços, logo) e deixe o resto para o fim da lista ou para §10. Espere. O que não vier aplique o padrão abaixo e registre "(assumido)" em `REFERENCIAS.md §10`. Não faça segunda rodada: pendências restantes vão para §10 e a Fase 3 trabalha com elas.
 6. **Padrões quando a pessoa não tem algo:**
 
 | Falta | Padrão (registrar "(assumido)") |
@@ -354,6 +384,13 @@ Quando a pessoa entregar a última tarefa (ou disser "é tudo"), faça nesta ord
 | CNPJ / razão social | "não exibir"; política de privacidade com o nome fantasia e o e-mail de privacidade |
 | Conta GitHub | Pendência para a Fase 5; fallback Netlify Drop |
 | Mensagem do WhatsApp | "Olá! Vim pelo site e quero saber mais." |
+| CEP do endereço | Não assuma: peça na rodada de pendências (necessário para o JSON-LD e o mapa) |
+| Autorização de depoimentos/fotos não confirmada | Não publicar nome nem foto até confirmar: pendência em §10; a Fase 3 usa iniciais ou "cliente, cidade" provisórios |
+| Cases sem dados (contexto/resultado) | Só imagem + título curto; sem texto inventado |
+| Textos de CTA (botão, frase de segurança) e de contato (abertura, placeholder) | Não é pendência: a Fase 3 redige a partir do BRIEFING (Q13, Q16, Q37) |
+| Descrições das fotos (fotos.txt) para `alt` | Não é pendência: a IA escreve a partir do conteúdo da seção onde a foto entra |
+| Símbolo do logo (para o favicon) | `favicon.svg` com a inicial do nome sobre fundo `primary` |
+| URL de uma referência negativa | Aceitar só a descrição em 1 frase; registrar em §3 sem URL |
 
 7. **Aprovação.** Envie o resumo (≤ 25 linhas): direção e ajustes; nº de referências e as 3 observações mais importantes da leitura; paleta em 1 linha (primary, accent, bg) e contraste; fontes; textos recebidos por seção (ok/falta); imagens (hero, logo, favicon, OG) e o que será assumido; dados (WhatsApp, e-mail, CNPJ) sem repetir os valores; pendências. Termine com:
    > Aprovado? Responda "sim" ou liste ajustes no formato "item — o que mudar".

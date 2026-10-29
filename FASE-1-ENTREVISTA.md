@@ -17,13 +17,13 @@
 5. **★ é o padrão recomendado.** "★", "pode ser o padrão", "decida você" ou "pular" = use o ★ e registre "(assumido)" em "Decisões assumidas". Perguntas sem ★ são decisões que só a pessoa pode tomar: se ela não souber, registre "pendente" e siga.
 6. **Perguntas condicionais** vêm com a condição entre parênteses. Pule as que não se aplicam. A numeração nunca muda.
 7. **Não proponha design nem estrutura nesta fase.** Nada de "sugiro um hero com…". Opções do kit, sim; opinião, não. Não comece a codar.
-8. **Respostas abertas (Q1, Q7, Q8, Q16, Q27, Q33, Q38, Q39):** peça 1-2 linhas; aceite tópicos; não reescreva o texto da pessoa.
+8. **Respostas abertas (Q1, Q7, Q8, Q9, Q16, Q27, Q33, Q36, Q38, Q39):** peça 1-2 linhas; aceite tópicos; não reescreva o texto da pessoa.
 9. **Modo rápido (só se a pessoa pedir "rápido" ou "mínimo de perguntas"):** pergunte apenas as perguntas marcadas com ‡ (não têm padrão possível), em até dois blocos; aplique ★ em todas as outras e liste-as como assumidas no resumo final.
 10. **Informação extra** que a pessoa der sem ser perguntada vai para a seção certa do BRIEFING. Nunca peça de novo o que já foi dito.
 
 ## 2. Bloco 0 — Contexto (6 perguntas, ~3 min)
 
-Antes do bloco, diga em uma linha em qual modo está (arquivo ou chat) e onde vai gravar as respostas.
+A mensagem inicial de `00-COMECE-AQUI.md §10` já informa o modo (arquivo ou chat) e onde as respostas serão gravadas; não repita.
 
 ```
 Q1 ‡ Qual é o nome do negócio e, em uma frase, o que ele faz?
@@ -146,7 +146,7 @@ Q30 Movimento:
     A) Nenhum   B) Sutil: elementos aparecem suavemente ao rolar ★   C) Médio: sutil + hovers marcados
 
 Q31 Cores:
-    A) Já tenho (mando os códigos hex ou o manual da marca)   B) Tenho só a cor principal; o resto a definir
+    A) Já tenho (mando os códigos hex ou o manual da marca)   B) Tenho só a cor principal (hex: ___); o resto a definir
     C) Não tenho; escolho na Fase 2 com as ferramentas do kit
 
 Q32 Fontes:
@@ -174,13 +174,13 @@ Q37 Formulário de contato:
     A) Sim; mensagens vão para o e-mail: ___ ★   B) Não, só WhatsApp
 
 Q38 ‡ Dados para contato e rodapé (o que não quiser mostrar, diga "não mostrar"):
-    telefone fixo · e-mail público · endereço completo · horário de atendimento · redes sociais (links)
+    telefone fixo · e-mail público · endereço completo com CEP · horário de atendimento · redes sociais (links)
 
 Q39 ‡ Dados legais (rodapé e política de privacidade):
     razão social · CNPJ (ou "não exibir") · e-mail para assuntos de privacidade (pode ser o mesmo do contato)
 
 Q40 Medir visitas (analytics)?
-    A) Não por enquanto ★   B) Sim, Google Analytics 4   C) Sim, Microsoft Clarity (mapas de calor, grátis)   D) Sim, os dois
+    A) Não por enquanto ★   B) Sim, Google Analytics 4 (ID: ___ se já tiver)   C) Sim, Microsoft Clarity (mapas de calor, grátis; ID: ___ se já tiver)   D) Sim, os dois (IDs: ___ se já tiver)
     (Se sim, o site terá um aviso de cookies obrigatório.)
 
 Q41 Integrações extras (marque):
