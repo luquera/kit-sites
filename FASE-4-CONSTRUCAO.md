@@ -28,16 +28,28 @@
    nome do repositório com a pessoa agora, em 1 linha, se não estiverem na especificação).
 5. **Imagens:** para cada linha de assets da `ESPECIFICACAO §5` (origem → destino), coloque o arquivo em
    `site/assets/img/` com o nome definido (sem acento, sem espaço). A pessoa deve ter entregue WebP já otimizados na
-   Fase 2. Se não: tente `cwebp -q 82 -resize 1600 0 origem.jpg -o destino.webp` ou
-   `magick origem.jpg -resize 1600x -quality 82 destino.webp`; se nenhum existir, peça à pessoa para converter em
+   Fase 2. Se não, tente nesta ordem (todas removem EXIF/GPS do celular), e só então peça à pessoa:
+   `cwebp -q 82 -resize 1600 0 -metadata none origem.jpg -o destino.webp`;
+   `magick origem.jpg -auto-orient -strip -resize 1600x -quality 82 destino.webp` (ImageMagick 7);
+   `convert origem.jpg -auto-orient -strip -resize 1600x -quality 82 destino.webp` (ImageMagick 6);
+   `python3 -c "from PIL import Image, ImageOps; im=ImageOps.exif_transpose(Image.open('origem.jpg')); im.thumbnail((1600, 1600)); im.save('destino.webp', 'WEBP', quality=82)"`
+   (Pillow; troque 1600 pelo tamanho-alvo da seção). Se nenhuma existir, peça à pessoa para converter em
    https://squoosh.app (WebP, qualidade ~80, largura 1600) e seguir.
 6. **Logo e ícones:** `assets/logo.svg` (ou `.png`) com a proporção real; ajuste `width`/`height` do `<img>` para altura
    36px. `assets/favicon.svg`: use o da pessoa ou edite a letra e a cor do placeholder. `assets/apple-touch-icon.png`
-   (180x180) e `assets/og.jpg` (1200x630): se a pessoa não entregou, remova as tags correspondentes do `<head>` e anote
-   em Pendências da especificação.
-7. **`site/README.md`:** preencha agora as seções 1 (Projeto), 2 (Estrutura), 4 (Design) e 5 (Convenções, já vem pronta).
+   (180x180, opaco, sem cantos arredondados: o iOS arredonda sozinho): se a pessoa não entregou, gere a partir do
+   `favicon.svg` com `rsvg-convert -w 180 -h 180 favicon.svg -o apple-touch-icon.png` ou com Playwright
+   (`page.setViewportSize({width:180,height:180})`, `page.setContent('<body style="margin:0;background:#COR-PRIMARIA">' + svg + '</body>')`
+   com o SVG em `width="180" height="180"`, e `page.screenshot({path:'apple-touch-icon.png'})`). `assets/og.jpg`
+   (1200x630): se a pessoa não entregou, remova a tag correspondente do `<head>` e anote em Pendências da especificação.
+7. **Páginas auxiliares já no setup:** `404.html` (texto final e a URL prevista da especificação no link para a home;
+   é a única página com URL absoluta), `obrigado.html` (texto final; mantém `main.js` e o bloco do `cookie-banner`),
+   `robots.txt` (`Sitemap:` com a URL prevista) e `sitemap.xml` (uma `<url>` por página pública prevista no sitemap da
+   especificação; `lastmod` = data de hoje; a Fase 5 atualiza a data e a URL se mudarem). Assim o site é coerente em
+   qualquer checkpoint, mesmo que a página interna ainda não exista.
+8. **`site/README.md`:** preencha agora as seções 1 (Projeto), 2 (Estrutura), 4 (Design) e 5 (Convenções, já vem pronta).
    O Mapa de seções (3) cresce a cada seção construída; Integrações (6) ao configurar formulário/WhatsApp/analytics.
-8. **git:** `cd site && git init -b main && git add -A && git commit -m "chore: base do site"`. O repositório é a pasta
+9. **git:** `cd site && git init -b main && git add -A && git commit -m "chore: base do site"`. O repositório é a pasta
    `site/` (só ela vai ao GitHub); os artefatos de planejamento ficam fora.
 
 ## 3. Ordem de construção e checkpoints
@@ -48,7 +60,11 @@
 | 2…n | As demais seções da página inicial, **2 a 3 por lote**, na ordem da especificação | um checkpoint por lote |
 | n+1 | Páginas internas (sites multi-página): copie `index.html`, mantenha header/footer idênticos, `aria-current="page"` no link da página atual, `title`/`description` próprios, conteúdo | checkpoint |
 | n+2 | `privacidade.html` (dados legais, serviço de formulário, bloco de analytics sim/não: escolha a alternativa certa dos trechos `{{SE USAR ANALYTICS…}}`), `obrigado.html`, `404.html`, `sitemap.xml`, `robots.txt` | sem checkpoint (revisão no QA) |
-| final | Passagem responsiva (320, 375, 768, 1024, 1280px), acessibilidade (`GUIA-FRONTEND §6`), performance (`§8`), Mapa de seções completo no README | commit `feat: site completo para QA` → Fase 5 |
+| final | Passagem responsiva (320, 375, 768, 1024, 1280px) com `node kit-sites/ferramentas/checar-site.js site/` (obrigatório; ver §8), acessibilidade (`GUIA-FRONTEND §6`), performance (`§8`), Mapa de seções completo no README | commit `feat: site completo para QA` → Fase 5 |
+
+O plano de build da `ESPECIFICACAO` (Passo 10 da Fase 3) prevalece sobre os lotes genéricos desta tabela: se ele
+define outros lotes ou outra ordem, siga-o. Nota: o commit `chore` do setup pode incluir head, tokens, fontes e as
+páginas auxiliares; o lote 1 começa nas seções.
 
 Regra de ritmo visual: alterne `section` e `section--alt` entre seções consecutivas (a `cta-band` não conta).
 Commit após cada checkpoint aprovado: `git add -A && git commit -m "feat: <seções do lote>"`.
@@ -62,7 +78,9 @@ Commit após cada checkpoint aprovado: `git add -A && git commit -m "feat: <seç
 3. Preencha com a copy **final** da especificação. Nada de texto provisório; nada de `{{ }}` sobrando.
 4. Imagens: `src` relativo (`assets/img/…`), `alt` descritivo (ou `alt=""` se decorativa), `width`/`height` reais,
    `loading="lazy"` (exceto a imagem do hero, que leva `fetchpriority="high"`).
-5. Ícones: SVG inline da mini-biblioteca em `GUIA-FRONTEND §4` (Lucide, 24×24). Não invente paths; não use icon fonts.
+5. Ícones: SVG inline da mini-biblioteca em `GUIA-FRONTEND §4.22` (Lucide, 24×24). Se a especificação pedir um
+   ícone que não está na lista, use o mais próximo da lista e registre em Assumido/Pendências; nunca invente paths;
+   não use icon fonts.
 6. Variações só com classes do starter: `grid--2/3/4`, `section--alt`, `split--reverse`, `hero--centered`,
    `card--hover`, `btn--lg`. Quantidade de itens compatível com as colunas (3 itens → `grid--3`; 4 → `grid--4` ou `grid--2`).
 7. CSS novo só se o snippet não cobrir o que a especificação pede, **sempre** no bloco `Z` de `styles.css`, com o
@@ -77,6 +95,8 @@ Commit após cada checkpoint aprovado: `git add -A && git commit -m "feat: <seç
 Checkpoint N — construí: [seções].
 Como ver: abra site/index.html no navegador (duplo clique). Estreite a janela ou abra no celular para ver a versão mobile.
 Olhe principalmente: 1) [item]  2) [item]  3) [item]
+(em sites multi-página) Links das outras páginas ainda não funcionam até o lote X.   ← só se for o caso
+Pendências que vencem neste checkpoint: [asset/decisão que a pessoa prometeu]       ← só se houver
 Algum ajuste? Responda "ok" ou liste no formato "seção — problema — desejo"
 (ex.: "hero — título grande demais no celular — reduzir um nível").
 ```
@@ -131,8 +151,11 @@ Dicionário de tradução (linguagem de design → ajuste técnico):
 - Não releia a especificação a cada lote: ela está no contexto; releia só a seção do lote se precisar.
 - Edite trechos (ferramenta de edição), nunca reescreva `index.html` ou `styles.css` inteiros.
 - Não cole código na conversa em modo arquivo; descreva em 1 linha por item o que mudou.
-- Não faça screenshots nem rode navegador a cada ajuste; a pessoa valida no navegador dela. Use navegador headless
-  (se existir) apenas na passagem final e no QA.
+- Não faça screenshots nem rode navegador a cada ajuste; a pessoa valida no navegador dela. Navegador headless só na
+  passagem final e no QA; ali é **obrigatório** rodar `node kit-sites/ferramentas/checar-site.js site/` (Playwright:
+  cada `*.html` em 320/375/768/1280px; acusa `ROLAGEM HORIZONTAL` e erros de console; `--screens` salva capturas em
+  `../qa-screens/`, que você deve olhar). Sem Playwright (`node -e "require('playwright')"` falha): registre em
+  Pendências e peça à pessoa um print do celular.
 - Não gere alternativas ("fiz duas versões do hero"). Uma versão, conforme a especificação.
 - Agrupe feedback; um commit por checkpoint.
 
@@ -161,8 +184,8 @@ Dicionário de tradução (linguagem de design → ajuste técnico):
 
 ## 11. Transição para a Fase 5
 
-Quando todos os lotes estiverem com "ok", a passagem final estiver feita e o Mapa de seções do `site/README.md`
-estiver completo: `git add -A && git commit -m "feat: site completo para QA"` e envie:
+Quando todos os lotes estiverem com "ok", a passagem final estiver feita (incluindo o `checar-site.js` sem
+`ROLAGEM HORIZONTAL` nem erros de console) e o Mapa de seções do `site/README.md` estiver completo: `git add -A && git commit -m "feat: site completo para QA"` e envie:
 
 > Construção concluída e versionada. Próximo passo: QA e publicação (vou ler `kit-sites/FASE-5-QA-E-PUBLICACAO.md`).
 > Posso seguir?

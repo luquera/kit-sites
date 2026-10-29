@@ -295,7 +295,7 @@ Checklist:
 - [ ] FOTO DO HERO: 1 foto horizontal com uma área "calma" de um lado para o texto → 1600 px de largura, WebP, até 220 KB.
 - [ ] FOTOS DE SEÇÃO (sobre, equipe, espaço): 1200 px, WebP, até 150 KB cada; todas com o mesmo tratamento (mesmo filtro, mesma luz).
 - [ ] FOTOS DE SERVIÇOS/PORTFÓLIO: 800 px, WebP, até 90 KB, TODAS na mesma proporção (4:3 ou 1:1).
-- [ ] FOTOS DE DEPOIMENTOS (só se Q24 ≠ D; opcional): quadradas, 192 x 192 px, WebP, até 15 KB, com autorização de uso de imagem.
+- [ ] FOTOS DE DEPOIMENTOS (só se Q24 ≠ D; opcional): quadradas, 192 x 192 px (exibidas a 56px), WebP, até 15 KB, com autorização de uso de imagem.
 - [ ] FOTOS DA EQUIPE (só se Q19 = E OU Q20 = J): quadradas, 600 x 600 px, mesmo enquadramento.
 - [ ] FOTOS DE PORTFÓLIO/CASES (só se Q19 = D OU Q20 = G): 800 px, mesma proporção, 1-3 por trabalho.
 - [ ] LOGOS DE CLIENTES (só se Q12 = B): 4-8 em SVG (ou PNG transparente, altura 72 px, o dobro do exibido), com autorização.

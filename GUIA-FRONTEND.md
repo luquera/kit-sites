@@ -96,14 +96,14 @@ Direções de estilo: os valores por direção estão em `GUIA-DESIGN §3`; a es
 | Classe | Para quê | Observação |
 |---|---|---|
 | `.container` / `.container--narrow` | limita largura e centraliza | narrow = 760px (texto longo, FAQ) |
-| `.section` / `.section--alt` / `.section--tight` | bloco vertical com respiro / fundo `surface` / 60% do respiro | alternar `section` e `section--alt` entre seções |
+| `.section` / `.section--alt` / `.section--tight` / `.section--flush-top` | bloco vertical com respiro / fundo `surface` / 60% do respiro / sem respiro em cima | alternar `section` e `section--alt` entre seções; `--flush-top` quando dois blocos do mesmo fundo ficam seguidos |
 | `.section__header` / `--center` | eyebrow + h2 + lead de abertura, max 60ch | `--center` centraliza |
 | `.grid` + `.grid--2` / `--3` / `--4` | grade: 1 coluna no celular; 2 a partir de 40rem (3/4) ou 48rem (2); 3/4 a partir de 64rem | nº de itens compatível com colunas |
 | `.split` / `.split--reverse` | 2 colunas texto/imagem (≥ 48rem) | `--reverse` manda o 1º filho para a direita |
 | `.stack` / `--sm` / `--lg` | espaço vertical uniforme entre filhos (16 / 8 / 32px) | substitui margens soltas |
 | `.cluster` / `--center` | itens lado a lado que quebram linha (botões, tags) | |
-| `.btn` + `--primary` / `--secondary` / `--ghost` / `--inverse` / `--whatsapp` | botão cheio / contornado / só texto / claro sobre fundo colorido / verde WhatsApp | `--inverse` dentro de `.cta-band` |
-| `.btn--sm` / `--lg` / `--pill` / `--block` | tamanhos, pílula, largura total | `--sm` no header; `--lg` no hero |
+| `.btn` + `--primary` / `--secondary` / `--ghost` / `--inverse` / `--inverse-outline` / `--whatsapp` | botão cheio / contornado / só texto / claro sobre fundo colorido / contornado claro sobre fundo colorido / verde WhatsApp | `--inverse` e `--inverse-outline` dentro de `.cta-band` (lá o `--ghost` fica sublinhado e herda a cor) |
+| `.btn--sm` / `--lg` / `--pill` / `--block` | tamanhos, pílula, largura total | `--sm` no header; `--lg` no hero (quebra linha abaixo de 40rem) |
 | `.card` / `.card--hover` | caixa com borda e raio / levanta no hover | `.card > .media` encosta a imagem nas bordas de cima |
 | `.badge` | etiqueta pílula (ex.: "Mais escolhido") | |
 | `.eyebrow` / `.lead` / `.prose` | linha curta em caixa alta / subtítulo cinza 60ch / texto longo 65ch com margens de h2/h3/listas | |
@@ -112,10 +112,10 @@ Direções de estilo: os valores por direção estão em `GUIA-DESIGN §3`; a es
 | `.nav` / `.nav__list` / `.nav__toggle` / `.nav__toggle-icon` / `.nav__toggle-bar` | menu (painel no celular, inline ≥ 64rem) / lista / botão hambúrguer / 3 barras que viram X | `.is-open` no `.nav` via JS |
 | `.hero` / `--split` / `--centered` / `.hero__inner` / `__content` / `__title` / `__title--md` / `__text` / `__actions` / `__proof` / `__media` | hero / 2 colunas ≥ 48rem / centralizado / … / H1 5xl / H1 4xl (menor) / subtítulo / botões / linha de provas / imagem | |
 | `.logos` / `.logos__title` | faixa de logos em cinza (colorem no hover) / título pequeno em caixa alta | logos com `height` 36px |
-| `.feature` / `.feature__icon` | card de benefício ou serviço / quadrado 48px com ícone 24px | usar dentro de `.card` |
+| `.feature` / `.feature__icon` | card de benefício ou serviço / quadrado 48px com ícone 24px | normalmente dentro de `.card`; sem `.card` é válido (visual editorial, sem borda) |
 | `.steps` / `.step` / `.step__number` | grade de passos / passo / círculo numerado | número escrito no HTML |
 | `.stats` / `.stat` / `.stat__value` / `.stat__label` | faixa de números centralizada / item / número grande primário / rótulo | |
-| `.testimonial` / `__quote` / `__author` / `__avatar` / `__name` / `__role` / `__stars` | depoimento em `.card` / citação com aspas automáticas / linha do autor / foto 48px redonda / nome / cargo / estrelas em `accent` | |
+| `.testimonial` / `__quote` / `__author` / `__avatar` / `__name` / `__role` / `__stars` | depoimento em `.card` / citação com aspas automáticas / linha do autor / foto 56px redonda / nome / cargo / estrelas em `accent` | |
 | `.plan` / `--featured` / `__badge` / `__name` / `__price` / `__desc` / `__list` | plano em `.card` / destacado / etiqueta flutuante / nome / preço (`<small>` para "/mês") / descrição / lista com ✓ | |
 | `.faq` / `.faq__item` / `.faq__answer` | acordeão 760px / `<details>` com +/− / resposta | sem JS |
 | `.cta-band` / `--full` | faixa primária com raio / sem raio (sangrada) | |
@@ -124,7 +124,7 @@ Direções de estilo: os valores por direção estão em `GUIA-DESIGN §3`; a es
 | `.video` | caixa 960px para `.media--16x9` com iframe | |
 | `.contact` / `.contact__info` / `.contact__map` | 2 colunas ≥ 48rem (formulário 1.2fr / dados 1fr) / lista com ícones / caixa do mapa | |
 | `.form` / `.form--card` / `.field` / `.field--check` / `.field__hint` / `.form__honeypot` / `.form__actions` / `.form__note` / `.form__status` | formulário em grade / em caixa / campo (label + input) / checkbox / ajuda / armadilha fora da tela / linha do botão / nota / mensagem de status | `form__honeypot` nunca com `display:none` |
-| `.site-footer` / `__grid` / `__brand` / `__bottom` / `--simple` | rodapé escuro / 4 colunas (2fr 1fr 1fr 1.2fr ≥ 64rem) / coluna da marca / linha legal / só a linha legal | `--simple` em páginas internas simples |
+| `.site-footer` / `__grid` / `__grid--3` / `__brand` / `__bottom` / `--simple` | rodapé escuro / 4 colunas (2fr 1fr 1fr 1.2fr ≥ 64rem) / 3 colunas (2fr 1fr 1.2fr) / coluna da marca / linha legal / só a linha legal | 3 colunas → adicione `site-footer__grid--3`; `--simple` em páginas internas simples |
 | `.whatsapp-float` / `.cookie-banner` | botão fixo 56px no canto / caixa fixa 448px no rodapé | banner começa `hidden` |
 | `.reveal` + `data-delay="1|2|3"` | aparece ao rolar (opacity + 16px) / atraso 80/160/240ms | só anima com `html.js`; não usar no texto do hero |
 | `.visually-hidden` / `.skip-link` / `.text-center` / `.text-muted` / `.text-sm` / `.mt-0` / `.icon` | só para leitores de tela / pular para o conteúdo / utilitários / ícone 20px em linha | `.mt-0` perde para `.prose h2` (use `.section__header`) |
@@ -337,7 +337,7 @@ Notas: imagem à esquerda → `split split--reverse`. Sem fatos → remova o `<u
 </section>
 <!-- ===== /[stats-band] ===== -->
 ```
-Notas: 3 números → `grid--3`. No celular fica 1 coluna; para 2 colunas, bloco Z: `/* [stats-band] #numeros: 2 colunas no celular */ @media (max-width: 39.99rem) { .stats { grid-template-columns: repeat(2, 1fr); } }` (sempre dentro da media query; fora dela a regra quebraria o desktop). Nota de rodapé de um número (ex.: "*pesquisa interna"): `<p class="text-sm text-muted text-center">` depois da grade.
+Notas: fundo conforme a alternância da página: troque `section--alt` por `section` se a seção anterior já for `section--alt`. 3 números → `grid--3`. No celular fica 1 coluna; para 2 colunas, bloco Z: `/* [stats-band] #numeros: 2 colunas no celular */ @media (max-width: 39.99rem) { .stats { grid-template-columns: repeat(2, 1fr); } }` (sempre dentro da media query; fora dela a regra quebraria o desktop). Nota de rodapé de um número (ex.: "*pesquisa interna"): `<p class="text-sm text-muted text-center">` depois da grade.
 
 ### 4.10 `testimonials-grid`
 
@@ -354,7 +354,7 @@ Notas: 3 números → `grid--3`. No celular fica 1 coluna; para 2 colunas, bloco
         <span class="testimonial__stars" aria-label="5 de 5 estrelas">★★★★★</span>
         <blockquote class="testimonial__quote">{{Citação real, 20-60 palavras, com resultado concreto.}}</blockquote>
         <div class="testimonial__author">
-          <img class="testimonial__avatar" src="assets/img/depo-nome.webp" alt="" width="96" height="96" loading="lazy">
+          <img class="testimonial__avatar" src="assets/img/depo-nome.webp" alt="" width="56" height="56" loading="lazy">
           <div><span class="testimonial__name">{{Nome Sobrenome}}</span><span class="testimonial__role">{{cargo, empresa ou "cliente desde 2023"}}</span></div>
         </div>
       </article>
@@ -370,7 +370,7 @@ Notas: 3 números → `grid--3`. No celular fica 1 coluna; para 2 colunas, bloco
 </section>
 <!-- ===== /[testimonials-grid] ===== -->
 ```
-Notas: 2 depoimentos → `grid--2`; 3 → `grid--3`; 4 → `grid--2`. Sem foto: remova o `<img>` (segundo card). Sem avaliação por estrelas: remova a linha `testimonial__stars`. As aspas de abertura vêm do CSS; não escreva aspas no texto.
+Notas: 2 depoimentos → `grid--2`; 3 → `grid--3`; 4 → `grid--2`. Sem foto: remova o `<img>` (segundo card). O avatar é exibido a 56px (arquivo de 192px, `alt=""` porque o nome já está ao lado). Sem avaliação por estrelas: remova a linha `testimonial__stars`. As aspas de abertura vêm do CSS; não escreva aspas no texto.
 
 ### 4.11 `portfolio-grid`
 
@@ -491,14 +491,14 @@ Notas: 4-8 perguntas; todas fechadas (sem `open`, regra de `GUIA-DESIGN §5`); s
       <article class="member reveal" data-delay="1">
         <div class="media media--1x1"><img src="assets/img/equipe-nome-2.webp" alt="{{Nome}}" width="600" height="600" loading="lazy"></div>
         <h3>{{Nome}}</h3>
-        <p>{{Cargo}}</p>
+        <p>{{Cargo}}<br><span class="text-sm text-muted">{{1 linha de descrição: especialidade ou tempo de casa}}</span></p>
       </article>
     </div>
   </div>
 </section>
 <!-- ===== /[team-grid] ===== -->
 ```
-Notas: fotos quadradas (600×600) com enquadramento parecido; 3 pessoas → `grid--3`; 2 → `grid--2`. A foto fica redonda pelo CSS.
+Notas: fotos quadradas (600×600) com enquadramento parecido; 3 pessoas → `grid--3`; 2 → `grid--2`. A foto fica redonda pelo CSS. Cada integrante leva cargo + no máximo 1 linha de descrição (segundo card); sem descrição, só o cargo (primeiro card).
 
 ### 4.15 `video-embed`
 
@@ -550,7 +550,7 @@ Notas: em página própria (privacidade, termos), o título é `h1` dentro do `.
 
 ### 4.19 `footer`
 
-Já está em `index.html` (4 colunas: marca + navegação + redes + contato; linha legal com `data-year`, razão social, CNPJ e link da privacidade). Remova colunas vazias (o grid se ajusta); sem redes → apague a coluna "Redes". Páginas internas simples: `site-footer site-footer--simple` só com `.site-footer__bottom` (como em `privacidade.html`). Links de âncora em páginas internas: `index.html#secao`.
+Já está em `index.html` (4 colunas: marca + navegação + redes + contato; linha legal com `data-year`, razão social, CNPJ e link da privacidade). Remova colunas vazias; sem redes → apague a coluna "Redes". Com 3 colunas, adicione `site-footer__grid--3` ao `.site-footer__grid` (senão a 4ª faixa fica vazia em ≥ 64rem). Páginas internas simples: `site-footer site-footer--simple` só com `.site-footer__bottom` (como em `privacidade.html`). Links de âncora em páginas internas: `index.html#secao`.
 
 ### 4.20 `whatsapp-float`
 
@@ -582,6 +582,18 @@ Use dentro de `<span class="feature__icon" aria-hidden="true">…</span>` (quadr
 | arrow-right | `<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>` |
 | chevron-down | `<path d="m6 9 6 6 6-6"/>` |
 | instagram | `<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>` |
+| hammer | `<path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/>` |
+| ruler | `<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.41 2.41 0 0 1 0-3.4l2.6-2.6a2.41 2.41 0 0 1 3.4 0Z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/>` |
+| building-2 | `<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/>` |
+| file-text | `<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/>` |
+| truck | `<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>` |
+| leaf | `<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>` |
+| wrench | `<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>` |
+| home | `<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>` |
+| briefcase | `<path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><rect width="20" height="14" x="2" y="6" rx="2"/>` |
+| graduation-cap | `<path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6"/><path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5"/>` |
+| sparkles | `<path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>` |
+| map | `<path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"/><path d="M15 5.764v15"/><path d="M9 3.236v15"/>` |
 
 Logo do WhatsApp (preenchido, `fill="currentColor"`, sem stroke): já está no `whatsapp-float` do `index.html`; copie de lá.
 
@@ -679,7 +691,7 @@ Só inclua campos com dado real; apague os que não tiver (não deixe `{{ }}` ne
 - Metas: Lighthouse mobile ≥ 90 em Performance/Acessibilidade/SEO; LCP ≤ 2,5s; CLS ≤ 0,1; home ≤ 1,5 MB.
 - Imagens: WebP, qualidade ~80; largura máxima 1600px (hero), 1200px (`about-split`), 800px (cards/portfólio), 600px (equipe), 192px (avatares 2×); peso-alvo: hero ≤ 220 KB, cards ≤ 90 KB, avatar ≤ 15 KB. `width`/`height` reais em todo `<img>` (evita CLS; o CSS redimensiona). `loading="lazy"` em tudo abaixo da primeira dobra; a imagem do hero com `fetchpriority="high"` e sem lazy. Fallback JPG só se a pessoa exigir Safari antigo: `<picture><source srcset="x.webp" type="image/webp"><img src="x.jpg" …></picture>`.
 - Conversão: a pessoa entrega WebP (Squoosh) na Fase 2; senão `cwebp -q 82 -resize 1600 0 -metadata none in.jpg -o out.webp` ou `magick in.jpg -auto-orient -strip -resize 1600x -quality 82 out.webp` (`-metadata none`/`-strip` removem EXIF e GPS do celular); sem ferramentas → Squoosh (§15). Checar peso: `ls -la site/assets/img` e total com `du -ch site/assets/img/* | tail -1`.
-- Fontes: 2 famílias, 3-4 pesos no total (ex.: Inter 400;500;600 + Manrope 700;800); `display=swap`; os dois `preconnect`; fonte variável com intervalo (`wght@400..700`) só se a família for variável (fonts.google.com/variablefonts), senão a API devolve erro 400 e nada carrega. Fallback `system-ui` nos tokens.
+- Fontes: 2 famílias, 3-4 pesos no total (ex.: Inter 400;500;600 + Manrope 700;800); `display=swap`; os dois `preconnect`; fonte variável com intervalo (`wght@400..700`) só se a família for variável (fonts.google.com/variablefonts), senão a API devolve erro 400 e nada carrega. Fonte variável com dois eixos (ex.: Fraunces, `opsz` + `wght`): a API quer tuplas, cada uma com TODOS os eixos, separadas por `;` e em ordem alfabética dos eixos: `Fraunces:opsz,wght@9..144,600;9..144,700` (não `opsz,wght@9..144,600;700`, que dá erro 400). Na dúvida, peça só o peso: `Fraunces:wght@600;700`. Fallback `system-ui` nos tokens.
 - CSS/JS: um `styles.css` (~30 KB) e um `main.js` (~5 KB) com `defer`; nada externo além de fontes e, se houver, analytics/iframes. Não minifique (dificulta a Fase 6); o ganho é irrelevante.
 - Iframes (mapa, vídeo, agenda): sempre `loading="lazy"` e dentro de `.media` com proporção (sem CLS). Mapa e vídeo abaixo da primeira dobra.
 - Não use: carrosséis, vídeos de fundo, bibliotecas de animação, imagens em base64, SVG de foto, GIF.
@@ -691,9 +703,11 @@ O GitHub Pages não processa `POST`; o formulário envia para um serviço que re
 
 Passo a passo (Fase 5 §6): a pessoa abre web3forms.com, informa o e-mail de destino (Q37), recebe o `access_key` por e-mail e cola na conversa. A IA preenche o `action` e o `access_key`, faz commit, e a pessoa envia um teste real pelo site publicado.
 
+Durante a Fase 4 o formulário fica **desarmado**, como vem no starter: `access_key` com o valor `CHAVE-PENDENTE`, botão de envio com `disabled` e `.form__status` com "Formulário será ativado na publicação." (assim ninguém envia para uma chave inexistente, e o `grep "{{"` do QA não acusa). Na Fase 5 a IA troca `CHAVE-PENDENTE` pela chave real, remove o `disabled` e esvazia o `.form__status`. Campos obrigatórios: nome e WhatsApp (e o consentimento); e-mail e mensagem são opcionais.
+
 ```html
 <form class="form form--card" action="https://api.web3forms.com/submit" method="POST" data-form>
-  <input type="hidden" name="access_key" value="{{CHAVE-RECEBIDA-POR-EMAIL}}">
+  <input type="hidden" name="access_key" value="CHAVE-PENDENTE">   <!-- Fase 5: chave recebida por e-mail -->
   <input type="hidden" name="subject" value="Novo contato pelo site {{Nome do negócio}}">
   <input type="hidden" name="from_name" value="{{Nome do negócio}} — site">
   <input type="hidden" name="redirect" value="https://www.dominio.com.br/obrigado.html">   <!-- URL ABSOLUTA; sem ela o Web3Forms mostra a própria página de sucesso -->
@@ -703,17 +717,17 @@ Passo a passo (Fase 5 §6): a pessoa abre web3forms.com, informa o e-mail de des
   </div>
   <div class="field"><label for="nome">Nome</label><input type="text" id="nome" name="name" autocomplete="name" required></div>
   <div class="field"><label for="telefone">WhatsApp</label><input type="tel" id="telefone" name="phone" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-9999" required></div>
-  <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email" required></div>
+  <div class="field"><label for="email">E-mail</label><input type="email" id="email" name="email" autocomplete="email"></div>
   <div class="field"><label for="mensagem">Como podemos ajudar?</label><textarea id="mensagem" name="message" rows="4"></textarea></div>
   <div class="field field--check">
     <input type="checkbox" id="consentimento" name="consentimento" value="sim" required>
     <label for="consentimento">Concordo com o uso dos meus dados para retorno do contato, conforme a <a href="privacidade.html">Política de Privacidade</a>.</label>
   </div>
   <div class="form__actions">
-    <button class="btn btn--primary" type="submit">Enviar mensagem</button>
+    <button class="btn btn--primary" type="submit" disabled>Enviar mensagem</button>   <!-- Fase 5: remover disabled -->
     <span class="form__note">Resposta em até 1 dia útil.</span>
   </div>
-  <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+  <p class="form__status" role="status" aria-live="polite" data-form-status>Formulário será ativado na publicação.</p>   <!-- Fase 5: esvaziar -->
 </form>
 ```
 - Campos: 3-4 (nome, WhatsApp/telefone, e-mail, mensagem). Nenhum a mais sem pedido da pessoa. Campo `email` vira o "responder para" do e-mail recebido.
@@ -760,7 +774,7 @@ Padrão: link no rodapé/`contact__info` com o ícone `instagram` (§4.22) e `ar
 
 ### 10.6 Analytics (só com Q40 = sim) e pixels
 
-Qualquer script de medição entra **como `type="text/plain" data-consent`**, para o `main.js` ativar só depois de "Aceitar" (§11). Coloque no fim do `<body>`, antes de `<script src="main.js" defer>`, em TODAS as páginas públicas.
+Qualquer script de medição entra **como `type="text/plain" data-consent`**, para o `main.js` ativar só depois de "Aceitar" (§11). Coloque no fim do `<body>`, antes de `<script src="main.js" defer>`, em TODAS as páginas públicas e também em `obrigado.html` (a página de agradecimento é onde se mede a conversão; ela já traz o bloco do `cookie-banner`, como `index.html` e `privacidade.html`).
 
 Google Analytics 4 (ID `G-XXXXXXXXXX`, a pessoa cria em analytics.google.com):
 ```html

@@ -121,19 +121,30 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 ### 5.3 obrigado.html
 - Texto do starter; CTA WhatsApp com a mensagem "Olá! Acabei de enviar uma mensagem pelo site."
 
-## 6. Integrações
+## 6. Mapa de assets
+| Origem (assets-brutos/) | Destino (site/assets/) | Tamanho-alvo | Alt |
+|---|---|---|---|
+| hero-ana-paciente.jpg | img/hero.webp | 1600×1200 (4:3), ≤ 220 KB | Fisioterapeuta Ana Ribeiro orientando exercício de uma paciente na clínica |
+| servico-orto.jpg … servico-rpg.jpg | img/servico-orto.webp … img/servico-rpg.webp | 800×600, ≤ 90 KB cada | (ver §5.1 item 4) |
+| equipe-recepcao.jpg | img/sobre.webp | 1200×900, ≤ 150 KB | Equipe da Clínica Raiz na recepção |
+| depo-marcos.jpg, depo-carla.jpg, depo-joao.jpg | img/depo-marcos.webp … | 192×192 (exibido a 56px), ≤ 15 KB | "" (decorativo; nome ao lado) |
+| logo-raiz.svg / logo-raiz-branco.svg | logo.svg / logo-branco.svg | altura 36px | Clínica Raiz Fisioterapia |
+| símbolo do logo | favicon.svg + apple-touch-icon.png 180×180 | — | — |
+| OG (Canva) | og.jpg | 1200×630, ≤ 300 KB | — |
+
+## 7. Integrações
 - **Formulário:** Web3Forms (padrão do kit) → contato@clinicaraiz.com.br · chave: Ana gera no Web3Forms na Fase 5 e envia · redirect `https://www.clinicaraiz.com.br/obrigado.html`
 - **WhatsApp:** +55 19 99999-0000 · texto: "Olá! Vim pelo site e quero agendar uma avaliação."
 - **Mapa:** iframe do Google Maps (Ana envia o código "Incorporar um mapa" na Fase 4) · **Agendamento:** não · **Analytics:** não · **Pixels:** não
 
-## 7. SEO e social
+## 8. SEO e social
 - **OG image:** `assets/og.jpg` (1200×630) — Ana faz no Canva: foto do hero + "Fisioterapia que trata a causa da dor"
 - **JSON-LD:** `MedicalBusiness` (subtipo de LocalBusiness) — name, url, telephone +55-19-3333-0000, address (Rua Coronel Quirino, 1000, Cambuí, Campinas, SP, 13025-000, BR), openingHoursSpecification (Mo-Fr 07:00-20:00; Sa 08:00-12:00), sameAs Instagram, image og.jpg
 
-## 8. Metas fixas
+## 9. Metas fixas
 - WCAG AA · Lighthouse mobile ≥ 90 em Performance, Acessibilidade e SEO · home ≤ 1,5 MB (hero.webp ≤ 220 KB; serviços ≤ 90 KB cada)
 
-## 9. Critérios de aceite
+## 10. Critérios de aceite
 - [ ] 13 seções presentes na ordem da tabela 2; âncoras do menu funcionam
 - [ ] zero `{{` e zero texto provisório; todos os textos iguais a esta especificação (ou aprovados em checkpoint)
 - [ ] 320px → 1440px sem rolagem horizontal; menu mobile abre/fecha; FAQ abre/fecha
@@ -142,7 +153,7 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 - [ ] `site/README.md` com mapa das 13 seções e integrações preenchidas
 - [ ] política de privacidade com dados reais e sem trechos de analytics
 
-## 10. Plano de build
+## 11. Plano de build
 1. Setup (tokens, fontes, head, favicon do símbolo, imagens otimizadas) → commit
 2. header-nav + hero-split + footer + whatsapp-float → **Checkpoint 1**
 3. stats-band + features-grid + services-cards → **Checkpoint 2**
@@ -150,7 +161,7 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 5. faq-accordion + cta-band + contact-split (mapa) → **Checkpoint 4**
 6. privacidade.html, obrigado.html, 404.html, sitemap, robots; passagem responsiva + acessibilidade → QA (Fase 5)
 
-## 11. Decisões assumidas e pendências
+## 12. Decisões assumidas e pendências
 - Ordem das seções proposta pela IA a partir do catálogo e aprovada por Ana em 06/11 (assumido: stats-band logo após o hero, por haver números fortes)
 - [ ] OG image (Canva) — até o Checkpoint 1
 - [ ] Código do mapa (Google Maps → Compartilhar → Incorporar um mapa) — até o Checkpoint 4

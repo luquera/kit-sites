@@ -105,11 +105,17 @@ Para cada seção, escreva o texto final a partir da matéria-prima (`conteudo/`
 - `[PLACEHOLDER: o que falta]` **somente** quando a pessoa disse que entrega depois; escreva junto o texto provisório que
   será usado até lá (ex.: `[PLACEHOLDER: foto da equipe — usar hero-centered sem imagem até a foto chegar]`).
 - Textos de interface: rótulos do formulário, nota de resposta ("Resposta em até 1 dia útil"), texto do consentimento
-  (usar o do starter), mensagem do WhatsApp (Q36), textos do rodapé e legais (Q38-Q39).
+  (usar o do starter), mensagem do WhatsApp (Q36), textos do rodapé e legais (Q38-Q39). Para o `whatsapp-float`, o
+  `aria-label` deve conter o texto visível do botão/rótulo (ex.: rótulo "Fale no WhatsApp" → `aria-label="Fale no
+  WhatsApp"`), senão o leitor de tela e o controle por voz divergem.
+- Ícones: só pelos nomes da lista de `GUIA-FRONTEND §4.22` (check, shield-check, zap, clock, phone, mail, map-pin, star,
+  users, heart, award, calendar, message-circle, arrow-right, chevron-down, instagram, hammer, ruler, building-2,
+  file-text, truck, leaf, wrench, home, briefcase, graduation-cap, sparkles, map). Escreva o nome ao lado de cada
+  benefício/serviço; se nenhum servir, escolha o mais próximo e registre como assumido.
 
 ### Passo 6 — Mapa de assets
 Tabela origem → destino → tamanho-alvo → alt, por seção. Tamanhos: hero 1600px (4:3 ou 16:9), `about` 1200px,
-`services`/`portfolio` 800px 4:3, avatar de depoimento 192px 1:1, equipe 600px 1:1, logos de clientes SVG ou PNG
+`services`/`portfolio` 800px 4:3, avatar de depoimento 192px 1:1 (exibido a 56px), equipe 600px 1:1, logos de clientes SVG ou PNG
 com 72px de altura (exibidos a 36px, monocromáticos), OG 1200×630, favicon SVG. Nomes: minúsculos, sem acento, com hífen
 (`servico-ortopedia.webp`). Quem otimiza: a pessoa (Squoosh, Fase 2); se os arquivos chegaram sem otimizar, inclua a
 tarefa em "Pendências". Sem foto para uma seção que precisa de foto → troque a variante (ex.: `hero-centered`), use

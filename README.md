@@ -145,6 +145,7 @@ kit-sites/
 ├── GUIA-DESIGN.md              ← regras de design, direções de estilo, catálogo de seções, copy
 ├── GUIA-FRONTEND.md            ← stack, starter, snippets, acessibilidade, SEO, performance, formulário
 ├── base/                       ← starter do site (HTML/CSS/JS, privacidade, obrigado, 404, README do site)
+├── ferramentas/                ← checar-site.js: verifica rolagem horizontal e erros em todas as páginas (usado pela IA)
 ├── modelos/                    ← templates de BRIEFING, REFERENCIAS, ESPECIFICACAO, PUBLICACAO
 └── exemplos/                   ← um caso completo preenchido (Clínica Raiz Fisioterapia)
 ```

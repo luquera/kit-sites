@@ -49,31 +49,19 @@ grep -c '^| ' README.md
 # 11. sitemap/robots (esperado: todas as páginas públicas no sitemap; obrigado.html fora; URL final correta)
 grep -c '<loc>' sitemap.xml ; grep -n 'Sitemap' robots.txt
 
-# 12. Formulário configurado (esperado: action do serviço + access_key preenchida + redirect com URL absoluta)
-grep -n 'action=\|access_key\|name="redirect"' index.html contato.html 2>/dev/null
+# 12. Formulário configurado (esperado: action do serviço + access_key preenchida + redirect com URL absoluta; sem CHAVE-PENDENTE nem disabled no botão após §6)
+grep -n 'action=\|access_key\|name="redirect"\|CHAVE-PENDENTE\|type="submit"' index.html contato.html 2>/dev/null
 ```
 
-Se houver navegador headless disponível (teste: `node -e "require('playwright')"`), rode também este script, salvando
-em `../qa-screens/` (fora de `site/`), e **olhe** as imagens:
+Se houver navegador headless disponível (teste: `node -e "require('playwright')"`), rode também o verificador do kit
+(dentro de `site/`, ou passe o caminho) e **olhe** as capturas em `../qa-screens/`:
 
-```js
-// ../qa-screens/shot.js — node shot.js (dentro de site/)
-const { chromium } = require('playwright'); const fs = require('fs'); const path = require('path');
-(async () => {
-  const b = await chromium.launch(); const pages = fs.readdirSync('.').filter(f => f.endsWith('.html'));
-  for (const f of pages) for (const w of [375, 768, 1280]) {
-    const c = await b.newContext({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' }); // reducedMotion: mostra os .reveal na captura
-    const p = await c.newPage(); const errs = [];
-    p.on('console', m => m.type() === 'error' && errs.push(m.text())); p.on('pageerror', e => errs.push(e.message));
-    await p.goto('file://' + path.resolve(f)); await p.waitForTimeout(500);
-    const over = await p.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
-    await p.screenshot({ path: `../qa-screens/${f.replace('.html', '')}-${w}.png`, fullPage: true });
-    console.log(f, w, over ? 'ROLAGEM HORIZONTAL!' : 'ok', errs.length ? errs : '');
-    await c.close();
-  }
-  await b.close();
-})();
+```bash
+# 13. Rolagem horizontal e erros de console em 320/375/768/1280 (esperado: só "ok"; capturas em ../qa-screens/)
+node ../kit-sites/ferramentas/checar-site.js . --screens
 ```
+(`checar-site.js` renderiza cada `*.html` com `reducedMotion: 'reduce'`, para os `.reveal` aparecerem na captura, e imprime
+página, largura, `ROLAGEM HORIZONTAL` se `scrollWidth > clientWidth` e os erros de console.)
 
 Checklist de revisão manual (abra os arquivos ou as screenshots):
 - [ ] Ordem das seções igual à `ESPECIFICACAO §2`; textos iguais aos aprovados.
@@ -197,8 +185,10 @@ Cloudflare Registrar (`.com` a preço de custo) obriga a usar o DNS da Cloudflar
 1. A pessoa cria a chave: https://web3forms.com → "Create your Access Key" → digita o e-mail que vai receber as
    mensagens (o de Q37) → recebe a chave por e-mail → envia a chave para a IA. Plano gratuito: sem cadastro, limite
    mensal de envios (verificar o número atual no site; suficiente para um site institucional).
-2. A IA insere a chave em `<input type="hidden" name="access_key" value="…">`, confere `action="https://api.web3forms.com/submit"`
-   e o `redirect` com a URL absoluta de `obrigado.html`; commit `feat: formulário ativo`; push.
+2. A IA insere a chave em `<input type="hidden" name="access_key" value="…">` (no lugar de `CHAVE-PENDENTE`), remove o
+   `disabled` do botão de envio e o texto de status "Formulário será ativado na publicação." do `.form__status`, confere
+   `action="https://api.web3forms.com/submit"` e o `redirect` com a URL absoluta de `obrigado.html`; commit
+   `feat: formulário ativo`; push.
 3. **Teste real:** a pessoa envia o formulário no site publicado e confirma o e-mail (olhar spam; marcar como "não é
    spam"). Se o e-mail não chegar em 5 minutos: conferir a chave, o e-mail cadastrado e o `name` dos campos.
 4. Spam: o campo-armadilha `botcheck` já está no starter. Se começar a chegar spam, ative o hCaptcha do serviço ou o

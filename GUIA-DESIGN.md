@@ -165,7 +165,7 @@ Pilhas de fallback (`--font-heading`/`--font-body`): sans → `"Nome", system-ui
 
 Links do Google Fonts (pesos discretos; cole no `<head>` com os dois `preconnect`, ver `GUIA-FRONTEND §8`):
 - `clean`: `https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap`
-- `editorial`: `https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=Inter:wght@400;500&display=swap` · alternativa: `family=Playfair+Display:wght@400;600&family=Source+Serif+4:wght@400;600`
+- `editorial`: `https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500&display=swap` (fonte com dois eixos: uma tupla por peso, cada uma com os dois eixos; na dúvida, `family=Fraunces:wght@500;600;700`) · alternativa: `family=Playfair+Display:wght@400;600&family=Source+Serif+4:wght@400;600`
 - `bold`: `https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap` · alternativa: `family=Syne:wght@700;800&family=DM+Sans:wght@400;500`
 - `tech-dark`: `https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap` · alternativa: `family=Geist:wght@400;500;600`
 - `organico`: `https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap` · alternativa: `family=Outfit:wght@500;600&family=Figtree:wght@400;500`
