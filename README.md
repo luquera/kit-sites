@@ -52,9 +52,9 @@ Entre as fases você pode fechar a conversa e abrir outra: os arquivos `BRIEFING
 **`Leia kit-sites/00-COMECE-AQUI.md e continue de onde paramos`**.
 
 Alternativa: instalar como *skill* do Claude Code, copiando a pasta para `.claude/skills/kit-sites/` dentro do projeto
-(ou `~/.claude/skills/kit-sites/` para todos os projetos) e chamando `/kit-sites` (verifique na sua versão do Claude Code:
-`claude --version`). Outra opção: um `CLAUDE.md` na raiz do projeto com a linha `@kit-sites/00-COMECE-AQUI.md`, que importa
-o roteador em toda conversa (confira com `/memory`; verifique na sua versão).
+(ou `~/.claude/skills/kit-sites/` para todos os projetos) e chamando `/kit-sites` (o nome da pasta vira o comando; documentado em
+code.claude.com/docs/en/skills). Outra opção: um `CLAUDE.md` na raiz do projeto com a linha `@kit-sites/00-COMECE-AQUI.md`, que importa
+o roteador em toda conversa (confira com `/memory`, que lista os arquivos de memória carregados).
 
 ## 5. As fases
 
@@ -77,7 +77,7 @@ A maior parte do custo está na Fase 4; a Fase 2 é barata em tokens porque o tr
 
 - No Claude Code, `/model` troca o modelo da conversa (aliases `opus` e `sonnet`). O esforço tem 5 níveis (`low`,
   `medium`, `high`, `xhigh`, `max`; padrão do Claude Code: `xhigh`) e pode ser definido ao abrir, ex.:
-  `claude --model opus --effort high`; dentro da conversa use `/effort medium` (verifique na sua versão). Em Opus 5.5 o
+  `claude --model opus --effort high`; dentro da conversa use `/effort medium` (ou `/effort` sem argumento para abrir o seletor). Em Opus 5.5 o
   esforço é o único controle de profundidade e custo.
 - Modo de permissão por fase: `claude --permission-mode plan` nas Fases 1-3 (a IA só propõe, não edita arquivos) e
   `--permission-mode acceptEdits` na Fase 4 (grava sem confirmar cada edição). Evite `bypassPermissions`.
@@ -103,9 +103,9 @@ A maior parte do custo está na Fase 4; a Fase 2 é barata em tokens porque o tr
   como conhecimento, e nas instruções do projeto escreva "Siga kit-sites/00-COMECE-AQUI.md". Limitação: a IA não grava
   arquivos; ela entrega cada arquivo em um bloco de código e você salva no seu computador com o nome indicado
   (um editor simples como o VS Code ou o Bloco de Notas serve). A publicação fica por sua conta (Netlify Drop é o
-  caminho mais simples). Funciona, mas é mais lento e sujeito a erro: prefira o Claude Code. Limites (verificar no
-  plano): o conhecimento do projeto cabe inteiro até ~200 mil tokens (o kit tem ~90 mil); acima disso o claude.ai busca
-  trechos e pode perder regras. Para ver uma seção antes de salvar, peça "mostre o hero como um artifact HTML único".
+  caminho mais simples). Funciona, mas é mais lento e sujeito a erro: prefira o Claude Code. Limites: nos planos pagos, quando o
+  conhecimento do projeto se aproxima do limite da janela de contexto (~200 mil tokens; o kit tem ~90 mil — verificar
+  no seu plano), o claude.ai liga automaticamente a busca por trechos (RAG) e pode perder regras. Para ver uma seção antes de salvar, peça "mostre o hero como um artifact HTML único".
 - **Cursor, Claude Desktop (Cowork) e similares:** qualquer ferramenta em que a IA leia e grave arquivos funciona
   igual ao Claude Code. Aponte-a para `kit-sites/00-COMECE-AQUI.md`.
 

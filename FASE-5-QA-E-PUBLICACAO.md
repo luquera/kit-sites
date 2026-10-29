@@ -162,7 +162,7 @@ arquivos começando com `_` sumiram → confirme que `.nojekyll` está no reposi
 ## 5. Domínio próprio (opcional; `.com.br` no Registro.br)
 
 1. **Registrar:** https://registro.br → "Registre seu domínio" → pesquisar `nomedonegocio.com.br` → criar conta com
-   CPF ou CNPJ → pagar (anuidade na faixa de R$ 40 — verificar valor atual) → o domínio fica ativo em minutos/horas.
+   CPF ou CNPJ → pagar (anuidade de R$ 40 em 2026-10) → o domínio fica ativo em minutos/horas.
 2. **No GitHub, antes do DNS** (evita sequestro do domínio): Settings → Pages →
    Custom domain → `www.nomedonegocio.com.br` → Save (isso cria o arquivo `CNAME` com uma linha; se a IA preferir, crie
    `site/CNAME` com o domínio, commit e push; nunca apague esse arquivo). Use o `www` como principal: com apex + www no
@@ -185,8 +185,8 @@ Cloudflare Registrar (`.com` a preço de custo) obriga a usar o DNS da Cloudflar
 ## 6. Formulário (Web3Forms, padrão do kit; detalhes em `GUIA-FRONTEND §9`)
 
 1. A pessoa cria a chave: https://web3forms.com → "Create your Access Key" → digita o e-mail que vai receber as
-   mensagens (o de Q37) → recebe a chave por e-mail → envia a chave para a IA. Plano gratuito: sem cadastro, limite
-   mensal de envios (verificar o número atual no site; suficiente para um site institucional).
+   mensagens (o de Q37) → recebe a chave por e-mail → envia a chave para a IA. Plano gratuito: sem cadastro, 250 envios
+   por mês (em 2026-10; suficiente para um site institucional).
 2. A IA insere a chave em `<input type="hidden" name="access_key" value="…">` (no lugar de `CHAVE-PENDENTE`), remove o
    `disabled` do botão de envio e o texto de status "Formulário será ativado na publicação." do `.form__status`, confere
    `action="https://api.web3forms.com/submit"` e o `redirect` com a URL absoluta de `obrigado.html`; commit
@@ -220,7 +220,8 @@ cookies e sem banner (Umami Cloud, Simple Analytics; snippets em `GUIA-FRONTEND 
 - **Netlify Drop** (sem conta GitHub; precisa de conta Netlify grátis): https://app.netlify.com/drop → arrastar a pasta
   `site/` → o site sobe em `nome-aleatorio.netlify.app` → Site configuration → Change site name. Atualizações: arrastar
   de novo em Deploys. Formulário continua pelo Web3Forms (ou Netlify Forms: adicionar `data-netlify="true"` ao `<form>` e
-  remover `action`/`access_key`; plano grátis com limite mensal de envios — verificar).
+  remover `action`/`access_key`; em 2026-10 os planos por créditos têm envios ilimitados sem custo, e contas antigas
+  (legadas) têm 100 envios/mês).
 - **Cloudflare Pages** (grátis: 20.000 arquivos por site, 25 MiB por arquivo; upload por arrastar até 1.000 arquivos):
   https://dash.cloudflare.com → Workers & Pages → Create → Pages → "Upload assets" →
   arrastar `site/` → `nome.pages.dev`. Também aceita conexão com o repositório GitHub para publicar a cada push, mas

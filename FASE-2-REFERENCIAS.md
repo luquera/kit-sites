@@ -439,12 +439,12 @@ Grátis salvo indicação. "(verificar)" = não confirmado por busca nesta vers�
 
 **Imagens, logo, favicon, OG**
 - https://squoosh.app — redimensiona e converte para WebP no navegador; ferramenta principal de otimização. Grátis.
-- https://jakearchibald.github.io/svgomg/ — limpa e reduz SVG do logo (manter viewBox). Grátis. (verificar)
+- https://jakearchibald.github.io/svgomg/ — limpa e reduz SVG do logo (manter viewBox). Grátis (open source).
 - https://www.adobe.com/br/express/feature/image/remove-background — remove fundo em alta resolução com conta Adobe grátis. Grátis.
 - https://www.adobe.com/br/express/feature/image/convert/svg — vetoriza PNG/JPG simples para SVG. Grátis.
 - https://www.remove.bg — remove fundo; prévia grátis em baixa resolução, alta resolução paga. Freemium.
-- https://vectorizer.ai — vetorização por IA de alta fidelidade; download pago (≈ US$ 10/mês). Pago. (verificar)
-- https://www.canva.com/pt_br/ — OG 1200 x 630, favicon 512, filtro uniforme em fotos; SVG e fundo transparente só no Pro (≈ R$ 35-40/mês). Freemium. (verificar)
+- https://vectorizer.ai — vetorização por IA de alta fidelidade; pré-visualização grátis; download exige assinatura (US$ 9,99/mês em 2026-10). Pago.
+- https://www.canva.com/pt_br/ — OG 1200 x 630, favicon 512, filtro uniforme em fotos; SVG e fundo transparente só no Pro (≈ R$ 290/ano em 2026-10; verificar preço mensal). Freemium.
 - https://www.figma.com — exportar logo em SVG com "Outline text", montar OG; plano Starter grátis. Freemium. (verificar)
 - https://favicon.io — gera pacote de favicon a partir de PNG, texto ou emoji. Grátis.
 - https://realfavicongenerator.net — gerador completo de favicon com preview por plataforma e bloco HTML. Grátis.

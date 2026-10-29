@@ -22,7 +22,7 @@ Não delibere sobre nada desta lista; não pergunte à pessoa; não "melhore".
 - Acessibilidade mínima: 1 `h1` por página; headings em ordem; contraste AA (4,5:1 texto, 3:1 texto grande e botões); foco visível (já no starter); skip link; menu com `aria-expanded`/`aria-controls`; alvos ≥ 44px; `prefers-reduced-motion` respeitado.
 - SEO mínimo: `title` 50-60, `description` 150-160, `canonical`, OG + Twitter, favicon, `lang="pt-BR"`, JSON-LD `LocalBusiness` ou `Organization`, `sitemap.xml`, `robots.txt`, `404.html`.
 - Formulário: `POST` HTML para o Web3Forms (serviço padrão do kit, §9), 3-4 campos, honeypot, consentimento LGPD desmarcado, redirect para `obrigado.html`.
-- Hospedagem: GitHub Pages em repositório público, operado com `git` + `gh`; fallback Netlify Drop. Pages gratuito só publica repositório público; repositório privado exige plano pago (GitHub Pro/Team; verificar).
+- Hospedagem: GitHub Pages em repositório público, operado com `git` + `gh`; fallback Netlify Drop. Pages gratuito só publica repositório público; repositório privado exige plano pago (GitHub Pro para conta pessoal, Team para organização).
 - Analytics: só se a pessoa pediu (Q40). Com analytics: `cookie-banner` obrigatório e scripts só após "Aceitar" (§10.6, §11).
 - git: um commit por checkpoint ou ajuste, mensagem curta em pt-BR com prefixo `feat:` / `fix:` / `chore:` / `docs:`.
 
@@ -699,7 +699,7 @@ Só inclua campos com dado real; apague os que não tiver (não deixe `{{ }}` ne
 
 ## 9. Formulários em site estático
 
-O GitHub Pages não processa `POST`; o formulário envia para um serviço que repassa por e-mail. **Serviço padrão do kit: Web3Forms** — gratuito para o volume de um site institucional (plano Free com limite mensal de envios; verificar o número atual em web3forms.com), sem conta para começar (a chave chega por e-mail), suporta `redirect` e honeypot no plano gratuito, sem marca d'água no e-mail, `POST` HTML puro. O `<form data-form>` do starter já usa os nomes de campo do Web3Forms (`subject`, `redirect`, `botcheck`).
+O GitHub Pages não processa `POST`; o formulário envia para um serviço que repassa por e-mail. **Serviço padrão do kit: Web3Forms** — gratuito para o volume de um site institucional (plano Free com 250 envios/mês em 2026-10), sem conta para começar (a chave chega por e-mail), suporta `redirect` e honeypot no plano gratuito, sem marca d'água no e-mail, `POST` HTML puro. O `<form data-form>` do starter já usa os nomes de campo do Web3Forms (`subject`, `redirect`, `botcheck`).
 
 Passo a passo (Fase 5 §6): a pessoa abre web3forms.com, informa o e-mail de destino (Q37), recebe o `access_key` por e-mail e cola na conversa. A IA preenche o `action` e o `access_key`, faz commit, e a pessoa envia um teste real pelo site publicado.
 
@@ -738,7 +738,7 @@ Durante a Fase 4 o formulário fica **desarmado**, como vem no starter: `access_
 - Spam: o `botcheck` resolve a maior parte. Se persistir, hCaptcha (suportado pelo Web3Forms) ou **Cloudflare Turnstile** (grátis: até 20 widgets, 10 hostnames por widget, desafios ilimitados): a pessoa cria o widget em dash.cloudflare.com → Turnstile com o domínio do site e envia a `sitekey`; a IA inclui `<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>` no `<head>` e `<div class="cf-turnstile" data-sitekey="{{SITEKEY}}"></div>` antes do botão (Web3Forms e Formspree validam o token). O script precisa vir desse domínio (não copie para o site).
 - A `access_key` e o ID do Formspree são públicos por natureza e podem ficar no HTML; tokens de API, senhas e `.env` nunca entram no repositório público.
 
-Alternativa (3 linhas): **Formspree** — `action="https://formspree.io/f/{{ID}}"` (conta em formspree.io, plano gratuito com ~50 envios/mês (verificar); ao estourar o limite o serviço para de entregar sem avisar); campos `_subject` (assunto), `_gotcha` (honeypot: troque `name="botcheck"` por `name="_gotcha"`), `_next` (redirect; disponível em plano pago, verificar); campo `email` vira reply-to. Use só se a pessoa já tiver conta ou o Web3Forms estiver indisponível; registre em `site/README.md §6`.
+Alternativa (3 linhas): **Formspree** — `action="https://formspree.io/f/{{ID}}"` (conta em formspree.io, plano gratuito com 50 envios/mês em 2026-10; ao estourar o limite o serviço para de entregar sem avisar); campos `_subject` (assunto), `_gotcha` (honeypot: troque `name="botcheck"` por `name="_gotcha"`), `_next` (redirect; só nos planos pagos, Personal ou superior); campo `email` vira reply-to. Use só se a pessoa já tiver conta ou o Web3Forms estiver indisponível; registre em `site/README.md §6`.
 
 Sem formulário: Q37 = B → só WhatsApp (botão `btn--whatsapp` no contato) e `mailto:`; remova o `<form>` e a linha do serviço em `privacidade.html`.
 
@@ -881,8 +881,8 @@ Links úteis para a IA e para a pessoa (gratuito salvo indicação; "(verificar)
 - Who Can Use — https://www.whocanuse.com/ — contraste simulando tipos de visão.
 - Lucide Icons — https://lucide.dev/icons/ — origem dos ícones do §4.22; copiar SVG de outros ícones se a pessoa pedir.
 - Squoosh — https://squoosh.app — converter/redimensionar imagens para WebP no navegador.
-- Web3Forms — https://web3forms.com — serviço padrão de formulário; chave por e-mail; plano gratuito (verificar limites atuais).
-- Formspree — https://formspree.io — alternativa de formulário; plano gratuito limitado (verificar).
+- Web3Forms — https://web3forms.com — serviço padrão de formulário; chave por e-mail; plano gratuito com 250 envios/mês (em 2026-10).
+- Formspree — https://formspree.io — alternativa de formulário; plano gratuito com 50 envios/mês (em 2026-10).
 - GitHub Pages: documentação — https://docs.github.com/en/pages — criar site, domínio próprio (A 185.199.108/109/110/111.153 + CNAME www → usuario.github.io), "Enforce HTTPS"; limites em https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits (site ≤ 1 GB, 100 GB/mês e 10 builds/h como limites brandos; nada de e-commerce/SaaS). Gratuito em repositório público.
 - GitHub CLI (`gh`) — https://cli.github.com/manual — login por código no navegador e `gh repo create`; gratuito.
 - GitHub Status — https://www.githubstatus.com — confira "Pages"/"Actions" antes de investigar um 404 ou deploy parado; gratuito.
@@ -903,6 +903,6 @@ Links úteis para a IA e para a pessoa (gratuito salvo indicação; "(verificar)
 - Umami Cloud — https://umami.is/docs — analytics sem cookies; plano Hobby gratuito (6 meses de retenção; pagos com 14 dias de teste).
 - Simple Analytics — https://www.simpleanalytics.com — analytics sem cookies; plano Free com painel de 30 dias e badge obrigatório no rodapé; planos pagos sem essas restrições.
 - Cal.com — https://cal.com/docs — agendamento; plano gratuito individual; embed inline, popup ou botão flutuante.
-- Calendly — https://calendly.com — agendamento; plano gratuito com 1 tipo de evento (verificar).
+- Calendly — https://calendly.com — agendamento; plano gratuito com 1 tipo de evento ativo por vez (em 2026-10); embed inline via `assets.calendly.com/assets/external/widget.js`.
 - MDN Web Docs — https://developer.mozilla.org/pt-BR/ — referência de HTML/CSS/JS em português.
 - web.dev: fontes — https://web.dev/articles/font-best-practices — boas práticas de carregamento de fontes.

@@ -577,13 +577,13 @@ Links com 1 linha cada; grátis salvo indicação. "(verificar)" = não confirma
 - https://www.nngroup.com/articles/top-ten-guidelines-for-homepage-usability/ — 10 regras da página inicial (tagline explícita, nada de "Bem-vindo"). Grátis.
 - https://www.nngroup.com/articles/designing-effective-carousels/ — por que carrossel no topo falha; mostre a quem pedir "banner rotativo". Grátis.
 - https://www.landingfolio.com — galeria organizada por seção (hero, pricing, depoimentos, FAQ). Galeria grátis; templates pagos.
-- https://hemingwayapp.com — marca frases longas e voz passiva (funciona com português). Versão web grátis. (verificar)
-- https://www.rdstation.com/blog/ — artigos em pt-BR sobre landing page, CTA e formulários; use para vocabulário, não para números. Grátis. (verificar)
+- https://hemingwayapp.com — marca frases longas e voz passiva (funciona com português). Versão web grátis; app desktop e plano com IA são pagos (em 2026-10).
+- https://www.rdstation.com/blog/ — artigos em pt-BR sobre landing page, CTA e formulários; use para vocabulário, não para números. Grátis.
 
 **Imagens, ícones e favicon (§2.5)**
 - https://squoosh.app/ — redimensionar e converter para WebP no navegador (nada sobe para servidor); remove EXIF. Grátis.
 - https://unsplash.com/ e https://www.pexels.com/pt-br/ — fotos gratuitas sem crédito obrigatório; baixe "Large/Grande", nunca "Original". Grátis.
 - https://undraw.co/illustrations — ilustrações SVG com a cor da marca aplicada antes de baixar; uma coleção por site. Grátis.
-- https://haikei.app/ — fundos SVG (ondas, blobs) nas cores da paleta para separar seções sem foto. Grátis. (verificar)
+- https://haikei.app/ — fundos SVG (ondas, blobs) nas cores da paleta para separar seções sem foto. Grátis, sem cadastro.
 - https://realfavicongenerator.net/ — gera o pacote de favicon (ico, svg, apple-touch-icon 180, 192/512) com as tags prontas. Grátis.
 - https://www.opengraph.xyz/ — prévia do link no WhatsApp/LinkedIn após publicar; testa a OG image. Grátis.
