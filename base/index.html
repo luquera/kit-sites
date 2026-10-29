@@ -157,9 +157,10 @@
           <p class="lead">{{Frase curta: tempo de resposta, canal preferido.}}</p>
         </div>
         <div class="contact">
-          <!-- Formulário: action/serviço conforme GUIA-FRONTEND §9; redireciona para obrigado.html -->
+          <!-- Formulário: action/serviço conforme GUIA-FRONTEND §9; redireciona para obrigado.html.
+               Na Fase 5: trocar CHAVE-PENDENTE pela chave real, remover `disabled` do botão e o texto de .form__status -->
           <form class="form form--card" action="https://api.web3forms.com/submit" method="POST" data-form>
-            <input type="hidden" name="access_key" value="{{CHAVE-DE-ACESSO-WEB3FORMS}}">
+            <input type="hidden" name="access_key" value="CHAVE-PENDENTE">
             <input type="hidden" name="subject" value="Novo contato pelo site {{Nome do negócio}}">
             <input type="hidden" name="from_name" value="Site {{Nome do negócio}}">
             <input type="hidden" name="redirect" value="{{https://URL-final-do-site/}}obrigado.html">
@@ -177,7 +178,7 @@
             </div>
             <div class="field">
               <label for="email">E-mail</label>
-              <input type="email" id="email" name="email" autocomplete="email" required>
+              <input type="email" id="email" name="email" autocomplete="email">
             </div>
             <div class="field">
               <label for="mensagem">Como podemos ajudar?</label>
@@ -188,10 +189,10 @@
               <label for="consentimento">Concordo com o uso dos meus dados para retorno do contato, conforme a <a href="privacidade.html">Política de Privacidade</a>.</label>
             </div>
             <div class="form__actions">
-              <button class="btn btn--primary" type="submit">{{Enviar mensagem}}</button>
+              <button class="btn btn--primary" type="submit" disabled>{{Enviar mensagem}}</button>
               <span class="form__note">Resposta em até {{1 dia útil}}.</span>
             </div>
-            <p class="form__status" role="status" aria-live="polite" data-form-status></p>
+            <p class="form__status" role="status" aria-live="polite" data-form-status>Formulário será ativado na publicação.</p>
           </form>
 
           <div class="stack">

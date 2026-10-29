@@ -199,6 +199,7 @@ strong { font-weight: 600; }
 .section { padding-block: var(--section-padding); }
 .section--alt { background: var(--color-surface); }
 .section--tight { padding-block: calc(var(--section-padding) * 0.6); }
+.section--flush-top { padding-top: 0; } /* dois blocos alternados seguidos (ex.: dois .section--alt) */
 
 /* Título + texto de abertura de uma seção */
 .section__header { max-width: 60ch; margin-bottom: var(--space-7); }
@@ -271,6 +272,8 @@ strong { font-weight: 600; }
 /* Botão claro sobre fundo colorido (ex.: dentro de .cta-band) */
 .btn--inverse { background: var(--color-on-primary); color: var(--color-primary); }
 .btn--inverse:hover { background: var(--color-primary-soft); color: var(--color-primary-strong); }
+.btn--inverse-outline { background: transparent; color: var(--color-on-primary); border-color: currentColor; }
+.btn--inverse-outline:hover { background: rgba(255, 255, 255, 0.12); color: var(--color-on-primary); }
 
 .btn--whatsapp { background: var(--color-whatsapp); color: #06301a; }
 .btn--whatsapp:hover { background: #1fb858; color: #06301a; }
@@ -279,6 +282,9 @@ strong { font-weight: 600; }
 .btn--lg { font-size: var(--text-lg); padding: 0.9em 1.8em; }
 .btn--pill { border-radius: var(--radius-pill); }
 .btn--block { width: 100%; }
+
+/* Em telas pequenas o botão grande pode quebrar linha em vez de estourar a largura */
+@media (max-width: 39.99rem) { .btn--lg { white-space: normal; text-align: center; } }
 
 /* ===== 6. Cabeçalho e navegação ===== */
 .site-header {
@@ -501,7 +507,7 @@ body.menu-open { overflow: hidden; }
 .testimonial__quote { font-size: var(--text-lg); line-height: 1.5; flex: 1; }
 .testimonial__quote::before { content: "\201C"; color: var(--color-primary); font-family: var(--font-heading); font-size: 1.5em; line-height: 0; margin-right: 0.1em; vertical-align: -0.3em; }
 .testimonial__author { display: flex; align-items: center; gap: var(--space-3); }
-.testimonial__avatar { width: 3rem; height: 3rem; border-radius: 50%; object-fit: cover; }
+.testimonial__avatar { width: 3.5rem; height: 3.5rem; border-radius: 50%; object-fit: cover; }
 .testimonial__name { font-weight: 600; display: block; }
 .testimonial__role { color: var(--color-text-muted); font-size: var(--text-sm); display: block; }
 .testimonial__stars { color: var(--color-accent); letter-spacing: 0.1em; font-size: var(--text-sm); }
@@ -559,6 +565,7 @@ body.menu-open { overflow: hidden; }
   text-align: center;
 }
 .cta-band h2 { color: inherit; }
+.cta-band .btn--ghost { color: inherit; text-decoration: underline; }
 .cta-band p { margin-top: var(--space-3); opacity: 0.9; max-width: 55ch; margin-inline: auto; }
 .cta-band .cluster { margin-top: var(--space-6); }
 .cta-band--full { border-radius: 0; }
@@ -598,6 +605,7 @@ body.menu-open { overflow: hidden; }
 
 .field { display: grid; gap: var(--space-2); }
 .field label { font-weight: 600; font-size: var(--text-sm); }
+::placeholder { color: var(--color-text-muted); opacity: 1; }
 .field input,
 .field textarea,
 .field select {
@@ -652,7 +660,10 @@ body.menu-open { overflow: hidden; }
 .site-footer .brand__logo--light { filter: brightness(0) invert(1); }
 
 @media (min-width: 40rem) { .site-footer__grid { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 64rem) { .site-footer__grid { grid-template-columns: 2fr 1fr 1fr 1.2fr; } }
+@media (min-width: 64rem) {
+  .site-footer__grid { grid-template-columns: 2fr 1fr 1fr 1.2fr; }
+  .site-footer__grid--3 { grid-template-columns: 2fr 1fr 1.2fr; } /* rodapé com 3 colunas (marca + 2) */
+}
 
 /* ===== 12. Flutuantes ===== */
 .whatsapp-float {
@@ -667,11 +678,11 @@ body.menu-open { overflow: hidden; }
   height: 3.5rem;
   border-radius: 50%;
   background: var(--color-whatsapp);
-  color: #fff;
+  color: #06301a;                  /* contraste sobre o verde do WhatsApp */
   box-shadow: var(--shadow-lg);
   transition: transform var(--duration) var(--ease);
 }
-.whatsapp-float:hover { transform: scale(1.06); color: #fff; }
+.whatsapp-float:hover { transform: scale(1.06); color: #06301a; }
 .whatsapp-float svg { width: 1.75rem; height: 1.75rem; }
 
 .cookie-banner {

@@ -43,7 +43,7 @@ Se `site/README.md` não existir ou estiver desatualizado, crie/complete-o antes
 4. Mantenha os marcadores de seção intactos. Se criar uma seção, ela nasce com o par de marcadores.
 5. Textos novos: use exatamente o texto que a pessoa deu. Se ela pedir "melhore o texto", proponha **uma** versão
    dentro dos limites do `GUIA-DESIGN §6` e espere o "ok".
-6. Imagens novas: WebP (ou o formato recebido se já for leve), largura máxima 1600px, nome sem acento/espaço em
+6. Imagens novas: WebP (ou o formato recebido se já for leve; para converter, ver `kit-sites/FASE-4-CONSTRUCAO.md §2` passo 5), largura máxima 1600px, nome sem acento/espaço em
    `assets/img/`, `alt` descritivo, `width`/`height` reais, `loading="lazy"` (exceto hero).
 7. Caminhos relativos sempre. Nunca `href="/..."` ou `src="/..."` (exceto em `404.html`, que usa a URL final absoluta).
 8. Não leia nem edite `BRIEFING.md`, `REFERENCIAS.md` ou `ESPECIFICACAO.md` nesta fase; eles são planejamento. A fonte
@@ -62,7 +62,7 @@ Faça **uma** mensagem com todas as perguntas; não pergunte em conta-gotas.
 
 ## 5. Mini-QA depois do ajuste (obrigatório)
 
-- [ ] `grep -rn "{{" site/*.html site/*.css site/*.xml site/*.txt` não retorna nada.
+- [ ] `grep -rn "{{" site/*.html site/*.css site/*.xml site/*.txt` não retorna nada além das pendências registradas em `site/README.md` §4/§6 (ex.: chave do formulário ainda não inserida).
 - [ ] Abriu a página alterada no navegador (ou pediu à pessoa) em ~375px e ~1280px: nada estourando, sem rolagem horizontal.
 - [ ] Links e âncoras do que mudou funcionam (menu → `id` da seção; páginas novas no menu e no rodapé).
 - [ ] Imagens novas com `alt`, `width`/`height`, caminho relativo correto e peso razoável (≤ 300 KB).
@@ -74,7 +74,7 @@ Faça **uma** mensagem com todas as perguntas; não pergunte em conta-gotas.
 ## 6. Atualize a documentação (na medida)
 
 - **Sempre:** 1 linha no topo do Histórico de `site/README.md`: `AAAA-MM-DD — o que mudou — pedido de <pessoa>`.
-- **Se estrutural:** linha nova/removida no Mapa de seções (e na árvore de arquivos, se nova página).
+- **Se estrutural ou se mudou uma contagem** (ex.: 3 → 4 depoimentos, 4 → 3 serviços, nova variante de grade): linha ajustada no Mapa de seções (e na árvore de arquivos, se nova página).
 - **Se integração:** linha da tabela de Integrações (README §6).
 - **Se publicação/domínio:** `PUBLICACAO.md` e README §1.
 - Nada mais. Não escreva changelog separado, não comente linha por linha, não atualize a `ESPECIFICACAO.md`.
@@ -94,20 +94,21 @@ Mensagem para a pessoa (3 linhas, sem código):
 > Registrei no histórico do site. Algo mais?
 
 Se o push falhar por autenticação, peça à pessoa para rodar `gh auth login` (ou `gh auth status`) e tente de novo.
+Se não houver remoto (`git remote -v` vazio) ou o site ainda não estiver publicado, faça só o commit local e diga na mensagem final que a mudança está pronta e será publicada na Fase 5 (`kit-sites/FASE-5-QA-E-PUBLICACAO.md §4`).
 Fallback sem GitHub: pedir à pessoa para arrastar a pasta `site/` em https://app.netlify.com/drop.
 
 ## 8. Três pedidos comuns, do início ao fim
 
 **"Troca o título do hero para 'Fisioterapia que devolve seu movimento em 30 dias'."**
 1. README → hero-split em `index.html` `#inicio`. 2. Abrir `index.html`, achar `<h1 class="hero__title" id="inicio-titulo">`,
-substituir o texto. 3. Conferir que cabe em 2-3 linhas no celular (375px); se estourar, trocar para `hero__title--md`.
+substituir o texto. 3. Conferir que cabe em 2-3 linhas no celular (375px); se estourar, trocar para `hero__title--md`; se já estiver em `--md`, encurtar o título com a pessoa (não crie tamanhos novos).
 4. Histórico: `2026-11-03 — Novo H1 do hero — pedido de Ana`. 5. `git commit -m "fix: novo título do hero"` e push.
 
 **"Adiciona mais um depoimento, da Carla (gerente na Acme)."**
 1. Pedir o texto (20-60 palavras) e, se houver, a foto (quadrada). 2. README → testimonials-grid `#depoimentos`.
 3. Copiar um `<article class="card testimonial">` existente, trocar citação, nome, cargo e avatar (`assets/img/depo-carla.webp`,
-192×192, exibido a 96px, `loading="lazy"`). Se ficar 4 itens em `grid--3`, perguntar se prefere `grid--4` ou `grid--2` (4 itens em 3 colunas
-deixa um órfão). 4. Mini-QA. 5. Histórico + `git commit -m "feat: depoimento da Carla"` + push.
+192×192, exibido a 96px, `loading="lazy"`). Se ficar 4 itens em `grid--3`, troque para `grid--2` (2×2) sem perguntar e avise na mensagem final (4 itens em 3 colunas
+deixa um órfão). Depoimento sem foto: omita o `<img>` e mantenha o resto; não crie avatar com iniciais. 4. Mini-QA. 5. Histórico + `git commit -m "feat: depoimento da Carla"` + push.
 
 **"Quero a cor principal mais escura/verde."**
 1. É estilo global: pedir o hex exato (ou 2-3 opções que a pessoa indique) — não escolher por ela. 2. Atualizar

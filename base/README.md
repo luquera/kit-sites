@@ -57,7 +57,7 @@ Para achar uma seção: procure pelo `id` HTML ou pelo marcador.
 ## 6. Integrações
 | Integração | Como está configurada | Onde no código |
 |---|---|---|
-| Formulário | Web3Forms → e-mail {{destino}}; chave de acesso no `<input name="access_key">` | `index.html` → `<form data-form>` |
+| Formulário | Web3Forms → e-mail {{destino}}; chave de acesso no `<input name="access_key">`; botão desabilitado até a chave entrar (Fase 5) | `index.html` → `<form data-form>` |
 | WhatsApp | {{+55 DDD número}}; mensagem padrão "{{texto}}" | `index.html` → `.whatsapp-float` e `#contato` |
 | Mapa | {{Google Maps embed / não usa}} | `index.html` → `.contact__map` |
 | Analytics | {{ferramenta + ID / não usa}} | `index.html` → `<script type="text/plain" data-consent>` (ativado pelo aviso de cookies) |
