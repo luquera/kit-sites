@@ -52,7 +52,9 @@ Entre as fases você pode fechar a conversa e abrir outra: os arquivos `BRIEFING
 **`Leia kit-sites/00-COMECE-AQUI.md e continue de onde paramos`**.
 
 Alternativa: instalar como *skill* do Claude Code, copiando a pasta para `.claude/skills/kit-sites/` dentro do projeto
-(ou `~/.claude/skills/kit-sites/` para todos os projetos) e chamando `/kit-sites` (verifique na sua versão do Claude Code).
+(ou `~/.claude/skills/kit-sites/` para todos os projetos) e chamando `/kit-sites` (verifique na sua versão do Claude Code:
+`claude --version`). Outra opção: um `CLAUDE.md` na raiz do projeto com a linha `@kit-sites/00-COMECE-AQUI.md`, que importa
+o roteador em toda conversa (confira com `/memory`; verifique na sua versão).
 
 ## 5. As fases
 
@@ -65,13 +67,20 @@ Alternativa: instalar como *skill* do Claude Code, copiando a pasta para `.claud
 | 5 QA e publicação | cria contas (GitHub, Web3Forms), testa no celular, envia o formulário | testa tudo, publica, configura domínio e formulário | Sonnet | 30-60 min | 40-80 mil |
 | 6 Ajustes (depois) | pede a mudança em linguagem normal | localiza, edita, testa, publica | Sonnet | 5 min | 10-30 mil |
 
-Estimativas de tokens somam entrada e saída; multiplique pela tabela de preços atual do modelo (https://www.anthropic.com/pricing)
-para ter o custo. A maior parte do custo está na Fase 4; a Fase 2 é barata em tokens porque o trabalho é seu.
+Estimativas de tokens somam entrada e saída; multiplique pela tabela de preços atual do modelo
+(https://platform.claude.com/docs/en/about-claude/pricing) para ter o custo. Preços por milhão de tokens consultados em
+2026-10 (entrada / saída): Opus 5.5 US$ 4 / US$ 20; Sonnet 5.5 US$ 2 / US$ 10; Haiku 5.5 US$ 0,10 / US$ 0,50 (prompts até
+100K tokens); leitura de cache US$ 0,20 em Opus e Sonnet. Em assinatura Pro/Max não há custo por token, só o limite de uso.
+A maior parte do custo está na Fase 4; a Fase 2 é barata em tokens porque o trabalho é seu.
 
 ## 6. Trocar de modelo e esforço; fechar e retomar
 
-- No Claude Code, `/model` troca o modelo da conversa; o nível de esforço (quando disponível na sua versão) fica no
-  mesmo seletor ou nas configurações (verifique na sua versão).
+- No Claude Code, `/model` troca o modelo da conversa (aliases `opus` e `sonnet`). O esforço tem 5 níveis (`low`,
+  `medium`, `high`, `xhigh`, `max`; padrão do Claude Code: `xhigh`) e pode ser definido ao abrir, ex.:
+  `claude --model opus --effort high`; dentro da conversa use `/effort medium` (verifique na sua versão). Em Opus 5.5 o
+  esforço é o único controle de profundidade e custo.
+- Modo de permissão por fase: `claude --permission-mode plan` nas Fases 1-3 (a IA só propõe, não edita arquivos) e
+  `--permission-mode acceptEdits` na Fase 4 (grava sem confirmar cada edição). Evite `bypassPermissions`.
 - Recomendação do kit: **planeje com Opus 5.5 em esforço alto** (Fase 3) e **construa com Opus em esforço médio**
   (Fase 4). Sonnet dá conta de todas as fases com qualidade um pouco menor no plano.
 - Para trocar entre fases: encerre a conversa ao final de uma fase (depois do "aprovado"), abra outra com o modelo
@@ -84,7 +93,8 @@ para ter o custo. A maior parte do custo está na Fase 4; a Fase 2 é barata em 
 - Envie prints **rotulados** (o que você gosta em cada um) e poucos: 4-6 bons valem mais que 15.
 - Entregue as fotos já leves (Squoosh, WebP, até 1600 px) e com nomes simples.
 - Não peça "faz duas versões": peça uma mudança concreta ("hero — título menor no celular").
-- Feche a conversa entre fases; conversas longas custam mais a cada mensagem.
+- Feche a conversa entre fases (`/clear` no Claude Code); conversas longas custam mais a cada mensagem.
+- Não edite os arquivos do kit no meio de uma fase: isso invalida o cache de prompt e encarece as mensagens seguintes.
 - Use Sonnet nas Fases 1, 2, 5 e 6.
 
 ## 8. Usando no claude.ai (modo chat) e em outras ferramentas
@@ -93,7 +103,9 @@ para ter o custo. A maior parte do custo está na Fase 4; a Fase 2 é barata em 
   como conhecimento, e nas instruções do projeto escreva "Siga kit-sites/00-COMECE-AQUI.md". Limitação: a IA não grava
   arquivos; ela entrega cada arquivo em um bloco de código e você salva no seu computador com o nome indicado
   (um editor simples como o VS Code ou o Bloco de Notas serve). A publicação fica por sua conta (Netlify Drop é o
-  caminho mais simples). Funciona, mas é mais lento e sujeito a erro: prefira o Claude Code.
+  caminho mais simples). Funciona, mas é mais lento e sujeito a erro: prefira o Claude Code. Limites (verificar no
+  plano): o conhecimento do projeto cabe inteiro até ~200 mil tokens (o kit tem ~90 mil); acima disso o claude.ai busca
+  trechos e pode perder regras. Para ver uma seção antes de salvar, peça "mostre o hero como um artifact HTML único".
 - **Cursor, Claude Desktop (Cowork) e similares:** qualquer ferramenta em que a IA leia e grave arquivos funciona
   igual ao Claude Code. Aponte-a para `kit-sites/00-COMECE-AQUI.md`.
 
@@ -143,6 +155,9 @@ Seu projeto (fora de `kit-sites/`): `BRIEFING.md`, `REFERENCIAS.md`, `ESPECIFICA
 ## 12. Links úteis
 
 - https://claude.com/claude-code — instalar o Claude Code (grátis; usa sua assinatura/créditos Claude).
+- https://code.claude.com/docs/en/overview — documentação do Claude Code: instalação, `CLAUDE.md`, skills, flags (grátis; verificar).
+- https://platform.claude.com/docs/en/about-claude/pricing — preços oficiais por milhão de tokens (grátis).
+- https://claude.com/pricing — planos Free/Pro/Max e o que cada um inclui (grátis; verificar).
 - https://github.com/signup — criar conta no GitHub (grátis).
 - https://pages.github.com — como funciona o GitHub Pages (grátis).
 - https://registro.br — domínios `.com.br` (anuidade).

@@ -112,9 +112,10 @@ commit `fix: <o que>`. Só avance quando a pessoa disser "ok" para os itens 1-5.
 ## 4. Publicar no GitHub Pages (caminho principal)
 
 **Pré-requisitos:** conta no GitHub (grátis; a pessoa cria em https://github.com/signup com e-mail e senha) e a
-ferramenta `gh` instalada no computador onde o Claude Code roda. Repositório **público** (GitHub Pages em repositório
-privado exige plano pago — verificar). O repositório público expõe só o site (que é público de qualquer forma): os
-artefatos de planejamento ficam fora de `site/`.
+ferramenta `gh` instalada no computador onde o Claude Code roda. Repositório **público** (no plano Free o Pages só
+publica de repositório público; privado exige GitHub Pro/Team, e mesmo assim o site continua público na internet).
+O repositório público expõe só o site (que é público de qualquer forma): os artefatos de planejamento ficam fora de `site/`.
+Limites do Pages (brandos): site ≤ 1 GB, 100 GB de banda/mês, 10 builds/hora; proibido como loja virtual/SaaS.
 
 Passos (a IA executa; a pessoa só faz o login quando pedido):
 
@@ -131,18 +132,19 @@ gh auth status
 # 2. Dentro de site/: conferir que está tudo commitado
 cd site && git status --short      # esperado: vazio
 
-# 3. Criar o repositório público e enviar (nome: o do negócio em minúsculas com hífens, ex.: clinica-raiz)
+# 3. Criar o repositório público e enviar (nome: o do negócio em minúsculas com hífens, ex.: clinica-raiz;
+#    para URL sem subpasta, chame o repositório de USUARIO.github.io — só 1 por conta)
 gh repo create NOME-DO-REPO --public --source=. --remote=origin --push
 
-# 4. Ativar o GitHub Pages (branch main, pasta raiz)
+# 4. Ativar o GitHub Pages (branch main, pasta raiz; index.html em minúsculas na raiz, senão 404)
 gh api -X POST repos/USUARIO/NOME-DO-REPO/pages --input - <<'JSON'
-{ "source": { "branch": "main", "path": "/" } }
+{ "build_type": "legacy", "source": { "branch": "main", "path": "/" } }
 JSON
 #    Se der erro "already exists", o Pages já está ativo. Se der 404/403, use o caminho pelo navegador:
 #    github.com/USUARIO/NOME-DO-REPO → Settings → Pages → Build and deployment → Source: Deploy from a branch →
 #    Branch: main / (root) → Save.
 
-# 5. Esperar 1-3 minutos e pegar a URL
+# 5. Esperar (até 10 minutos; em geral 1-3) e pegar a URL
 gh api repos/USUARIO/NOME-DO-REPO/pages --jq '.html_url'
 gh api repos/USUARIO/NOME-DO-REPO/pages/builds/latest --jq '.status'   # esperado: built
 ```
@@ -153,8 +155,9 @@ Abra a URL. Se ela for diferente da URL prevista na especificação (ex.: nome d
 (com a barra no fim); por isso todos os caminhos são relativos.
 
 Problemas comuns: página em branco → espere o build terminar (`builds/latest`); CSS não carrega → caminho absoluto
-em algum `href`; mudança não aparece → espere 1 minuto e recarregue com Ctrl+F5; arquivos começando com `_` sumiram →
-confirme que `.nojekyll` está no repositório.
+em algum `href`; mudança não aparece → espere até 10 minutos e recarregue em janela anônima ou com Ctrl+Shift+R; passou
+de 1 hora → `gh run list` / `gh run view --log` (workflow "pages build and deployment") e https://www.githubstatus.com;
+arquivos começando com `_` sumiram → confirme que `.nojekyll` está no repositório.
 
 ### 4.1 Sem `gh` (pelo navegador)
 1. https://github.com/new → Repository name: `nome-do-repo` → Public → Create repository.
@@ -169,18 +172,24 @@ confirme que `.nojekyll` está no repositório.
 
 1. **Registrar:** https://registro.br → "Registre seu domínio" → pesquisar `nomedonegocio.com.br` → criar conta com
    CPF ou CNPJ → pagar (anuidade na faixa de R$ 40 — verificar valor atual) → o domínio fica ativo em minutos/horas.
-2. **DNS no painel do Registro.br:** domínio → "Editar zona" (DNS do Registro.br) → adicionar:
+2. **No GitHub, antes do DNS** (evita sequestro do domínio): Settings → Pages →
+   Custom domain → `www.nomedonegocio.com.br` → Save (isso cria o arquivo `CNAME` com uma linha; se a IA preferir, crie
+   `site/CNAME` com o domínio, commit e push; nunca apague esse arquivo). Use o `www` como principal: com apex + www no
+   DNS o Pages redireciona um para o outro. Verificação do domínio: Settings **da conta** (não do repositório) → Pages →
+   "Add a domain" → criar o TXT `_github-pages-challenge-USUARIO` com o valor mostrado → Verify; mantenha o TXT.
+3. **DNS no painel do Registro.br:** domínio → "Editar zona" (DNS do Registro.br) → apagar registros A/CNAME
+   pré-existentes em `@` e `www` (página "em construção") → adicionar:
    - 4 registros **A** para o domínio raiz (`@` ou vazio): `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - 1 registro **CNAME** `www` → `USUARIO.github.io`
-   Salvar. Propagação: de minutos até 24 h.
-3. **No GitHub:** Settings → Pages → Custom domain → `nomedonegocio.com.br` → Save (isso cria o arquivo `CNAME`; se a IA
-   preferir, crie `site/CNAME` com o domínio, commit e push). Quando o DNS propagar, marque **Enforce HTTPS** (o
-   certificado leva alguns minutos). Recomendado: verificar o domínio em Settings → Pages → "Verified domains" (verificar
-   o caminho na sua conta).
+   - 1 registro **CNAME** `www` → `USUARIO.github.io` (sem nome de repositório)
+   Salvar. Propagação: de minutos até 24 h (conferir: `dig nomedonegocio.com.br +short`). Depois o GitHub
+   emite o certificado (até 1 h) e libera **Enforce HTTPS** (até 24 h): marque. "Certificate not yet created" preso →
+   Remove no domínio em Settings → Pages, digite de novo e Save. CAA, se existir, deve incluir `letsencrypt.org`.
 4. **Atualizar o site:** `canonical`, `og:url`, `og:image`, `redirect` do formulário, `sitemap.xml`, `robots.txt`, `404.html`
-   para `https://nomedonegocio.com.br/`; commit `docs: domínio próprio`; push.
+   para `https://www.nomedonegocio.com.br/` (o domínio salvo no passo 2); commit `docs: domínio próprio`; push.
 5. **Testar:** `https://nomedonegocio.com.br` e `https://www.nomedonegocio.com.br` abrem com cadeado.
 Outros registradores (Cloudflare Registrar, Namecheap, Hostinger, HostGator) seguem o mesmo princípio: registros A e CNAME.
+Cloudflare Registrar (`.com` a preço de custo) obriga a usar o DNS da Cloudflare: deixe os registros do GitHub em "DNS only"
+(nuvem cinza), senão o proxy pode criar loop de redirecionamento com o Enforce HTTPS.
 
 ## 6. Formulário (Web3Forms, padrão do kit; detalhes em `GUIA-FRONTEND §9`)
 
@@ -191,13 +200,15 @@ Outros registradores (Cloudflare Registrar, Namecheap, Hostinger, HostGator) seg
    e o `redirect` com a URL absoluta de `obrigado.html`; commit `feat: formulário ativo`; push.
 3. **Teste real:** a pessoa envia o formulário no site publicado e confirma o e-mail (olhar spam; marcar como "não é
    spam"). Se o e-mail não chegar em 5 minutos: conferir a chave, o e-mail cadastrado e o `name` dos campos.
-4. Spam: o campo-armadilha `botcheck` já está no starter. Se começar a chegar spam, ative o hCaptcha do serviço
-   (`GUIA-FRONTEND §9`).
+4. Spam: o campo-armadilha `botcheck` já está no starter. Se começar a chegar spam, ative o hCaptcha do serviço ou o
+   Cloudflare Turnstile (grátis; a pessoa cria o widget e envia a `sitekey`) — snippet em `GUIA-FRONTEND §9`.
 Alternativa (se a pessoa já usa): Formspree (https://formspree.io; plano grátis com poucos envios/mês — verificar) com
 `action="https://formspree.io/f/ID"`; ajustar os campos conforme `GUIA-FRONTEND §9`.
 
 ## 7. Analytics e Google (opcionais, só se Q40/Q41 pediram)
 
+Regra de escolha: vai anunciar no Google/Meta → GA4 (+ pixel) com banner; não vai → Clarity (com banner) ou analytics sem
+cookies e sem banner (Umami Cloud, Simple Analytics; snippets em `GUIA-FRONTEND §10.6`).
 - **Microsoft Clarity** (grátis; mapas de calor e gravações): a pessoa cria o projeto em https://clarity.microsoft.com →
   Settings → Setup → copia o ID do projeto. A IA insere o snippet como `<script type="text/plain" data-consent>` antes de
   `</body>` (o `main.js` só ativa após "Aceitar"), confere que o `cookie-banner` está presente e que a
@@ -217,8 +228,11 @@ Alternativa (se a pessoa já usa): Formspree (https://formspree.io; plano gráti
   `site/` → o site sobe em `nome-aleatorio.netlify.app` → Site configuration → Change site name. Atualizações: arrastar
   de novo em Deploys. Formulário continua pelo Web3Forms (ou Netlify Forms: adicionar `data-netlify="true"` ao `<form>` e
   remover `action`/`access_key`; plano grátis com limite mensal de envios — verificar).
-- **Cloudflare Pages** (grátis): https://dash.cloudflare.com → Workers & Pages → Create → Pages → "Upload assets" →
-  arrastar `site/` → `nome.pages.dev`. Também aceita conexão com o repositório GitHub para publicar a cada push.
+- **Cloudflare Pages** (grátis: 20.000 arquivos por site, 25 MiB por arquivo; upload por arrastar até 1.000 arquivos):
+  https://dash.cloudflare.com → Workers & Pages → Create → Pages → "Upload assets" →
+  arrastar `site/` → `nome.pages.dev`. Também aceita conexão com o repositório GitHub para publicar a cada push, mas
+  decida na criação: projeto criado por upload não migra para Git depois. Domínio próprio: CNAME `www` → `nome.pages.dev`,
+  criado depois de registrar o domínio em Custom domains; o domínio raiz exige DNS na Cloudflare.
 
 ## 9. Pós-lançamento (obrigatório)
 
@@ -238,12 +252,16 @@ Alternativa (se a pessoa já usa): Formspree (https://formspree.io; plano gráti
 ## 10. Links
 
 - https://pages.github.com — documentação oficial do GitHub Pages (grátis).
-- https://cli.github.com — `gh`, a ferramenta de linha de comando do GitHub (grátis).
+- https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits — limites e usos permitidos do Pages (grátis).
+- https://cli.github.com/manual — `gh`, a ferramenta de linha de comando do GitHub (grátis).
+- https://www.githubstatus.com — status do GitHub; cheque "Pages" quando o deploy não sai (grátis).
+- https://letsencrypt.org/docs/caa/ — registro CAA e HTTPS do Pages (grátis).
+- https://developers.cloudflare.com/turnstile/ — Cloudflare Turnstile, antispam para o formulário (grátis).
 - https://registro.br — registro de domínios `.br` (pago, anuidade).
 - https://web3forms.com — formulários para sites estáticos (grátis com limite mensal — verificar).
 - https://formspree.io — alternativa de formulário (freemium).
 - https://app.netlify.com/drop — publicar arrastando a pasta (grátis).
-- https://pages.cloudflare.com — Cloudflare Pages (grátis).
+- https://developers.cloudflare.com/pages/ — Cloudflare Pages, documentação e limites (grátis).
 - https://pagespeed.web.dev — PageSpeed Insights (grátis).
 - https://wave.webaim.org — avaliação de acessibilidade (grátis).
 - https://www.opengraph.xyz e https://metatags.io — prévia de compartilhamento (grátis).

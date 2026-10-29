@@ -82,11 +82,14 @@ Cada regra em uma linha, com número. O starter (`base/styles.css`) já aplica a
 
 ### 2.5 Imagens
 - Hero: 1600px de largura, ≤ 220 KB, WebP, `fetchpriority="high"`; demais imagens `loading="lazy"`.
-- Cards de serviço/portfólio: 800px de largura, ≤ 90 KB; avatares: 192px quadrados, ≤ 20 KB; logos de clientes: SVG ou PNG com altura 72px (exibidos a 36px), monocromáticos via `.logos`.
+- Cards de serviço/portfólio: 800px de largura, ≤ 90 KB; avatares: 192px quadrados, ≤ 15 KB (mesmos limites de `GUIA-FRONTEND §8`); logos de clientes: SVG ou PNG com altura 72px (exibidos a 36px), monocromáticos via `.logos`.
 - Proporções fixas por uso: hero 4:3; cards e vídeo 16:9; sobre 4:3 ou 3:2; avatar 1:1; retrato de equipe 3:4; portfólio 4:3 (ou 1:1 em grade).
 - Sempre `width`/`height` reais e `alt` ≤ 125 caracteres descrevendo o conteúdo (ou `alt=""` se decorativa).
 - Nunca texto dentro de imagem (exceto logo); nunca foto de banco com "modelo sorrindo apontando"; foto real com luz natural vence foto perfeita de banco.
 - Peso total da home ≤ 1,5 MB; 1 imagem por card no máximo; nenhum carrossel automático.
+- Favicon: só o símbolo (sem o nome), fundo sólido na cor da marca; a aba mostra 16-32px e detalhes finos somem. OG image: 1200×630, ≤ 300 KB, logo + frase de até 8 palavras, 60px de margem nas bordas (apps cortam a prévia); tags em `GUIA-FRONTEND §7`.
+- Antes de usar: remover EXIF/GPS das fotos (Squoosh e `cwebp -metadata none` fazem isso); pessoas identificáveis em fotos e depoimentos só com autorização de uso de imagem por escrito (Código Civil, art. 20), guardada pela pessoa.
+- Banco de imagens só para detalhes (mãos, ambiente, produto), nunca para "nossa equipe"/"nosso espaço"; Unsplash, Pexels e Pixabay não exigem crédito; Freepik, Flaticon e Storyset no plano grátis exigem atribuição (linha no rodapé ou página de créditos).
 - Ícones: Lucide SVG inline 24×24, traço 2px, em `.feature__icon` (48px com fundo `--color-primary-soft`), cor = primária.
 
 ### 2.6 Movimento
@@ -393,7 +396,7 @@ A matéria-prima vem da pessoa (Fase 2, Tarefa 5). A IA organiza, corta e dá fo
 | **[Serviço] em [cidade/bairro] com [diferencial]** | negócio local (Q11 = A), ajuda no SEO | "Fisioterapia no Cambuí com avaliação de 60 minutos" · "Marcenaria sob medida na Zona Sul com entrega em 30 dias" · "Clínica veterinária 24h em Curitiba" |
 | **[Tempo/método] + [o que fazem para quem]** | institucional, tom sóbrio | "Há 20 anos cuidando da segurança jurídica de empresas familiares" · "Engenharia que entrega obra no prazo desde 2008" · "Design de marcas para negócios que querem crescer" |
 
-Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "excelência", "transformar"; o subtítulo (15-30 palavras) completa com como, prazo, prova ou para quem; o eyebrow (2-5 palavras) diz o segmento e a cidade.
+Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "excelência", "transformar"; nunca começa com o nome da empresa nem com "Bem-vindo"; o subtítulo (15-30 palavras) completa com como, prazo, prova ou para quem; o eyebrow (2-5 palavras) diz o segmento e a cidade. Gere 3 opções de fórmulas diferentes e deixe a pessoa escolher. Teste dos 5 segundos (Fase 4, checkpoint do hero): alguém de fora vê só a primeira tela no celular e diz o que a empresa faz e para quem; se errar, a headline volta.
 
 ### 6.2 Comprimentos (resumo; detalhes por seção em §5)
 
@@ -418,7 +421,8 @@ Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "exc
 
 ### 6.3 Prova social
 - Ordem de força: número verificável com fonte (nota 4,9 no Google · 310 avaliações) > depoimento com nome, foto e contexto > logos de clientes > selos/prêmios > "anos de mercado".
-- Específico vence genérico: "voltei a correr em 8 sessões" > "atendimento excelente"; mantenha a fala da pessoa, corte só o excesso.
+- Específico vence genérico: "voltei a correr em 8 sessões" > "atendimento excelente"; mantenha a fala da pessoa, corte só o excesso. Números exatos ("127 clientes", "4,9 com 86 avaliações") são mais críveis que redondos ("centenas de clientes").
+- Perto do CTA: uma prova curta (nota do Google ou 1 frase de depoimento) ao lado ou logo acima do primeiro botão e da `cta-band`; o visitante decide no botão. Use 2-3 tipos de prova diferentes por página (ex.: nota + depoimentos + logos), não 1 tipo repetido.
 - Sempre contexto: cargo/situação + "cliente desde 2024"/"paciente desde 2025"; depoimentos de empresa com nome da empresa.
 - Sem prova real: use fatos (formação, registro profissional, anos, estrutura, garantia) em `about-split`/`stats-band`; nunca invente; proponha à pessoa coletar 3 depoimentos pelo WhatsApp com 3 perguntas (situação antes, o que fizemos, resultado).
 - Avaliações do Google/Reclame Aqui: cite nota + quantidade + link; não copie textos de avaliações sem permissão explícita.
@@ -429,7 +433,7 @@ Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "exc
 - Evite: "Saiba mais", "Clique aqui", "Enviar", "Submeter", "Contato", "Entre em contato conosco agora mesmo!!!".
 - Primário igual em todo o site (hero, `cta-band`, header); secundário muda por contexto ("Ver como funciona", "Ver portfólio", "Ver serviços").
 - Microrreforço (nota sob o botão, ≤ 12 palavras): "Resposta em até 1 dia útil" · "Sem compromisso" · "Avaliação cobrada à parte, abatida no plano" · "Vagas limitadas por turma" (só se verdade).
-- Urgência só verdadeira (data, vagas, turma); nunca contador regressivo falso.
+- Urgência só verdadeira (data, vagas, turma); nunca contador regressivo falso nem "últimas 3 vagas" permanente: além de derrubar a confiança, é publicidade enganosa (CDC).
 
 ### 6.5 Microcopy de formulário e páginas de apoio
 
@@ -458,11 +462,13 @@ Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "exc
 - Título com inicial maiúscula só na primeira palavra e nomes próprios ("Como funciona", não "Como Funciona").
 - Adapte ao tom de Q10: profissional/direto = frases curtas e números; acolhedor = 2ª pessoa e "sem medo", "no seu ritmo"; sofisticado = menos adjetivos, mais substantivos, sem exclamação; técnico = termos precisos com explicação de 5 palavras.
 - Consistência: o nome do negócio sempre do mesmo jeito; um único termo por conceito (não alternar "sessão" e "atendimento").
+- Fale do cliente: fora da página Sobre, "você/seu" deve aparecer mais que "nós/nosso"; cada benefício começa com o que muda para o cliente ("Você recebe…"), não com o que a empresa tem.
+- Reaproveite as palavras do cliente (voice of customer): frases literais de mensagens de WhatsApp e avaliações (Fase 2) viram headline, benefícios e FAQ; o FAQ começa pela maior objeção (preço ou prazo).
 
 ### 6.7 Elementos de confiança no Brasil (inclua os que forem verdadeiros)
 - WhatsApp com número visível e botão (não só ícone); resposta em horário comercial declarada.
-- Razão social e CNPJ no rodapé; endereço completo com mapa quando há atendimento presencial; horário de funcionamento.
-- Nota e quantidade de avaliações no Google (Google Business Profile) com link; selo RA1000/Reclame Aqui se houver.
+- Razão social e CNPJ no rodapé; endereço completo com mapa quando há atendimento presencial; horário de funcionamento. Esconder CNPJ/endereço "para evitar spam" é lido como sinal de golpe; para loja virtual, nome empresarial, CNPJ e endereço são exigência legal (Decreto 7.962/2013).
+- Nota e quantidade de avaliações no Google (Google Business Profile) com link; selo RA1000/Reclame Aqui só se a nota for boa (≥ 7); com nota ruim ou sem página, não mencione.
 - Registro profissional e conselho (CREFITO, CRM, CRO, OAB, CREA, CRC, CRP) junto ao nome das pessoas.
 - Formas de pagamento: Pix, cartão, parcelamento; "emitimos nota fiscal"; "recibo para reembolso de convênio".
 - Garantia explícita e em palavras simples ("garantia de 90 dias", "reavaliação sem custo").
@@ -544,14 +550,34 @@ Links com 1 linha cada; grátis salvo indicação. "(verificar)" = não confirma
 - https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast — critério 1.4.11 (3:1 para bordas, ícones e foco). Grátis.
 
 **Layout, componentes e princípios**
-- https://lucide.dev/icons/ — biblioteca de ícones SVG (ISC) usada no kit; copie o SVG inline. Grátis. (verificar)
+- https://lucide.dev/icons/ — biblioteca de ícones SVG (ISC) usada no kit; copie o SVG inline. Grátis.
 - https://lawsofux.com/ — princípios de psicologia aplicados a interfaces (Hick, Fitts, Von Restorff). Grátis.
 - https://m3.material.io/styles/typography/type-scale-tokens — escala tipográfica de referência com tamanho/entrelinha. Grátis.
 - https://www.refactoringui.com/ — livro de design prático para quem programa (hierarquia, espaçamento, cor). Pago (US$ 99-149; capítulos grátis).
-- https://www.nngroup.com/articles/ — artigos de pesquisa de usabilidade (formulários, navegação, legibilidade). Grátis. (verificar)
+- https://www.nngroup.com/articles/ — artigos de pesquisa de usabilidade (formulários, navegação, legibilidade). Grátis.
 - https://land-book.com — galeria de landing pages reais com filtros por setor e estilo. Grátis com limites; Pro ≈ US$ 6/mês.
 - https://saaspo.com — exemplos por tipo de seção (hero, pricing, FAQ, depoimentos). Grátis.
 - https://www.unsection.com — biblioteca de seções reais (hero, features, footer, CTA, equipe). Grátis.
 - https://footer.design — galeria só de rodapés, filtrável por estilo. Grátis.
 - https://onepagelove.com — sites de uma página (formato mais próximo da LP institucional simples). Grátis para navegar.
 - https://minimal.gallery — sites minimalistas; referência para `clean`/`editorial`. Grátis.
+
+**Anatomia e copy (§4 e §6)**
+- https://marketingexamples.com/conversion/landing-page-guide — guia visual curto do que vai acima da dobra, com antes/depois. Grátis.
+- https://marketingexamples.com/copywriting/guide — 7 princípios de copy com exemplos ("diga mais simples", "específico vence vago"). Grátis.
+- https://www.julian.com/guide/growth/landing-pages — anatomia hero > benefícios > prova > objeções > CTA e fórmula de proposta de valor. Grátis.
+- https://copyhackers.com — fórmulas PAS, AIDA, BAB e "voice of customer"; busque "formulas". Blog grátis; cursos pagos.
+- https://unbounce.com/landing-page-articles/the-anatomy-of-a-landing-page/ — os 5 elementos essenciais de uma LP, útil como checklist. Grátis.
+- https://www.nngroup.com/articles/top-ten-guidelines-for-homepage-usability/ — 10 regras da página inicial (tagline explícita, nada de "Bem-vindo"). Grátis.
+- https://www.nngroup.com/articles/designing-effective-carousels/ — por que carrossel no topo falha; mostre a quem pedir "banner rotativo". Grátis.
+- https://www.landingfolio.com — galeria organizada por seção (hero, pricing, depoimentos, FAQ). Galeria grátis; templates pagos.
+- https://hemingwayapp.com — marca frases longas e voz passiva (funciona com português). Versão web grátis. (verificar)
+- https://www.rdstation.com/blog/ — artigos em pt-BR sobre landing page, CTA e formulários; use para vocabulário, não para números. Grátis. (verificar)
+
+**Imagens, ícones e favicon (§2.5)**
+- https://squoosh.app/ — redimensionar e converter para WebP no navegador (nada sobe para servidor); remove EXIF. Grátis.
+- https://unsplash.com/ e https://www.pexels.com/pt-br/ — fotos gratuitas sem crédito obrigatório; baixe "Large/Grande", nunca "Original". Grátis.
+- https://undraw.co/illustrations — ilustrações SVG com a cor da marca aplicada antes de baixar; uma coleção por site. Grátis.
+- https://haikei.app/ — fundos SVG (ondas, blobs) nas cores da paleta para separar seções sem foto. Grátis. (verificar)
+- https://realfavicongenerator.net/ — gera o pacote de favicon (ico, svg, apple-touch-icon 180, 192/512) com as tags prontas. Grátis.
+- https://www.opengraph.xyz/ — prévia do link no WhatsApp/LinkedIn após publicar; testa a OG image. Grátis.

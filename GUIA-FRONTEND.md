@@ -676,7 +676,7 @@ Só inclua campos com dado real; apague os que não tiver (não deixe `{{ }}` ne
 
 - Metas: Lighthouse mobile ≥ 90 em Performance/Acessibilidade/SEO; LCP ≤ 2,5s; CLS ≤ 0,1; home ≤ 1,5 MB.
 - Imagens: WebP, qualidade ~80; largura máxima 1600px (hero), 1200px (`about-split`), 800px (cards/portfólio), 400px (equipe), 192px (avatares 2×); peso-alvo: hero ≤ 220 KB, cards ≤ 90 KB, avatar ≤ 15 KB. `width`/`height` reais em todo `<img>` (evita CLS; o CSS redimensiona). `loading="lazy"` em tudo abaixo da primeira dobra; a imagem do hero com `fetchpriority="high"` e sem lazy. Fallback JPG só se a pessoa exigir Safari antigo: `<picture><source srcset="x.webp" type="image/webp"><img src="x.jpg" …></picture>`.
-- Conversão: a pessoa entrega WebP (Squoosh) na Fase 2; senão `cwebp -q 82 -resize 1600 0 in.jpg -o out.webp` ou `magick in.jpg -resize 1600x -quality 82 out.webp`; sem ferramentas → Squoosh (§15). Checar peso: `ls -la site/assets/img`.
+- Conversão: a pessoa entrega WebP (Squoosh) na Fase 2; senão `cwebp -q 82 -resize 1600 0 -metadata none in.jpg -o out.webp` ou `magick in.jpg -auto-orient -strip -resize 1600x -quality 82 out.webp` (`-metadata none`/`-strip` removem EXIF e GPS do celular); sem ferramentas → Squoosh (§15). Checar peso: `ls -la site/assets/img` e total com `du -ch site/assets/img/* | tail -1`.
 - Fontes: 2 famílias, 3-4 pesos no total (ex.: Inter 400;500;600 + Manrope 700;800); `display=swap`; os dois `preconnect`; fonte variável com intervalo (`wght@400..700`) só se a família for variável (fonts.google.com/variablefonts), senão a API devolve erro 400 e nada carrega. Fallback `system-ui` nos tokens.
 - CSS/JS: um `styles.css` (~30 KB) e um `main.js` (~5 KB) com `defer`; nada externo além de fontes e, se houver, analytics/iframes. Não minifique (dificulta a Fase 6); o ganho é irrelevante.
 - Iframes (mapa, vídeo, agenda): sempre `loading="lazy"` e dentro de `.media` com proporção (sem CLS). Mapa e vídeo abaixo da primeira dobra.
@@ -719,8 +719,10 @@ Passo a passo (Fase 5 §7): a pessoa abre web3forms.com, informa o e-mail de des
 - Até a chave existir, deixe `value="{{CHAVE-RECEBIDA-POR-EMAIL}}"`; o `grep "{{"` do QA acusa o pendente.
 - Teste real (Fase 5): enviar pelo site publicado, confirmar e-mail recebido e a chegada em `obrigado.html`. E-mail não chega → spam/lixo eletrônico; chave errada → a resposta do Web3Forms mostra o erro na tela.
 - O `main.js` só muda o botão para "Enviando..."; o envio é o `POST` nativo (funciona sem JS).
+- Spam: o `botcheck` resolve a maior parte. Se persistir, hCaptcha (suportado pelo Web3Forms) ou **Cloudflare Turnstile** (grátis: até 20 widgets, 10 hostnames por widget, desafios ilimitados): a pessoa cria o widget em dash.cloudflare.com → Turnstile com o domínio do site e envia a `sitekey`; a IA inclui `<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>` no `<head>` e `<div class="cf-turnstile" data-sitekey="{{SITEKEY}}"></div>` antes do botão (Web3Forms e Formspree validam o token). O script precisa vir desse domínio (não copie para o site).
+- A `access_key` e o ID do Formspree são públicos por natureza e podem ficar no HTML; tokens de API, senhas e `.env` nunca entram no repositório público.
 
-Alternativa (3 linhas): **Formspree** — `action="https://formspree.io/f/{{ID}}"` (conta em formspree.io, plano gratuito com ~50 envios/mês (verificar)); campos `_subject` (assunto), `_gotcha` (honeypot: troque `name="botcheck"` por `name="_gotcha"`), `_next` (redirect; disponível em plano pago, verificar); campo `email` vira reply-to. Use só se a pessoa já tiver conta ou o Web3Forms estiver indisponível; registre em `site/README.md §6`.
+Alternativa (3 linhas): **Formspree** — `action="https://formspree.io/f/{{ID}}"` (conta em formspree.io, plano gratuito com ~50 envios/mês (verificar); ao estourar o limite o serviço para de entregar sem avisar); campos `_subject` (assunto), `_gotcha` (honeypot: troque `name="botcheck"` por `name="_gotcha"`), `_next` (redirect; disponível em plano pago, verificar); campo `email` vira reply-to. Use só se a pessoa já tiver conta ou o Web3Forms estiver indisponível; registre em `site/README.md §6`.
 
 Sem formulário: Q37 = B → só WhatsApp (botão `btn--whatsapp` no contato) e `mailto:`; remova o `<form>` e a linha do serviço em `privacidade.html`.
 
@@ -740,11 +742,11 @@ A pessoa vai ao Google Maps → busca o endereço → Compartilhar → "Incorpor
   <iframe src="https://www.google.com/maps/embed?pb=…" title="Mapa com a localização de {{Nome}}" width="600" height="338" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 </div>
 ```
-Sem mapa: apague o `<div class="contact__map" … hidden>`. Alternativa sem iframe (zero cookies): link "Ver no mapa" para `https://www.google.com/maps/search/?api=1&query=ENDERECO+CODIFICADO` em `.contact__info`.
+Sem mapa: apague o `<div class="contact__map" … hidden>`. Alternativa sem iframe (zero cookies): link "Ver no mapa" para `https://www.google.com/maps/search/?api=1&query=ENDERECO+CODIFICADO` em `.contact__info`. Com ou sem mapa, um link "Como chegar" (`https://www.google.com/maps/dir/?api=1&destination=ENDERECO+CODIFICADO`, `target="_blank" rel="noopener"`) abre a rota no app do visitante.
 
 ### 10.3 Agendamento (Calendly / Cal.com)
 
-Padrão ★: botão com link direto (`<a class="btn btn--primary btn--lg" href="https://calendly.com/usuario/evento" target="_blank" rel="noopener">Agendar horário</a>` ou `https://cal.com/usuario/evento`). Simples, sem script, sem cookies de terceiros na página. Embed inline só se a especificação exigir: ambos fornecem script externo de embed (Calendly: `assets.calendly.com/assets/external/widget.js` com `<div class="calendly-inline-widget" data-url="…">`; Cal.com: snippet em cal.com/docs → Embed) (verificar) — coloque dentro de `.media` com `min-height` no bloco Z e, se houver analytics, trate como script de terceiro (§11).
+Padrão ★: botão com link direto (`<a class="btn btn--primary btn--lg" href="https://calendly.com/usuario/evento" target="_blank" rel="noopener">Agendar horário</a>` ou `https://cal.com/usuario/evento`). Simples, sem script, sem cookies de terceiros na página. Embed inline só se a especificação exigir: ambos fornecem script externo de embed (Calendly: `assets.calendly.com/assets/external/widget.js` com `<div class="calendly-inline-widget" data-url="…">`; Cal.com (grátis para uso individual): a pessoa copia o snippet em tipo de evento → Embed → Inline → HTML, que carrega `https://app.cal.com/embed/embed.js` e chama `Cal("inline", {calLink: "usuario/evento"})`; há também os modos popup e botão flutuante) — coloque dentro de `.media` com `min-height` no bloco Z e, se houver analytics, trate como script de terceiro (§11).
 
 ### 10.4 YouTube
 
@@ -776,7 +778,9 @@ Microsoft Clarity (gratuito; ID do projeto em clarity.microsoft.com):
   })(window, document, "clarity", "script", "{{ID-DO-PROJETO}}");
 </script>
 ```
-Alternativas sem cookies (não exigem banner; pagas ou com plano gratuito limitado): Plausible (`<script defer data-domain="dominio.com.br" src="https://plausible.io/js/script.js"></script>`, pago após teste), Umami Cloud (`<script defer src="https://cloud.umami.is/script.js" data-website-id="…"></script>`, plano Hobby gratuito). Só se a pessoa pedir explicitamente.
+Microsoft Clarity é gratuito sem limite de tráfego; GA4 só vale se a pessoa for anunciar no Google (Q41).
+
+Alternativas sem cookies (não exigem banner; pagas ou com plano gratuito limitado): Plausible (`<script defer data-domain="dominio.com.br" src="https://plausible.io/js/script.js"></script>`, pago após teste de 30 dias sem cartão), Umami Cloud (`<script defer src="https://cloud.umami.is/script.js" data-website-id="…"></script>`, plano Hobby gratuito com 6 meses de retenção), Simple Analytics (`<script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>` no fim do `<body>`; plano Free mostra só os últimos 30 dias e exige o badge "Simple Analytics" visível no rodapé). Só se a pessoa pedir explicitamente.
 
 Pixel Meta / Google Ads (Q41 = F): cole o snippet oficial fornecido pela pessoa, convertendo cada `<script>` em `<script type="text/plain" data-consent>` (a tag `<noscript><img …>` do pixel: remova, pois dispararia sem consentimento). Registre ferramenta + ID em `site/README.md §6` e cite-a em `privacidade.html §3 e §6`.
 
@@ -859,24 +863,30 @@ Links úteis para a IA e para a pessoa (gratuito salvo indicação; "(verificar)
 - Fontes variáveis do Google Fonts — https://fonts.google.com/variablefonts — confirmar se uma família aceita intervalo de pesos.
 - WebAIM Contrast Checker — https://webaim.org/resources/contrastchecker/ — checar contraste AA entre dois hex.
 - Who Can Use — https://www.whocanuse.com/ — contraste simulando tipos de visão.
-- Lucide Icons — https://lucide.dev/icons/ — origem dos ícones do §4.22; copiar SVG de outros ícones se a pessoa pedir (verificar).
-- Squoosh — https://squoosh.app — converter/redimensionar imagens para WebP no navegador (verificar).
+- Lucide Icons — https://lucide.dev/icons/ — origem dos ícones do §4.22; copiar SVG de outros ícones se a pessoa pedir.
+- Squoosh — https://squoosh.app — converter/redimensionar imagens para WebP no navegador.
 - Web3Forms — https://web3forms.com — serviço padrão de formulário; chave por e-mail; plano gratuito (verificar limites atuais).
 - Formspree — https://formspree.io — alternativa de formulário; plano gratuito limitado (verificar).
-- GitHub Pages: documentação — https://docs.github.com/pages — criar site, domínio próprio (A 185.199.108/109/110/111.153 + CNAME www → usuario.github.io), "Enforce HTTPS", limites (1 GB, 100 GB/mês, 10 builds/h).
-- Netlify Drop — https://app.netlify.com/drop — fallback: arrastar a pasta `site/` e publicar; gratuito (verificar).
-- Schema.org LocalBusiness — https://schema.org/LocalBusiness — campos e subtipos do JSON-LD (verificar).
-- Rich Results Test (Google) — https://search.google.com/test/rich-results — validar o JSON-LD da página publicada (verificar).
-- PageSpeed Insights — https://pagespeed.web.dev — Lighthouse mobile da URL publicada (verificar).
-- WAVE — https://wave.webaim.org — avaliação de acessibilidade (extensão ou URL) (verificar).
-- W3C Validator — https://validator.w3.org — validar HTML (verificar).
-- OpenGraph preview — https://www.opengraph.xyz — ver como o link aparece no WhatsApp/LinkedIn (verificar).
-- WhatsApp: link wa.me — https://faq.whatsapp.com/5913398998672934 — formato oficial do link com mensagem (verificar).
-- Google Analytics 4 — https://analytics.google.com — ID `G-…`; gratuito (verificar).
-- Microsoft Clarity — https://clarity.microsoft.com — mapas de calor e gravações; gratuito.
-- Plausible — https://plausible.io/docs — analytics sem cookies; pago após teste gratuito.
-- Umami Cloud — https://umami.is/docs — analytics sem cookies; plano Hobby gratuito.
-- Cal.com — https://cal.com/docs — agendamento; plano gratuito individual; docs de embed.
+- GitHub Pages: documentação — https://docs.github.com/en/pages — criar site, domínio próprio (A 185.199.108/109/110/111.153 + CNAME www → usuario.github.io), "Enforce HTTPS"; limites em https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits (site ≤ 1 GB, 100 GB/mês e 10 builds/h como limites brandos; nada de e-commerce/SaaS). Gratuito em repositório público.
+- GitHub CLI (`gh`) — https://cli.github.com/manual — login por código no navegador e `gh repo create`; gratuito.
+- GitHub Status — https://www.githubstatus.com — confira "Pages"/"Actions" antes de investigar um 404 ou deploy parado; gratuito.
+- Cloudflare Turnstile — https://developers.cloudflare.com/turnstile/ — antispam sem quebra-cabeça para o formulário (§9); gratuito (20 widgets).
+- Cloudflare Pages — https://developers.cloudflare.com/pages/ — fallback de hospedagem por upload (até 1.000 arquivos) ou Git; gratuito (500 builds/mês).
+- Let's Encrypt: registros CAA — https://letsencrypt.org/docs/caa/ — se o domínio tem CAA, inclua `letsencrypt.org` ou o HTTPS do Pages não sai; gratuito.
+- Netlify Drop — https://app.netlify.com/drop — fallback: arrastar a pasta `site/` e publicar; gratuito.
+- Schema.org LocalBusiness — https://schema.org/LocalBusiness — campos e subtipos do JSON-LD.
+- Rich Results Test (Google) — https://search.google.com/test/rich-results — validar o JSON-LD da página publicada.
+- PageSpeed Insights — https://pagespeed.web.dev — Lighthouse mobile da URL publicada.
+- WAVE — https://wave.webaim.org — avaliação de acessibilidade (extensão ou URL).
+- W3C Validator — https://validator.w3.org — validar HTML.
+- OpenGraph preview — https://www.opengraph.xyz — ver como o link aparece no WhatsApp/LinkedIn.
+- WhatsApp: link wa.me — https://faq.whatsapp.com/5913398998672934 — formato oficial do link com mensagem.
+- Google Analytics 4 — https://analytics.google.com — ID `G-…`; gratuito.
+- Microsoft Clarity — https://clarity.microsoft.com — mapas de calor e gravações; gratuito, sem limite de tráfego.
+- Plausible — https://plausible.io/docs — analytics sem cookies; pago (planos por pageviews) após teste gratuito de 30 dias sem cartão.
+- Umami Cloud — https://umami.is/docs — analytics sem cookies; plano Hobby gratuito (6 meses de retenção; pagos com 14 dias de teste).
+- Simple Analytics — https://www.simpleanalytics.com — analytics sem cookies; plano Free com painel de 30 dias e badge obrigatório no rodapé; planos pagos sem essas restrições.
+- Cal.com — https://cal.com/docs — agendamento; plano gratuito individual; embed inline, popup ou botão flutuante.
 - Calendly — https://calendly.com — agendamento; plano gratuito com 1 tipo de evento (verificar).
-- MDN Web Docs — https://developer.mozilla.org/pt-BR/ — referência de HTML/CSS/JS em português (verificar).
+- MDN Web Docs — https://developer.mozilla.org/pt-BR/ — referência de HTML/CSS/JS em português.
 - web.dev: fontes — https://web.dev/articles/font-best-practices — boas práticas de carregamento de fontes.
