@@ -62,7 +62,8 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
 (async () => {
   const b = await chromium.launch(); const pages = fs.readdirSync('.').filter(f => f.endsWith('.html'));
   for (const f of pages) for (const w of [375, 768, 1280]) {
-    const c = await b.newContext({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' }); // reducedMotion: mostra os .reveal na captura const p = await c.newPage(); const errs = [];
+    const c = await b.newContext({ viewport: { width: w, height: 900 }, reducedMotion: 'reduce' }); // reducedMotion: mostra os .reveal na captura
+    const p = await c.newPage(); const errs = [];
     p.on('console', m => m.type() === 'error' && errs.push(m.text())); p.on('pageerror', e => errs.push(e.message));
     await p.goto('file://' + path.resolve(f)); await p.waitForTimeout(500);
     const over = await p.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);

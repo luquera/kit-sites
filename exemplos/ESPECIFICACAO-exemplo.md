@@ -35,6 +35,7 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 | --color-text | #1C2321 |
 | --color-text-muted | #4B5563 |
 | --color-border | #E4E1DA |
+| --color-border-strong | #7A7262 |
 | --footer-bg / --footer-text / --footer-muted | #1C2321 / #F7F5F0 / #A8B0AD |
 | --font-heading / --font-body | "Manrope", system-ui, sans-serif / "Inter", system-ui, sans-serif |
 | --radius-md / --radius-lg | 0.875rem / 1.25rem |
@@ -115,13 +116,13 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 - **Mapa:** sim — iframe do Google Maps do endereço, dentro de `.contact__map.media.media--16x9`, `loading="lazy"`, title "Mapa com a localização da Clínica Raiz"
 
 ### 5.2 privacidade.html
-- Preencher o modelo do starter com: Raiz Fisioterapia Ltda., CNPJ 00.000.000/0001-00, endereço acima, serviço de formulário (o padrão do kit), hospedagem GitHub Pages, WhatsApp; **sem** analytics (usar as alternativas "SE NÃO USAR"); retenção 12 meses; encarregado: Ana Ribeiro — privacidade@clinicaraiz.com.br; data da última atualização = data da publicação.
+- Preencher o modelo do starter com: Raiz Fisioterapia Ltda., CNPJ 00.000.000/0001-00, endereço acima, serviço de formulário Web3Forms, hospedagem GitHub Pages, WhatsApp; **sem** analytics (usar as alternativas "SE NÃO USAR"); retenção 12 meses; encarregado: Ana Ribeiro — privacidade@clinicaraiz.com.br; data da última atualização = data da publicação.
 
 ### 5.3 obrigado.html
 - Texto do starter; CTA WhatsApp com a mensagem "Olá! Acabei de enviar uma mensagem pelo site."
 
 ## 6. Integrações
-- **Formulário:** serviço padrão do kit → contato@clinicaraiz.com.br · chave/ID: Ana cria a conta na Fase 5 e envia · redirect `https://clinicaraiz.com.br/obrigado.html`
+- **Formulário:** Web3Forms (padrão do kit) → contato@clinicaraiz.com.br · chave: Ana gera no Web3Forms na Fase 5 e envia · redirect `https://www.clinicaraiz.com.br/obrigado.html`
 - **WhatsApp:** +55 19 99999-0000 · texto: "Olá! Vim pelo site e quero agendar uma avaliação."
 - **Mapa:** iframe do Google Maps (Ana envia o código "Incorporar um mapa" na Fase 4) · **Agendamento:** não · **Analytics:** não · **Pixels:** não
 
@@ -153,4 +154,4 @@ recuperação que pesquisam e comparam antes de agendar. O site precisa transmit
 - Ordem das seções proposta pela IA a partir do catálogo e aprovada por Ana em 06/11 (assumido: stats-band logo após o hero, por haver números fortes)
 - [ ] OG image (Canva) — até o Checkpoint 1
 - [ ] Código do mapa (Google Maps → Compartilhar → Incorporar um mapa) — até o Checkpoint 4
-- [ ] Conta GitHub e conta no serviço de formulário — antes da Fase 5
+- [ ] Conta GitHub e chave do Web3Forms — antes da Fase 5

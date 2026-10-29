@@ -7,7 +7,7 @@
 ## 1. Onde está
 - **Repositório GitHub:** {{https://github.com/usuario/repo}} (branch `main`, pasta publicada: raiz)
 - **URL do GitHub Pages:** {{https://usuario.github.io/repo/}}
-- **Domínio próprio:** {{dominio.com.br}} | não configurado
+- **Domínio próprio:** {{www.dominio.com.br}} | não configurado
   - DNS criado em {{Registro.br / outro}} em {{data}}: A 185.199.108.153 / .109.153 / .110.153 / .111.153 · CNAME www → {{usuario.github.io}}
   - Arquivo `CNAME` no site: sim | não · HTTPS forçado: sim | pendente
 

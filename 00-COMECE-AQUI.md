@@ -80,12 +80,12 @@ com título e estimativa de tempo. Uma mensagem = um bloco. Espere a resposta, g
 ```
 Bloco 2 — Objetivo e conversão (6 perguntas, ~3 min)
 
-Q7. Qual é a ação principal que o visitante deve fazer?
-    A) Chamar no WhatsApp ★   B) Preencher o formulário   C) Agendar um horário   D) Ligar   E) Outro: ___
-Q8. ...
+Q13 ‡ Ação principal que o visitante deve fazer:
+    A) Chamar no WhatsApp   B) Preencher o formulário   C) Agendar um horário   D) Ligar   E) Outro: ___
+Q14 ...
 ```
 
-A pessoa responde curto: `Q7: A; Q8: C; Q9: queremos parecer premium sem ser frio` ou `★ no resto`.
+A pessoa responde curto: `Q13: A; Q14: C; Q16: preço, prazo, garantia` ou `★ no resto`.
 Se uma resposta for ambígua, faça **uma** pergunta de esclarecimento, não várias. Perguntas condicionais vêm
 marcadas, por exemplo "(só se Q1 = B)": pule as que não se aplicam.
 
@@ -129,7 +129,7 @@ Diga em qual modo você está na primeira mensagem.
 - **Analytics:** só se a pessoa pedir. Com analytics, o aviso de cookies do starter é obrigatório e os scripts
   só carregam após "Aceitar" (ver `GUIA-FRONTEND §10-11`).
 - **Documentação do código:** marcadores `<!-- ===== [id-do-catalogo] Nome ===== -->` em toda seção, CSS novo
-  só no bloco Z de `styles.css`, `site/README.md` sempre atualizado (ver `GUIA-FRONTEND` §"Padrão de documentação").
+  só no bloco Z de `styles.css`, `site/README.md` sempre atualizado (ver `GUIA-FRONTEND §13`, Padrão de documentação).
 - **git:** um commit por checkpoint ou ajuste, mensagem curta em pt-BR com prefixo `feat:`, `fix:`, `docs:` ou `chore:`.
 
 ## 9. Nunca faça
@@ -154,7 +154,7 @@ está entre colchetes) e, na mesma mensagem, o Bloco 0 de `FASE-1-ENTREVISTA.md`
 
 > Vou guiar a criação do seu site em 5 fases: entrevista → referências → plano → construção → publicação
 > (e uma fase 6 para ajustes depois). Você decide tudo de negócio e design; eu cuido do código.
-> Responda curto, por exemplo "Q1: B, Q2: A, Q3: ★". ★ é o padrão recomendado; "Outro: …" sempre vale;
+> Responda curto, por exemplo "Q2: A, Q3: ★, Q4: B". ★ é o padrão recomendado; "Outro: …" sempre vale;
 > "decida você" também, e eu anoto como assumido.
 > Estou em modo [arquivo / chat]; vou gravar as respostas em `BRIEFING.md` [ou: vou montar o BRIEFING ao final].
 >

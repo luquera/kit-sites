@@ -71,11 +71,11 @@ Cada regra em uma linha, com número. O starter (`base/styles.css`) já aplica a
 
 ### 2.4 Layout e grid
 - Container 1160px (`--container`); texto longo 760px (`--container-narrow`); gutter lateral 16px no mobile, 24px no tablet, 32px no desktop.
-- Breakpoints do starter: 48rem (768px) e 64rem (1024px); mobile-first; tudo em 1 coluna abaixo de 48rem.
+- Breakpoints do starter: 40rem (640px), 48rem (768px) e 64rem (1024px); mobile-first; tudo em 1 coluna abaixo de 40rem (detalhe em `GUIA-FRONTEND §5`).
 - Colunas: 3 itens → `grid--3`; 4 itens → `grid--4` (2×2 em tablet) ou `grid--2`; 5 itens → nunca (corte para 4 ou suba para 6); 6 → `grid--3`.
 - Hero split: texto 55% / imagem 45%; imagem 4:3 (1600×1200) ou 1:1; no mobile a imagem vai abaixo do texto.
 - Ritmo: alterne `section` e `section--alt` entre seções consecutivas; `cta-band` não conta.
-- LP: 7-12 seções no total; institucional: 6-8 na Home, 4-6 nas internas. Acima disso, corte.
+- LP: 9-13 seções no total (contando header, footer e whatsapp-float); institucional: 6-8 na Home, 4-6 nas internas. Acima disso, corte.
 - Alinhamento: título de seção à esquerda com cards (padrão) ou centralizado (`section__header--center`) só quando a seção é simétrica (steps, pricing, cta-band, stats).
 - Menu: 3-5 links (6 no máximo) + 1 CTA; nomes de 1-2 palavras; logo com altura 36px (`.brand__logo`).
 - Rodapé: 3-4 colunas no desktop, 1 no mobile; linha legal separada por borda.
@@ -361,7 +361,7 @@ Por ID: quando usar · conteúdo mínimo · variantes (classes do starter) · er
 - Copy: parágrafos 40-90 palavras; H2 2-6 palavras; frases ≤ 25 palavras; privacidade: preencha o modelo do starter, não escreva do zero.
 
 ### `footer` — Rodapé
-- Quando: sempre, idêntico em todas as páginas (versão `site-footer--simple` em `obrigado.html`/`privacidade.html`).
+- Quando: sempre, idêntico em todas as páginas (versão `site-footer--simple` em `privacidade.html`; `obrigado.html` do starter não tem rodapé).
 - Mínimo: logo/nome + frase, navegação, contato, redes; linha legal com razão social, CNPJ, link Privacidade, © ano (o `main.js` preenche o ano).
 - Variantes: 3 ou 4 colunas; coluna "Horários"; selo de registro profissional; links de serviços.
 - Erros: rodapé com 30 links; redes sem link; CNPJ omitido quando a pessoa tem empresa (confiança); "Desenvolvido por" com link externo; newsletter sem serviço configurado.
@@ -396,7 +396,7 @@ A matéria-prima vem da pessoa (Fase 2, Tarefa 5). A IA organiza, corta e dá fo
 | **[Serviço] em [cidade/bairro] com [diferencial]** | negócio local (Q11 = A), ajuda no SEO | "Fisioterapia no Cambuí com avaliação de 60 minutos" · "Marcenaria sob medida na Zona Sul com entrega em 30 dias" · "Clínica veterinária 24h em Curitiba" |
 | **[Tempo/método] + [o que fazem para quem]** | institucional, tom sóbrio | "Há 20 anos cuidando da segurança jurídica de empresas familiares" · "Engenharia que entrega obra no prazo desde 2008" · "Design de marcas para negócios que querem crescer" |
 
-Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "excelência", "transformar"; nunca começa com o nome da empresa nem com "Bem-vindo"; o subtítulo (15-30 palavras) completa com como, prazo, prova ou para quem; o eyebrow (2-5 palavras) diz o segmento e a cidade. Gere 3 opções de fórmulas diferentes e deixe a pessoa escolher. Teste dos 5 segundos (Fase 4, checkpoint do hero): alguém de fora vê só a primeira tela no celular e diz o que a empresa faz e para quem; se errar, a headline volta.
+Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "excelência", "transformar"; nunca começa com o nome da empresa nem com "Bem-vindo"; o subtítulo (15-30 palavras) completa com como, prazo, prova ou para quem; o eyebrow (2-5 palavras) diz o segmento e a cidade. Proponha UMA headline; se tiver dúvida real entre duas fórmulas, apresente como pergunta com ★ (nunca versões alternativas sem pedido). Teste dos 5 segundos (Fase 4, checkpoint do hero): alguém de fora vê só a primeira tela no celular e diz o que a empresa faz e para quem; se errar, a headline volta.
 
 ### 6.2 Comprimentos (resumo; detalhes por seção em §5)
 
@@ -508,7 +508,7 @@ Use antes de apresentar a `ESPECIFICACAO.md` (Fase 3) e em cada checkpoint da Fa
 - [ ] 6 pares de contraste checados e ≥ 4,5:1 (3:1 para texto grande, ícones, bordas de input e foco), com as razões anotadas na especificação.
 - [ ] H1 único por página, 6-12 palavras, cabe em 2-3 linhas a 375px; subtítulo 15-30 palavras.
 - [ ] 1 CTA primário por dobra, visível acima da dobra no celular, com o mesmo texto em hero, header e `cta-band`.
-- [ ] Ordem de seções segue §4 para o tipo de site, com 7-12 seções (LP) ou 6-8 (home); nenhuma seção sem conteúdo real.
+- [ ] Ordem de seções segue §4 para o tipo de site, com 9-13 seções (LP, contando header, footer e whatsapp-float) ou 6-8 (home); nenhuma seção sem conteúdo real.
 - [ ] Toda seção tem eyebrow/H2 coerente, e os textos respeitam os comprimentos de §5-§6 (nenhum card com o dobro do texto do vizinho).
 - [ ] Quantidade de itens compatível com a grade (3→`grid--3`, 4→`grid--4`/`grid--2`, nunca 5); cards com estrutura idêntica.
 - [ ] Ritmo visual: `section`/`section--alt` alternados; nenhuma `cta-band` seguida de outra; espaçamento só da escala de tokens.

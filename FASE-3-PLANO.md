@@ -38,7 +38,7 @@ Use `BRIEFING §1` (tipo, Q2/Q19) e as regras de `GUIA-DESIGN §4`:
 |---|---|
 | Landing page (A) | `index.html` + `privacidade.html` + `obrigado.html` + `404.html` |
 | Institucional one-page (B) | iguais à LP; o menu aponta para âncoras `#sobre`, `#servicos`, `#contato` |
-| Institucional multi-página (C) | `index.html`, `sobre.html`, `servicos.html` (ou `produtos.html`), `projetos.html` (se Q19 D), `contato.html`, mais `privacidade.html`, `obrigado.html`, `404.html` |
+| Institucional multi-página (C) | `index.html`, `sobre.html`, `servicos.html` (ou `produtos.html`), `portfolio.html` (se Q19 D), `contato.html`, mais `privacidade.html`, `obrigado.html`, `404.html` |
 
 Regras: até 5 itens no menu + 1 CTA; se "Serviços" tem ≤ 3 itens e sem detalhe, vire seção da página inicial em vez de
 página; "Contato" vira página própria só em multi-página (na LP/one-page é a seção `contact-split`). Nomes de arquivo
@@ -71,7 +71,7 @@ Decida cada seção por regra, a partir do BRIEFING. Inclua a seção **só** qu
 | `whatsapp-float` | Q13 A ou Q14 B | mensagem de Q36 |
 | `cookie-banner` | Q40 ≠ A (há analytics) | texto do starter |
 
-Limites: LP 7-10 seções (contando header e footer); página inicial de institucional 6-8; páginas internas 3-5.
+Limites: LP 9-13 seções (contando header, footer e whatsapp-float); página inicial de institucional 6-8 (sem contar header e footer); páginas internas 3-5.
 Ordem: siga `GUIA-DESIGN §4` para o tipo escolhido. Alterne fundos (`section` / `section--alt`); anote na especificação
 qual seção leva `section--alt`.
 
@@ -81,7 +81,7 @@ qual seção leva `section--alt`.
    primeira é a base; da segunda pegue só o que ela citou nos ajustes (ex.: "cantos mais arredondados", "neutros quentes").
 3. Derive o que faltar pela regra do guia: `primary-strong` = primária ~15% mais escura; `primary-soft` = primária a
    ~10% sobre o fundo; `surface` = fundo levemente tingido; `text-muted` com contraste ≥ 4,5:1 sobre `surface`.
-4. Confira contraste (fórmula em `GUIA-DESIGN §2`): texto/fundo, text-muted/surface, on-primary/primary (botões),
+4. Confira contraste (fórmula em `GUIA-FRONTEND §6`): texto/fundo, text-muted/surface, on-primary/primary (botões),
    primary/fundo (links e eyebrows). Se algo falhar, ajuste o tom (não a cor) e registre.
 5. Movimento: Q30 (nenhum → sem `.reveal`; sutil → padrão; médio → `.reveal` + hovers).
 6. Escreva a tabela completa de tokens (todos os nomes de `modelos/ESPECIFICACAO.md §3`) e o link do Google Fonts com
@@ -102,8 +102,8 @@ Para cada seção, escreva o texto final a partir da matéria-prima (`conteudo/`
 
 ### Passo 6 — Mapa de assets
 Tabela origem → destino → tamanho-alvo → alt, por seção. Tamanhos: hero 1600px (4:3 ou 16:9), `about` 1200px,
-`services`/`portfolio` 800-1200px 4:3, avatar de depoimento 192px 1:1, equipe 600px 1:1, logos de clientes SVG ou PNG
-com 80px de altura (monocromático), OG 1200×630, favicon SVG. Nomes: minúsculos, sem acento, com hífen
+`services`/`portfolio` 800px 4:3, avatar de depoimento 192px 1:1, equipe 600px 1:1, logos de clientes SVG ou PNG
+com 72px de altura (exibidos a 36px, monocromáticos), OG 1200×630, favicon SVG. Nomes: minúsculos, sem acento, com hífen
 (`servico-ortopedia.webp`). Quem otimiza: a pessoa (Squoosh, Fase 2); se os arquivos chegaram sem otimizar, inclua a
 tarefa em "Pendências". Sem foto para uma seção que precisa de foto → troque a variante (ex.: `hero-centered`) ou use
 ilustração/ícone, e registre como assumido.

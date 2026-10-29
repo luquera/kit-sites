@@ -22,7 +22,7 @@ Não delibere sobre nada desta lista; não pergunte à pessoa; não "melhore".
 - Acessibilidade mínima: 1 `h1` por página; headings em ordem; contraste AA (4,5:1 texto, 3:1 texto grande e botões); foco visível (já no starter); skip link; menu com `aria-expanded`/`aria-controls`; alvos ≥ 44px; `prefers-reduced-motion` respeitado.
 - SEO mínimo: `title` 50-60, `description` 150-160, `canonical`, OG + Twitter, favicon, `lang="pt-BR"`, JSON-LD `LocalBusiness` ou `Organization`, `sitemap.xml`, `robots.txt`, `404.html`.
 - Formulário: `POST` HTML para o Web3Forms (serviço padrão do kit, §9), 3-4 campos, honeypot, consentimento LGPD desmarcado, redirect para `obrigado.html`.
-- Hospedagem: GitHub Pages em repositório público, operado com `git` + `gh`; fallback Netlify Drop. Pages gratuito só publica repositório público; publicação privada exige GitHub Enterprise Cloud.
+- Hospedagem: GitHub Pages em repositório público, operado com `git` + `gh`; fallback Netlify Drop. Pages gratuito só publica repositório público; repositório privado exige plano pago (GitHub Pro/Team; verificar).
 - Analytics: só se a pessoa pediu (Q40). Com analytics: `cookie-banner` obrigatório e scripts só após "Aceitar" (§10.6, §11).
 - git: um commit por checkpoint ou ajuste, mensagem curta em pt-BR com prefixo `feat:` / `fix:` / `chore:` / `docs:`.
 
@@ -453,7 +453,7 @@ Notas: 2 planos → `grid--2`; só 1 plano destacado (`plan--featured` + `plan__
       <h2 id="duvidas-titulo">{{Título: o que perguntam antes de fechar}}</h2>
     </div>
     <div class="faq">
-      <details class="faq__item" open>
+      <details class="faq__item">
         <summary>{{Pergunta 1, na linguagem do cliente?}}</summary>
         <div class="faq__answer"><p>{{Resposta direta em 1-3 frases.}}</p></div>
       </details>
@@ -470,7 +470,7 @@ Notas: 2 planos → `grid--2`; só 1 plano destacado (`plan--featured` + `plan__
 </section>
 <!-- ===== /[faq-accordion] ===== -->
 ```
-Notas: 4-8 perguntas; só a primeira com `open` (ou nenhuma); sem JS; `<summary>` já é focável e abre com Enter/Espaço. Se a especificação pedir, adicione o JSON-LD `FAQPage` (§7.3).
+Notas: 4-8 perguntas; todas fechadas (sem `open`, regra de `GUIA-DESIGN §5`); sem JS; `<summary>` já é focável e abre com Enter/Espaço. Se a especificação pedir, adicione o JSON-LD `FAQPage` (§7.3).
 
 ### 4.14 `team-grid`
 
@@ -484,12 +484,12 @@ Notas: 4-8 perguntas; só a primeira com `open` (ou nenhuma); sem JS; `<summary>
     </div>
     <div class="grid grid--4">
       <article class="member reveal">
-        <div class="media media--1x1"><img src="assets/img/equipe-nome.webp" alt="{{Nome Sobrenome}}" width="400" height="400" loading="lazy"></div>
+        <div class="media media--1x1"><img src="assets/img/equipe-nome.webp" alt="{{Nome Sobrenome}}" width="600" height="600" loading="lazy"></div>
         <h3>{{Nome Sobrenome}}</h3>
         <p>{{Cargo · 1 linha de credencial}}</p>
       </article>
       <article class="member reveal" data-delay="1">
-        <div class="media media--1x1"><img src="assets/img/equipe-nome-2.webp" alt="{{Nome}}" width="400" height="400" loading="lazy"></div>
+        <div class="media media--1x1"><img src="assets/img/equipe-nome-2.webp" alt="{{Nome}}" width="600" height="600" loading="lazy"></div>
         <h3>{{Nome}}</h3>
         <p>{{Cargo}}</p>
       </article>
@@ -498,7 +498,7 @@ Notas: 4-8 perguntas; só a primeira com `open` (ou nenhuma); sem JS; `<summary>
 </section>
 <!-- ===== /[team-grid] ===== -->
 ```
-Notas: fotos quadradas (400×400) com enquadramento parecido; 3 pessoas → `grid--3`; 2 → `grid--2`. A foto fica redonda pelo CSS.
+Notas: fotos quadradas (600×600) com enquadramento parecido; 3 pessoas → `grid--3`; 2 → `grid--2`. A foto fica redonda pelo CSS.
 
 ### 4.15 `video-embed`
 
@@ -598,6 +598,8 @@ Logo do WhatsApp (preenchido, `fill="currentColor"`, sem stroke): já está no `
 
 ## 6. Acessibilidade
 
+**Fórmula de contraste (WCAG 2.x)** — para cada cor, converta R, G, B (0-255) em c = v/255; se c ≤ 0,03928 use c/12,92, senão ((c+0,055)/1,055)^2,4; luminância L = 0,2126·R + 0,7152·G + 0,0722·B. Contraste = (L_clara + 0,05) / (L_escura + 0,05). Mínimos AA: 4,5:1 texto normal; 3:1 texto grande (≥ 24px, ou ≥ 18,66px em negrito), bordas de campos e ícones informativos. Em Node: `node -e "const L=h=>{const [r,g,b]=[1,3,5].map(i=>parseInt(h.substr(i,2),16)/255).map(c=>c<=0.03928?c/12.92:((c+0.055)/1.055)**2.4);return 0.2126*r+0.7152*g+0.0722*b};const [a,b]=['#0F766E','#FFFFFF'].map(L);console.log(((Math.max(a,b)+0.05)/(Math.min(a,b)+0.05)).toFixed(2))"`. Sem Node, a pessoa confere no WebAIM Contrast Checker.
+
 Checklist (passagem final da Fase 4 e QA da Fase 5):
 - [ ] 1 `h1` por página; `h2` para seções, `h3` para itens; nenhum nível pulado; seções decorativas (stats) com `h2` em `.visually-hidden`.
 - [ ] Todo `<section>` com `aria-labelledby` apontando para o `id` do seu título.
@@ -624,18 +626,18 @@ Checklist (passagem final da Fase 4 e QA da Fase 5):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{Nome do negócio}} — {{proposta curta}}</title>                         <!-- 50-60 caracteres, nome + o que faz + cidade -->
 <meta name="description" content="{{150-160 caracteres: o que faz, para quem, onde, CTA}}">
-<link rel="canonical" href="https://dominio.com.br/">                           <!-- URL absoluta final; páginas internas: .../sobre.html -->
+<link rel="canonical" href="https://www.dominio.com.br/">                       <!-- URL absoluta final; páginas internas: .../sobre.html -->
 <meta name="theme-color" content="#1d4ed8">                                     <!-- = --color-primary -->
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR">
 <meta property="og:site_name" content="{{Nome}}"><meta property="og:title" content="{{igual ao title}}">
-<meta property="og:description" content="{{igual à description}}"><meta property="og:url" content="https://dominio.com.br/">
-<meta property="og:image" content="https://dominio.com.br/assets/og.jpg">       <!-- absoluta; 1200×630 JPG ≤ 300 KB -->
+<meta property="og:description" content="{{igual à description}}"><meta property="og:url" content="https://www.dominio.com.br/">
+<meta property="og:image" content="https://www.dominio.com.br/assets/og.jpg">   <!-- absoluta; 1200×630 JPG ≤ 300 KB -->
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <!-- fontes (preconnect ×2 + link com display=swap), depois styles.css, depois o JSON-LD -->
 ```
 - `obrigado.html` e `404.html`: `<meta name="robots" content="noindex, nofollow">`; `privacidade.html`: `noindex, follow`. Páginas internas reais: sem `robots`, com `canonical` próprio e OG próprio.
-- URL final antes do domínio: `https://USUARIO.github.io/REPO/` (com barra). Ao trocar para domínio próprio (Fase 5 §6), substitua em todos os arquivos: `grep -rl "github.io" site/`.
+- URL final antes do domínio: `https://USUARIO.github.io/REPO/` (com barra). Ao trocar para domínio próprio (Fase 5 §5), substitua em todos os arquivos: `grep -rl "github.io" site/`.
 
 ### 7.2 JSON-LD (um por site, no `index.html`)
 
@@ -647,8 +649,8 @@ Negócio com endereço físico/atendimento local → `LocalBusiness` (ou subtipo
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Clínica Raiz Fisioterapia",
-  "url": "https://clinicaraiz.com.br/",
-  "image": "https://clinicaraiz.com.br/assets/og.jpg",
+  "url": "https://www.clinicaraiz.com.br/",
+  "image": "https://www.clinicaraiz.com.br/assets/og.jpg",
   "telephone": "+55-19-3333-0000",
   "email": "contato@clinicaraiz.com.br",
   "address": { "@type": "PostalAddress", "streetAddress": "Rua Coronel Quirino, 1000", "addressLocality": "Campinas", "addressRegion": "SP", "postalCode": "13025-000", "addressCountry": "BR" },
@@ -675,7 +677,7 @@ Só inclua campos com dado real; apague os que não tiver (não deixe `{{ }}` ne
 ## 8. Performance
 
 - Metas: Lighthouse mobile ≥ 90 em Performance/Acessibilidade/SEO; LCP ≤ 2,5s; CLS ≤ 0,1; home ≤ 1,5 MB.
-- Imagens: WebP, qualidade ~80; largura máxima 1600px (hero), 1200px (`about-split`), 800px (cards/portfólio), 400px (equipe), 192px (avatares 2×); peso-alvo: hero ≤ 220 KB, cards ≤ 90 KB, avatar ≤ 15 KB. `width`/`height` reais em todo `<img>` (evita CLS; o CSS redimensiona). `loading="lazy"` em tudo abaixo da primeira dobra; a imagem do hero com `fetchpriority="high"` e sem lazy. Fallback JPG só se a pessoa exigir Safari antigo: `<picture><source srcset="x.webp" type="image/webp"><img src="x.jpg" …></picture>`.
+- Imagens: WebP, qualidade ~80; largura máxima 1600px (hero), 1200px (`about-split`), 800px (cards/portfólio), 600px (equipe), 192px (avatares 2×); peso-alvo: hero ≤ 220 KB, cards ≤ 90 KB, avatar ≤ 15 KB. `width`/`height` reais em todo `<img>` (evita CLS; o CSS redimensiona). `loading="lazy"` em tudo abaixo da primeira dobra; a imagem do hero com `fetchpriority="high"` e sem lazy. Fallback JPG só se a pessoa exigir Safari antigo: `<picture><source srcset="x.webp" type="image/webp"><img src="x.jpg" …></picture>`.
 - Conversão: a pessoa entrega WebP (Squoosh) na Fase 2; senão `cwebp -q 82 -resize 1600 0 -metadata none in.jpg -o out.webp` ou `magick in.jpg -auto-orient -strip -resize 1600x -quality 82 out.webp` (`-metadata none`/`-strip` removem EXIF e GPS do celular); sem ferramentas → Squoosh (§15). Checar peso: `ls -la site/assets/img` e total com `du -ch site/assets/img/* | tail -1`.
 - Fontes: 2 famílias, 3-4 pesos no total (ex.: Inter 400;500;600 + Manrope 700;800); `display=swap`; os dois `preconnect`; fonte variável com intervalo (`wght@400..700`) só se a família for variável (fonts.google.com/variablefonts), senão a API devolve erro 400 e nada carrega. Fallback `system-ui` nos tokens.
 - CSS/JS: um `styles.css` (~30 KB) e um `main.js` (~5 KB) com `defer`; nada externo além de fontes e, se houver, analytics/iframes. Não minifique (dificulta a Fase 6); o ganho é irrelevante.
@@ -687,14 +689,14 @@ Só inclua campos com dado real; apague os que não tiver (não deixe `{{ }}` ne
 
 O GitHub Pages não processa `POST`; o formulário envia para um serviço que repassa por e-mail. **Serviço padrão do kit: Web3Forms** — gratuito para o volume de um site institucional (plano Free com limite mensal de envios; verificar o número atual em web3forms.com), sem conta para começar (a chave chega por e-mail), suporta `redirect` e honeypot no plano gratuito, sem marca d'água no e-mail, `POST` HTML puro. O `<form data-form>` do starter já usa os nomes de campo do Web3Forms (`subject`, `redirect`, `botcheck`).
 
-Passo a passo (Fase 5 §7): a pessoa abre web3forms.com, informa o e-mail de destino (Q37), recebe o `access_key` por e-mail e cola na conversa. A IA preenche o `action` e o `access_key`, faz commit, e a pessoa envia um teste real pelo site publicado.
+Passo a passo (Fase 5 §6): a pessoa abre web3forms.com, informa o e-mail de destino (Q37), recebe o `access_key` por e-mail e cola na conversa. A IA preenche o `action` e o `access_key`, faz commit, e a pessoa envia um teste real pelo site publicado.
 
 ```html
 <form class="form form--card" action="https://api.web3forms.com/submit" method="POST" data-form>
   <input type="hidden" name="access_key" value="{{CHAVE-RECEBIDA-POR-EMAIL}}">
   <input type="hidden" name="subject" value="Novo contato pelo site {{Nome do negócio}}">
   <input type="hidden" name="from_name" value="{{Nome do negócio}} — site">
-  <input type="hidden" name="redirect" value="https://dominio.com.br/obrigado.html">   <!-- URL ABSOLUTA; sem ela o Web3Forms mostra a própria página de sucesso -->
+  <input type="hidden" name="redirect" value="https://www.dominio.com.br/obrigado.html">   <!-- URL ABSOLUTA; sem ela o Web3Forms mostra a própria página de sucesso -->
   <div class="form__honeypot" aria-hidden="true">
     <label for="site-url">Não preencha este campo</label>
     <input type="text" id="site-url" name="botcheck" tabindex="-1" autocomplete="off">   <!-- preenchido = spam, descartado -->

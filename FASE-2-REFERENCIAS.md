@@ -264,15 +264,15 @@ Salve tudo em assets-brutos/. Nomes em minúsculas, sem acento, sem espaço, com
 Não envie pelo WhatsApp como foto (comprime e renomeia); use "Documento", Google Drive ou a pasta direto.
 
 Checklist:
-- [ ] FOTO DO HERO: 1 foto horizontal com uma área "calma" de um lado para o texto → 1600 px de largura, WebP, até 250 KB.
+- [ ] FOTO DO HERO: 1 foto horizontal com uma área "calma" de um lado para o texto → 1600 px de largura, WebP, até 220 KB.
 - [ ] FOTOS DE SEÇÃO (sobre, equipe, espaço): 1200 px, WebP, até 150 KB cada; todas com o mesmo tratamento (mesmo filtro, mesma luz).
-- [ ] FOTOS DE SERVIÇOS/PORTFÓLIO: 800-1200 px, WebP, até 100 KB, TODAS na mesma proporção (4:3 ou 1:1).
+- [ ] FOTOS DE SERVIÇOS/PORTFÓLIO: 800 px, WebP, até 90 KB, TODAS na mesma proporção (4:3 ou 1:1).
 - [ ] FOTOS DE DEPOIMENTOS (opcional): quadradas, 192 x 192 px, WebP, até 15 KB, com autorização de uso de imagem.
 - [ ] FOTOS DA EQUIPE (se houver seção): quadradas, 600 x 600 px, mesmo enquadramento.
-- [ ] LOGOS DE CLIENTES (se houver faixa): 4-8 em SVG (ou PNG transparente, altura mínima 120 px), com autorização.
+- [ ] LOGOS DE CLIENTES (se houver faixa): 4-8 em SVG (ou PNG transparente, altura 72 px, o dobro do exibido), com autorização.
 - [ ] LOGO: logo.svg com texto convertido em curvas e fundo transparente. Se tiver, também logo-branco.svg (para fundo escuro) e simbolo.svg (só o símbolo).
 - [ ] FAVICON: só o símbolo (sem o nome), PNG 512 x 512 com fundo sólido na cor da marca — ou o .zip do favicon.io / realfavicongenerator.net.
-- [ ] IMAGEM DE COMPARTILHAMENTO (OG): og-image.png de 1200 x 630 px, até 300 KB, com logo + 1 frase de até 8 palavras + fundo na cor da marca; deixe 60 px de margem nas bordas.
+- [ ] IMAGEM DE COMPARTILHAMENTO (OG): og.jpg (ou PNG; a IA renomeia) de 1200 x 630 px, até 300 KB, com logo + 1 frase de até 8 palavras + fundo na cor da marca; deixe 60 px de margem nas bordas.
 - [ ] VÍDEO (só se Q41 = D): suba no YouTube como "Não listado" e envie o ID (o que vem depois de v=) + uma capa 1280 x 720 em WebP até 150 KB.
 - [ ] fotos.txt: uma linha por arquivo: "hero-fachada.webp — fachada da clínica no fim da tarde, recepção iluminada" (vira a descrição acessível).
 - [ ] Autorizações de uso de imagem de clientes/pacientes/funcionários fotografados: guarde (não precisa enviar); me confirme que existem.

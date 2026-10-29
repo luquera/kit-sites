@@ -31,7 +31,7 @@ Se `site/README.md` não existir ou estiver desatualizado, crie/complete-o antes
 | **Estilo global** | mudar cor primária, fonte, raio dos cantos | **perguntar antes** (seção 4); alterar tokens no bloco 1; checar contraste AA em texto e botões; conferir todas as páginas; Histórico + README §4 |
 | **Estrutura** | nova seção, remover seção, nova página | snippet do `GUIA-FRONTEND §4` com marcadores; link no menu e no rodapé; se nova página: header/footer idênticos, `aria-current`, title/description, `sitemap.xml`; Mapa de seções + Histórico |
 | **Integração** | trocar e-mail do formulário, adicionar analytics, mudar número do WhatsApp | seguir `GUIA-FRONTEND §9-§11`; se adicionar analytics, ativar o aviso de cookies e atualizar `privacidade.html`; README §6 + Histórico |
-| **Publicação** | domínio novo, mudar de repositório | `kit-sites/FASE-5-QA-E-PUBLICACAO.md §6`; atualizar `PUBLICACAO.md` e README §1 |
+| **Publicação** | domínio novo, mudar de repositório | `kit-sites/FASE-5-QA-E-PUBLICACAO.md §4-§5`; atualizar `PUBLICACAO.md` e README §1 |
 
 ## 3. Regras do ajuste mínimo
 
@@ -67,7 +67,7 @@ Faça **uma** mensagem com todas as perguntas; não pergunte em conta-gotas.
 - [ ] Links e âncoras do que mudou funcionam (menu → `id` da seção; páginas novas no menu e no rodapé).
 - [ ] Imagens novas com `alt`, `width`/`height`, caminho relativo correto e peso razoável (≤ 300 KB).
 - [ ] Se mexeu em cor/fonte: contraste AA conferido (texto ≥ 4,5:1; texto grande e botões ≥ 3:1).
-- [ ] Se tem navegador headless disponível: console sem erros. Se não: `node -e "require('fs').readFileSync('site/main.js','utf8')"` não é teste; apenas revise o diff com `git diff`.
+- [ ] Se tem navegador headless disponível: console sem erros. Se não: revise o diff com `git diff`.
 - [ ] Se criou/removeu página: `sitemap.xml` e `robots.txt` coerentes.
 - [ ] Marcadores de seção e `site/README.md` coerentes com o HTML.
 
@@ -106,7 +106,7 @@ substituir o texto. 3. Conferir que cabe em 2-3 linhas no celular (375px); se es
 **"Adiciona mais um depoimento, da Carla (gerente na Acme)."**
 1. Pedir o texto (20-60 palavras) e, se houver, a foto (quadrada). 2. README → testimonials-grid `#depoimentos`.
 3. Copiar um `<article class="card testimonial">` existente, trocar citação, nome, cargo e avatar (`assets/img/depo-carla.webp`,
-96x96, `loading="lazy"`). Se ficar 4 itens em `grid--3`, perguntar se prefere `grid--4` ou `grid--2` (4 itens em 3 colunas
+192×192, exibido a 96px, `loading="lazy"`). Se ficar 4 itens em `grid--3`, perguntar se prefere `grid--4` ou `grid--2` (4 itens em 3 colunas
 deixa um órfão). 4. Mini-QA. 5. Histórico + `git commit -m "feat: depoimento da Carla"` + push.
 
 **"Quero a cor principal mais escura/verde."**

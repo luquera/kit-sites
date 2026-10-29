@@ -11,7 +11,7 @@
    7.  Hero (.hero, .hero--split, .hero--centered)
    8.  Mídia e cards (.media, .card, .badge)
    9.  Seções do catálogo (.logos, .feature, .steps, .stats, .testimonial,
-       .pricing, .faq, .cta-band, .portfolio, .team)
+       .plan, .faq, .cta-band, .portfolio__item, .member, .video)
    10. Contato e formulário (.contact, .form, .field)
    11. Rodapé (.site-footer)
    12. Flutuantes (.whatsapp-float, .cookie-banner)
@@ -492,6 +492,7 @@ body.menu-open { overflow: hidden; }
 
 /* stats-band */
 .stats { text-align: center; }
+.stat { display: block; }
 .stat__value { display: block; font-family: var(--font-heading); font-size: var(--text-3xl); font-weight: 700; color: var(--color-primary); line-height: 1.1; }
 .stat__label { display: block; margin-top: var(--space-2); color: var(--color-text-muted); }
 

@@ -34,6 +34,7 @@
 | --color-text | {{#}} |
 | --color-text-muted | {{#}} |
 | --color-border | {{#}} |
+| --color-border-strong | {{#}} |
 | --footer-bg / --footer-text / --footer-muted | {{#}} / {{#}} / {{#}} |
 | --font-heading / --font-body | {{"Família", fallback}} |
 | --radius-md / --radius-lg | {{…}} |

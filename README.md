@@ -36,7 +36,7 @@ Você precisa de:
 | git, GitHub Pages, formulário, integrações, testes técnicos | — | executa |
 
 A IA pergunta tudo em múltipla escolha, com um padrão recomendado marcado com ★. Você responde curto
-(`Q7: A; Q8: C; Q9: ★`). Se não souber, "★" ou "decida você" resolve: a IA usa o padrão e anota como assumido.
+(`Q13: A; Q14: C; Q18: ★`). Se não souber, "★" ou "decida você" resolve: a IA usa o padrão e anota como assumido.
 
 ## 4. Como usar em 6 passos (Claude Code)
 

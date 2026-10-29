@@ -2,7 +2,7 @@
 
 > Gerado na Fase 1 a partir das respostas da pessoa (Q1…Qn de `FASE-1-ENTREVISTA.md`).
 > Regras: registre a resposta, não a pergunta; marque "(assumido)" tudo que veio de padrão ★ sem resposta explícita;
-> cite o número da pergunta entre parênteses quando ajudar a rastrear, ex.: "WhatsApp (Q7)".
+> cite o número da pergunta entre parênteses quando ajudar a rastrear, ex.: "WhatsApp (Q36)".
 > Apague estas linhas de instrução (blockquotes) no arquivo final.
 
 **Status:** rascunho | aprovado em {{AAAA-MM-DD}}
@@ -20,7 +20,7 @@
 - **Para quem (público principal):** {{…}}
 - **Diferencial (por que escolher vocês):** {{…}}
 - **Concorrentes/referências de mercado:** {{nome — URL}} (2-3)
-- **Tom de voz (3 adjetivos):** {{…}}
+- **Tom de voz (até 2):** {{…}}
 - **Região de atuação:** {{cidade/estado/online}}
 
 ## 3. Objetivo e conversão
