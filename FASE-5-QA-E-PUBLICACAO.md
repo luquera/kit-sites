@@ -124,6 +124,8 @@ cd site && git status --short      # esperado: vazio
 # 3. Criar o repositório público e enviar (nome: o do negócio em minúsculas com hífens, ex.: clinica-raiz;
 #    para URL sem subpasta, chame o repositório de USUARIO.github.io — só 1 por conta)
 gh repo create NOME-DO-REPO --public --source=. --remote=origin --push
+#    Se o repositório JÁ EXISTE (a pessoa criou pelo site do GitHub e a Fase 4 clonou/configurou o remoto):
+#    pule a criação e rode só  git push -u origin main  (se falhar por falta de remoto: git remote add origin <endereço>)
 
 # 4. Ativar o GitHub Pages (branch main, pasta raiz; index.html em minúsculas na raiz, senão 404)
 gh api -X POST repos/USUARIO/NOME-DO-REPO/pages --input - <<'JSON'

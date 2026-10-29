@@ -51,6 +51,11 @@
    O Mapa de seções (3) cresce a cada seção construída; Integrações (6) ao configurar formulário/WhatsApp/analytics.
 9. **git:** `cd site && git init -b main && git add -A && git commit -m "chore: base do site"`. O repositório é a pasta
    `site/` (só ela vai ao GitHub); os artefatos de planejamento ficam fora.
+   **Se a pessoa já criou o repositório no GitHub** (vazio, público) e informou o endereço: em vez de `git init`, faça
+   antes do passo 1 `git clone <endereço-ssh-ou-https> site` (pasta vazia com o remoto configurado), depois copie
+   `kit-sites/base/` para dentro de `site/` e siga normalmente. Ao final de cada checkpoint, além do commit, faça
+   `git push -u origin main` (o site só vai ao ar na Fase 5, quando o Pages for ativado). Se o repositório tiver um
+   README inicial, substitua-o pelo `README.md` do starter.
 
 ## 3. Ordem de construção e checkpoints
 

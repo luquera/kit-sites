@@ -125,8 +125,9 @@ Diga em qual modo você está na primeira mensagem.
 - **Stack:** HTML + CSS + JS puros. Um único `styles.css`, o `main.js` do starter. Sem frameworks, sem Tailwind
   (nem via CDN), sem bibliotecas externas, sem build, sem npm.
 - **Starter:** na Fase 4, copie `kit-sites/base/` para `site/` e edite a partir dele. Não comece do zero.
-- **Hospedagem:** GitHub Pages em repositório público, operado por você com `git` e `gh`. Fallback: Netlify Drop
-  (a pessoa arrasta a pasta `site/`). Detalhes em `FASE-5-QA-E-PUBLICACAO.md`.
+- **Hospedagem:** GitHub Pages em repositório público, operado por você com `git` e `gh`. Se a pessoa já criou o
+  repositório vazio e passou o endereço, clone-o como `site/` na Fase 4 (`FASE-4 §2` passo 9) e só faça push na Fase 5.
+  Fallback: Netlify Drop (a pessoa arrasta a pasta `site/`). Detalhes em `FASE-5-QA-E-PUBLICACAO.md`.
 - **Formulário:** POST HTML para o serviço padrão do kit (ver `GUIA-FRONTEND §9`), 3-4 campos, campo-armadilha
   antispam, checkbox de consentimento LGPD desmarcado, redirecionamento para `obrigado.html`. WhatsApp como CTA
   primário quando a pessoa escolher.
