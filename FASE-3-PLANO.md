@@ -29,7 +29,11 @@
 Leia `BRIEFING.md` e `REFERENCIAS.md` inteiros e os textos em `conteudo/`. Liste o que impede fechar o plano (texto de
 uma seção sem matéria-prima, paleta sem hex, sem número de WhatsApp, imagens prometidas que não chegaram). Se houver
 lacunas, envie **uma** mensagem com até 5 perguntas/pedidos e espere. Com mais de 5, priorize o que afeta a estrutura
-e marque o resto como `[PLACEHOLDER]` aceito (ver Passo 5).
+e marque o resto como `[PLACEHOLDER]` aceito (ver Passo 5). Pendências já listadas em `REFERENCIAS.md §10` entram
+direto em "Pendências" da especificação e não contam no limite de 5 perguntas; agrupe as perguntas por tema.
+Texto da pessoa que contradiz o BRIEFING (ex.: preço no FAQ com Q18 = A) ou que afirma certificação, prêmio ou nota
+sem fonte → vira pergunta com ★ = manter o que ela escreveu, exceto afirmações legais sem comprovação (certificação)
+→ ★ = remover a palavra.
 
 ### Passo 2 — Tipo de site e sitemap
 Use `BRIEFING §1` (tipo, Q2/Q19) e as regras de `GUIA-DESIGN §4`:
@@ -45,7 +49,9 @@ página; "Contato" vira página própria só em multi-página (na LP/one-page é
 em minúsculas, sem acento.
 
 ### Passo 3 — Seções por página (IDs do catálogo, `GUIA-DESIGN §5`)
-Decida cada seção por regra, a partir do BRIEFING. Inclua a seção **só** quando a condição vale:
+Decida cada seção por regra, a partir do BRIEFING. Inclua a seção **só** quando a condição vale. Em site multi-página,
+a página de cada seção é a da anatomia (`GUIA-DESIGN §4.3`); "sempre" vale para o site, não para a página inicial.
+A tabela decide SE a seção existe; a anatomia decide ONDE.
 
 | Seção (ID) | Incluir quando | Variante/quantidade |
 |---|---|---|
@@ -55,11 +61,11 @@ Decida cada seção por regra, a partir do BRIEFING. Inclua a seção **só** qu
 | `logos-strip` | Q12 inclui B **e** há ≥ 4 logos em `assets-brutos/` | 4-8 logos |
 | `stats-band` | Q12 inclui C **e** há ≥ 3 números verdadeiros | 3-4 números |
 | `features-grid` | sempre | 3 itens (4 se houver 4 diferenciais fortes em Q8); nunca 5 |
-| `services-cards` | há 3-8 serviços/produtos nomeados (Q20 B ou matéria-prima) | com imagem se Q22 A; sem imagem caso contrário |
+| `services-cards` | há 3-8 serviços/produtos nomeados (Q20 B ou matéria-prima) | com imagem se Q22 A; sem imagem caso contrário. 5 serviços → 4 na página inicial (pergunte qual fica fora; ★ = o de menor relevância comercial) e todos na página Serviços; 5 também cabe em `grid--3` com a última linha de 2 (aceitável) — escolha uma e registre |
 | `steps` | o serviço tem processo (Q20 C) ou as objeções (Q16) falam de prazo/"como funciona" | 3-4 passos |
 | `about-split` | sempre em institucional; na LP se Q20 D ou tom "acolhedor" (Q10 B) | foto real da equipe/local |
 | `testimonials-grid` | Q24 A ou B (depoimentos reais com nome) | 3 (ou 2 em `grid--2`); 4 só em `grid--2`/`grid--4` |
-| `portfolio-grid` | Q12 E ou Q20 G **e** ≥ 4 imagens | 4-9 itens; página própria se ≥ 7 |
+| `portfolio-grid` | Q12 E ou Q20 G **e** ≥ 4 imagens | 4-9 itens; página própria se Q19 = D ou ≥ 7 itens |
 | `pricing-table` | Q18 B | 2-3 planos; 1 destacado |
 | `faq-accordion` | sempre (Q16 fornece as 3 primeiras perguntas) | 4-8 perguntas |
 | `team-grid` | Q20 J, em institucional | 2-6 pessoas com foto |
@@ -83,7 +89,8 @@ qual seção leva `section--alt`.
    ~10% sobre o fundo; `surface` = fundo levemente tingido; `text-muted` com contraste ≥ 4,5:1 sobre `surface`.
 4. Confira contraste (fórmula em `GUIA-FRONTEND §6`): texto/fundo, text-muted/surface, on-primary/primary (botões),
    primary/fundo (links e eyebrows). Se algo falhar, ajuste o tom (não a cor) e registre.
-5. Movimento: Q30 (nenhum → sem `.reveal`; sutil → padrão; médio → `.reveal` + hovers).
+5. Movimento: Q30 (nenhum → sem `.reveal`; sutil → padrão; médio → `.reveal` + hovers). A resposta de Q30 prevalece
+   sobre a coluna "movimento" da direção.
 6. Escreva a tabela completa de tokens (todos os nomes de `modelos/ESPECIFICACAO.md §3`) e o link do Google Fonts com
    apenas os pesos usados.
 
@@ -105,11 +112,12 @@ Tabela origem → destino → tamanho-alvo → alt, por seção. Tamanhos: hero 
 `services`/`portfolio` 800px 4:3, avatar de depoimento 192px 1:1, equipe 600px 1:1, logos de clientes SVG ou PNG
 com 72px de altura (exibidos a 36px, monocromáticos), OG 1200×630, favicon SVG. Nomes: minúsculos, sem acento, com hífen
 (`servico-ortopedia.webp`). Quem otimiza: a pessoa (Squoosh, Fase 2); se os arquivos chegaram sem otimizar, inclua a
-tarefa em "Pendências". Sem foto para uma seção que precisa de foto → troque a variante (ex.: `hero-centered`) ou use
-ilustração/ícone, e registre como assumido.
+tarefa em "Pendências". Sem foto para uma seção que precisa de foto → troque a variante (ex.: `hero-centered`), use
+ilustração/ícone ou reutilize fotos de portfólio/projetos quando correspondem ao serviço, e registre como assumido.
 
 ### Passo 7 — SEO por página
-- `title` (50-60 caracteres): `Nome — proposta curta | Cidade` (LP) ou `Página — Nome` (internas).
+- `title`: `Nome — proposta curta | Cidade` (LP, 50-60 caracteres); internas: `Página: complemento — Nome`, 40-60
+  caracteres; `privacidade`, `obrigado` e `404` ficam isentas do mínimo.
 - `meta description` (150-160): o que faz + para quem + onde + convite. Sem listar palavras-chave soltas.
 - JSON-LD: `LocalBusiness` (ou subtipo: `MedicalBusiness`, `Dentist`, `LegalService`, `Restaurant`, `Store`,
   `HomeAndConstructionBusiness`, `ProfessionalService`) quando há endereço físico; `Organization` quando não há. Dados:
@@ -118,7 +126,8 @@ ilustração/ícone, e registre como assumido.
   nome do negócio em minúsculas com hífens). Registre a URL prevista: ela entra em canonical, OG, sitemap e `404.html`.
 
 ### Passo 8 — Integrações
-- WhatsApp: `https://wa.me/55DDDNUMERO?text=` + mensagem de Q36 codificada (espaço = `%20`, acentos codificados).
+- WhatsApp: `https://wa.me/55DDDNUMERO?text=` + mensagem de Q36 codificada (espaço = `%20`, acentos codificados);
+  mensagem de WhatsApp de `obrigado.html` = padrão do guia (`GUIA-DESIGN §6.5`).
 - Formulário: serviço padrão do kit (ver `GUIA-FRONTEND §9` apenas para o nome; a configuração é da Fase 5), e-mail de
   Q37, campos (nome, WhatsApp, e-mail, mensagem; no máximo 4), redirect `obrigado.html`.
 - Mapa (Q41 C): a pessoa envia o código "Incorporar um mapa" do Google Maps na Fase 4 (pendência).
@@ -126,11 +135,12 @@ ilustração/ícone, e registre como assumido.
 - Agendamento, vídeo, Instagram, pixel (Q41): link/ID e onde entra.
 
 ### Passo 9 — Critérios de aceite
-Copie a lista base de `modelos/ESPECIFICACAO.md §9` e acrescente os específicos (ex.: "FAQ com as 6 perguntas",
+Copie a lista base de `modelos/ESPECIFICACAO.md §10` e acrescente os específicos (ex.: "FAQ com as 6 perguntas",
 "portfólio com 6 projetos legendados", "banner de cookies aparece na primeira visita").
 
 ### Passo 10 — Plano de build
-Lotes de 2-3 seções na ordem da página; Checkpoint 1 = header + hero + footer; páginas internas depois da inicial;
+Lotes de 2-3 seções na ordem da página; Checkpoint 1 = header + hero + footer + globais (`whatsapp-float`,
+`cookie-banner`); páginas internas depois da inicial;
 `privacidade`/`obrigado`/`404`/sitemap/robots por último; passagem final. Liste as pendências que precisam chegar antes
 de cada checkpoint (OG, mapa, chave do formulário).
 
@@ -169,7 +179,7 @@ AAAA-MM-DD" e encerre:
 
 ## 5. Formato da apresentação para aprovação (wireframe textual)
 
-Até 30 linhas. Uma linha por seção: `ID — variante — conteúdo-chave — asset`. Exemplo:
+Até 30 linhas para LP; multi-página: 10 linhas para a inicial + 2-3 por página interna. Uma linha por seção: `ID — variante — conteúdo-chave — asset`. Exemplo:
 
 ```
 Plano do site — Clínica Raiz (LP de uma página, 13 seções)

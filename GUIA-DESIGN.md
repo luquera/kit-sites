@@ -273,6 +273,7 @@ Por ID: quando usar · conteúdo mínimo · variantes (classes do starter) · er
 - Quando: 3-8 serviços ou produtos nomeados.
 - Mínimo: eyebrow + H2 + lead; cards com título, 1-2 frases, link/CTA*; imagem 4:3 opcional (800px).
 - Variantes: `grid--2` com imagem (4 itens); `grid--3` sem imagem (3 ou 6); `grid--4` só sem imagem; na página Serviços, cada card pode virar bloco `split` alternado com texto maior.
+- 5 serviços → 4 na página inicial (pergunte qual fica fora; ★ = o de menor relevância comercial) e todos na página Serviços; 5 também cabe em `grid--3` com a última linha de 2 (aceitável) — escolha uma e registre.
 - Erros: imagem em uns cards e não em outros; preço escondido em texto; cards que não levam a lugar nenhum quando há página de serviços; mais de 8 (vire lista ou página).
 - Copy: título = nome que o cliente usa ("RPG", não "Reeducação Postural Global" sozinho; use os dois); 1-2 frases (10-30 palavras) com para quem + o que inclui; CTA do card 1-2 palavras ("Agendar", "Ver detalhes").
 
@@ -292,7 +293,7 @@ Por ID: quando usar · conteúdo mínimo · variantes (classes do starter) · er
 
 ### `stats-band` — Números
 - Quando: 3-4 números verdadeiros e verificáveis (anos, clientes, projetos, nota, taxa).
-- Mínimo: número + rótulo, em faixa `section--alt section--tight`, 3-4 itens (`grid--3`/`grid--4`).
+- Mínimo: número + rótulo, em faixa `section--tight` com fundo conforme a alternância da página (não fixo), 3-4 itens (`grid--3`/`grid--4`).
 - Variantes: logo após o hero (prova rápida) ou dentro de Sobre; nota de rodapé da seção para a fonte ("*Pesquisa interna, 2025").
 - Erros: números redondos inventados ("+1000 clientes") sem fonte; porcentagem sem contexto; 2 ou 5 itens; contador animado.
 - Copy: número com unidade curta ("12 anos", "+4.000", "4,9", "92%"); rótulo 2-6 palavras dizendo de quê ("pacientes atendidos", "nota no Google (310 avaliações)").
@@ -379,7 +380,7 @@ Por ID: quando usar · conteúdo mínimo · variantes (classes do starter) · er
 - Mínimo: 1-2 frases, botões Aceitar e Recusar com o mesmo peso visual, link para Privacidade; scripts só após aceitar (`GUIA-FRONTEND §11`).
 - Variantes: barra inferior (padrão) ou card no canto; nunca modal bloqueando a página.
 - Erros: só botão "Aceitar"; "Recusar" escondido em link cinza; banner que reaparece a cada página; texto jurídico de 6 linhas.
-- Copy: "Usamos cookies para medir visitas e melhorar o site. Você pode aceitar ou recusar." + "Aceitar" / "Recusar" + "Política de privacidade".
+- Copy: texto exato do starter (em §6.5) + "Aceitar" / "Recusar" + link "Política de Privacidade".
 
 ## 6. Copywriting
 
@@ -437,19 +438,24 @@ Regras: 6-12 palavras; uma ideia; substantivos concretos; sem "soluções", "exc
 
 ### 6.5 Microcopy de formulário e páginas de apoio
 
+Os textos marcados "(starter)" são os que já estão em `base/`; a Fase 3 usa estes textos sem abrir `base/`.
+
 | Elemento | Texto padrão (★) |
 |---|---|
+| Campos do formulário | nome e WhatsApp obrigatórios; e-mail e mensagem opcionais (ajustar `required` no starter) |
 | Labels | "Nome" · "WhatsApp" · "E-mail" · "Mensagem" (ou "Conte brevemente o que precisa") |
-| Placeholders (exemplo, não instrução) | "Ana Ribeiro" · "(19) 99999-0000" · "ana@email.com" · "Ex.: dor no joelho há 3 meses" |
+| Placeholders (exemplo, não instrução) | "(nome da pessoa)" · "(DDD da pessoa) 99999-0000" · "nome@email.com" · "Ex.: dor no joelho há 3 meses" |
 | Campo obrigatório | asterisco no label + "Campos obrigatórios" acima do botão; nunca só cor |
-| Consentimento LGPD (desmarcado) | "Li e concordo com a [Política de Privacidade] e autorizo o contato pelos dados informados." |
+| Consentimento LGPD (desmarcado, starter) | "Concordo com o uso dos meus dados para retorno do contato, conforme a [Política de Privacidade]." |
 | Botão | "Pedir orçamento" · "Agendar avaliação" · "Enviar mensagem" (último caso) |
 | Nota sob o botão | "Resposta em até 1 dia útil. Seus dados não são compartilhados." |
 | Erro de validação | "Informe um e-mail válido." · "Preencha seu WhatsApp com DDD." (texto + ícone, cor de erro) |
-| Erro de envio | "Não foi possível enviar. Tente de novo ou chame no WhatsApp: (19) 99999-0000." |
+| Erro de envio | "Não foi possível enviar. Tente de novo ou chame no WhatsApp: (DDD da pessoa) 99999-0000." |
 | `obrigado.html` | H1 "Mensagem enviada" · texto "Recebemos seu contato e respondemos em até 1 dia útil. Se preferir, chame no WhatsApp agora." · botões "Chamar no WhatsApp" / "Voltar ao início" |
 | `404.html` | H1 "Página não encontrada" · "O endereço pode ter mudado. Volte ao início ou fale com a gente." · botão "Ir para o início" |
-| Aviso de cookies | ver `cookie-banner` em §5 |
+| Mensagem do WhatsApp em `obrigado.html` (starter) | "Olá! Acabei de enviar uma mensagem pelo site." |
+| Aviso de cookies (starter) | "Usamos cookies para medir o uso do site e melhorar sua experiência. Você pode aceitar ou recusar. Saiba mais na [Política de Privacidade]." + botões "Aceitar" / "Recusar" (regras em `cookie-banner`, §5) |
+| Campos que `privacidade.html` pede | razão social · CNPJ · endereço completo · URL final do site · nome do serviço de formulário · hospedagem (GitHub Pages e/ou Netlify/Cloudflare) · WhatsApp (canal citado) · analytics sim/não — com analytics, usar os trechos "SE USAR ANALYTICS" (dados de navegação, finalidade art. 7º I, nome da ferramenta, cookies de medição); sem analytics, os trechos "SE NÃO USAR" · prazo de retenção das mensagens (★ 12 meses) · encarregado (nome ou setor) + e-mail de privacidade · envio de novidades sim/não (trecho "SE ENVIAR NOVIDADES") · data de atualização (DD/MM/AAAA) |
 
 ### 6.6 Tom pt-BR
 - Trate por "você"; nunca "vc", "tu" ou "o cliente" falando com o cliente. "A gente" só no tom descontraído (Q10 = E).

@@ -17,6 +17,7 @@
 | Início | `index.html` | {{…}} | {{…}} | header-nav, hero-split, …, footer, whatsapp-float |
 | Privacidade | `privacidade.html` | Política de Privacidade — {{…}} | {{…}} | header-nav, text-prose, footer |
 | Obrigado | `obrigado.html` | Mensagem enviada — {{…}} | — | hero-centered |
+- **URL prevista:** `{{https://dominio.com.br/ | https://USUARIO.github.io/REPO/}}` (entra em canonical, OG, sitemap e `404.html`)
 
 ## 3. Design tokens
 - **Direção:** {{ID}} ({{ajustes}})
@@ -37,10 +38,12 @@
 | --color-border-strong | {{#}} |
 | --footer-bg / --footer-text / --footer-muted | {{#}} / {{#}} / {{#}} |
 | --font-heading / --font-body | {{"Família", fallback}} |
-| --radius-md / --radius-lg | {{…}} |
+| --radius-sm / --radius-md / --radius-lg | {{…}} / {{…}} / {{…}} |
+| --shadow-sm / --shadow-md / --shadow-lg | {{…}} / {{…}} / {{…}} |
+| --duration | {{…ms}} |
 | movimento | {{nenhum: sem .reveal | sutil: .reveal padrão | médio: .reveal + hover marcados}} |
 - **Link Google Fonts:** `{{…}}`
-- **Contraste:** texto/fundo {{x:1}} ✔ · botão primário {{x:1}} ✔ · texto-muted/fundo {{x:1}} ✔
+- **Contraste (4 pares, ≥ 4,5:1):** texto/fundo {{x:1}} ✔ · text-muted/surface {{x:1}} ✔ · on-primary/primary (botões) {{x:1}} ✔ · primary/fundo (links e eyebrows) {{x:1}} ✔
 
 ## 4. Componentes globais
 - **header-nav:** links: {{…}} · CTA: "{{…}}" → {{#contato}}
@@ -71,19 +74,27 @@
 
 ### 5.2 {{outras páginas}}
 
-## 6. Integrações
+## 6. Mapa de assets
+| Origem | Destino | Tamanho-alvo | Alt |
+|---|---|---|---|
+| `assets-brutos/{{x.jpg}}` | `site/assets/img/hero.webp` | 1600px, 4:3 | "{{…}}" |
+| `assets-brutos/{{y.jpg}}` | `site/assets/img/{{servico-x}}.webp` | 800px, 4:3 | "{{…}}" |
+| {{…}} | `site/assets/og.jpg` | 1200×630 | — |
+| {{…}} | `site/assets/favicon.svg` | SVG | — |
+
+## 7. Integrações
 - **Formulário:** {{serviço}} → {{e-mail destino}} · chave/ID: {{a pessoa envia na Fase 5}} · redirect `obrigado.html`
 - **WhatsApp:** +55 {{…}} · texto: "{{…}}"
 - **Mapa:** {{iframe do Google Maps | não}} · **Agendamento:** {{…}} · **Analytics:** {{ferramenta + ID | não}} · **Pixels:** {{…}}
 
-## 7. SEO e social
+## 8. SEO e social
 - **OG image:** `assets/og.jpg` (1200x630) — {{quem faz}}
 - **JSON-LD:** LocalBusiness | Organization — nome, URL, telefone, endereço, horário, redes
 
-## 8. Metas fixas
+## 9. Metas fixas
 - WCAG AA (contraste, foco, teclado) · Lighthouse mobile ≥ 90 em Performance, Acessibilidade e SEO · peso da home ≤ 1,5 MB
 
-## 9. Critérios de aceite
+## 10. Critérios de aceite
 - [ ] todas as seções da tabela 2 presentes e na ordem
 - [ ] zero `{{` e zero texto provisório
 - [ ] 320px → 1440px sem rolagem horizontal
@@ -91,14 +102,14 @@
 - [ ] `site/README.md` preenchido e coerente com o HTML
 - [ ] {{critérios específicos}}
 
-## 10. Plano de build
+## 11. Plano de build
 1. Setup (tokens, fontes, head, favicon, OG, imagens otimizadas) → commit
-2. header-nav + hero-split + footer → **Checkpoint 1**
+2. header-nav + hero-split + footer + globais (whatsapp-float, cookie-banner) → **Checkpoint 1**
 3. {{seções 2-4}} → **Checkpoint 2**
 4. {{seções 5-n}} → **Checkpoint 3**
 5. Páginas internas → **Checkpoint 4**
 6. Passagem responsiva + acessibilidade → QA (Fase 5)
 
-## 11. Decisões assumidas e pendências
+## 12. Decisões assumidas e pendências
 - {{…}} (assumido)
 - [ ] {{pendência}}
